@@ -109,5 +109,199 @@
     "dialogTitle": "示例对话框",
     "dialogText": "按 Esc 键、关闭按钮或点击深色区域即可关闭，焦点会回到打开它的按钮。",
     "toastText": "这是一条示例消息。"
+  },
+  "category": {
+    "gardening": "园艺",
+    "crafts": "手工艺",
+    "music": "音乐",
+    "exercise": "运动",
+    "celebration": "庆祝活动"
+  },
+  "eventCategory": {
+    "festive": "节庆",
+    "wellness": "健康活动",
+    "community": "社区",
+    "family": "家庭"
+  },
+  "topic": {
+    "health": "健康与舒适",
+    "meals": "饮食",
+    "visits": "探访",
+    "belongings": "个人物品",
+    "other": "其他"
+  },
+  "relationship": {
+    "mother": "母亲",
+    "father": "父亲",
+    "aunt": "阿姨"
+  },
+  "staffRole": {
+    "nurse": "护士",
+    "nurse-manager": "护士长",
+    "care-assistant": "护理助理",
+    "activities-coordinator": "活动协调员"
+  },
+  "inquiryStatus": {
+    "pending": "待处理",
+    "in-review": "处理中",
+    "answered": "已回复"
+  },
+  "visitStatus": {
+    "confirmed": "已确认",
+    "cancelled": "已取消",
+    "completed": "已完成"
+  },
+  "checkIn": {
+    "checkedIn": "已签到",
+    "notArrived": "尚未到达"
+  },
+  "volunteerAvailability": {
+    "open": "名额充足",
+    "limited": "名额不多"
+  },
+  "replyTemplate": {
+    "t1": "感谢您的关心，您的家人今天状况良好。",
+    "t2": "我们已收到您的问题，有消息时会及时回复。",
+    "t3": "如需进一步讨论，请直接致电疗养院。"
+  },
+  "seed": {
+    "residentNotes": {
+      "wong": "昨晚睡得不安稳，方便时请致电病房。"
+    },
+    "moments": {
+      "m1": {
+        "title": "晨间花园漫步",
+        "caption": "陈女士和林先生在今早的花园漫步中享受了新鲜空气和阳光。"
+      },
+      "m2": {
+        "title": "音乐治疗课",
+        "caption": "住户们跟着老歌一起唱，并用铃鼓打节拍。"
+      },
+      "m3": {
+        "title": "纸灯笼手工",
+        "caption": "大家在轻松的早晨一起折叠和涂色纸灯笼。"
+      },
+      "m4": {
+        "title": "坐姿集体运动",
+        "caption": "在物理治疗团队带领下进行轻柔的伸展和球类游戏。"
+      },
+      "m5": {
+        "title": "生日庆祝会",
+        "caption": "我们用蛋糕、歌声和大家签名的贺卡为林先生庆祝生日。"
+      },
+      "m6": {
+        "title": "傍晚歌唱会",
+        "caption": "欢迎住户参加今晚在日间活动室举行的歌唱会。"
+      }
+    },
+    "inquiries": {
+      "q1": {
+        "question": "我母亲今天咳嗽的情况怎么样？"
+      },
+      "q2": {
+        "question": "我父亲的饮食能少放些盐吗？"
+      },
+      "q3": {
+        "question": "我这个周末可以送一件新的开襟毛衣过来吗？"
+      },
+      "q4": {
+        "question": "探访时我可以带自己煮的粥吗？",
+        "reply": "可以的，欢迎您带来。请到达时告知当值护士，以便我们核对她的饮食安排。"
+      },
+      "q5": {
+        "question": "我父亲还在做物理治疗练习吗？",
+        "reply": "是的，他每周参加三次物理治疗，进展良好。"
+      }
+    },
+    "events": {
+      "e1": {
+        "title": "社区联欢会",
+        "description": "欢迎与住户、家属和义工一起参加，享受歌曲、茶点和节庆小食。全程设有轮椅通道和座位。",
+        "location": "一楼活动大厅"
+      },
+      "e2": {
+        "title": "音乐治疗开放日下午场",
+        "description": "欢迎家属观看并参与现场音乐治疗，了解受赞助的活动如何帮助住户。",
+        "location": "日间活动室"
+      },
+      "e3": {
+        "title": "家属感恩日",
+        "description": "为支持我们住户的家属举办的感谢下午活动。",
+        "location": "花园凉亭"
+      },
+      "e4": {
+        "title": "节庆茶会",
+        "description": "备有传统小食的节庆茶会，并有义工带来的简短文化表演。",
+        "location": "一楼活动大厅"
+      },
+      "e5": {
+        "title": "义工感恩茶会",
+        "description": "为每周陪伴住户的义工举办的感谢下午茶会。",
+        "location": "花园凉亭"
+      }
+    },
+    "news": {
+      "n1": {
+        "title": "节庆期间探访时间保持不变",
+        "summary": "每天均可探访。请提前预约时段，让我们能舒适地接待每一位访客。"
+      },
+      "n2": {
+        "title": "社区联欢会招募义工",
+        "summary": "我们正在寻找热心的帮手，在当天协助住户。如有意愿，请联系护理团队。"
+      },
+      "n3": {
+        "title": "全新坐姿运动课程",
+        "summary": "住户现在每周有三个早晨可参加轻柔的坐姿运动课。"
+      }
+    },
+    "volunteers": {
+      "v1": {
+        "title": "陪伴住户",
+        "description": "与喜欢有人作伴的住户聊天、阅读或玩简单的游戏。",
+        "commitment": "每周约2小时"
+      },
+      "v2": {
+        "title": "协助活动",
+        "description": "在手工艺、音乐和运动活动中协助活动团队布置场地并照顾住户。",
+        "commitment": "每月约3小时"
+      },
+      "v3": {
+        "title": "协助节庆活动",
+        "description": "在节庆活动中协助布置、茶点并引导住户。",
+        "commitment": "每次活动半天"
+      }
+    }
+  },
+  "errors": {
+    "EMPTY_QUESTION": "请输入您的问题。",
+    "QUESTION_TOO_LONG": "问题太长，请控制在{max}个字符以内。",
+    "NOT_LINKED": "您只能为与您账户关联的住户执行此操作。",
+    "NOT_FOUND": "找不到该项目。",
+    "EMPTY_REPLY": "请输入回复内容。",
+    "ALREADY_ANSWERED": "此问题已回复。",
+    "EMPTY_TITLE": "请添加标题。",
+    "NO_RESIDENTS": "请至少选择一位住户。",
+    "NO_CONSENT": "未同意拍照的住户不能被标记在照片中。",
+    "BAD_CATEGORY": "请选择类别。",
+    "BAD_STATUS": "请选择状态。",
+    "NOTE_TOO_LONG": "备注太长，请控制在{max}个字符以内。",
+    "PAST_DATE": "请选择今天或之后的日期。",
+    "OUT_OF_RANGE": "该日期距今太远，暂时无法预约。",
+    "BAD_SLOT": "请选择时间段。",
+    "SLOT_PASSED": "该时间段已经开始。",
+    "SLOT_FULL": "该时间段已约满。",
+    "NOT_ENOUGH_SPACE": "该时间段剩余名额不足（仅剩{left}个）。",
+    "BAD_VISITORS": "请选择1至{max}位访客。",
+    "NOT_CANCELLABLE": "此次探访已无法更改或取消。",
+    "NO_CHANGE": "没有任何更改。",
+    "NOT_TODAY": "只能为今天的探访办理签到。",
+    "NOT_ACTIVE": "此次探访已失效。",
+    "ALREADY_CHECKED_IN": "该访客已签到。",
+    "BELOW_BOOKED": "容量不能低于已预约的{booked}个名额。",
+    "BAD_CAPACITY": "请输入0至{max}之间的容量。",
+    "BAD_DATE": "请输入有效日期。",
+    "BAD_TIME": "请输入有效时间，结束时间须晚于开始时间。",
+    "EMPTY_LOCATION": "请填写地点。",
+    "NOT_DRAFT": "只有草稿才能发布。"
   }
 }

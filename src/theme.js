@@ -27,5 +27,5 @@ export function savePref(name, value) {
 export const systemDarkQuery = typeof matchMedia === 'function' ? matchMedia('(prefers-color-scheme: dark)') : null
 
 // `shown` is always 'light' or 'dark' ('system' already resolved).
-export const applyTheme = (shown) => (document.documentElement.dataset.theme = shown)
-export const applyTextSize = (size) => (document.documentElement.dataset.text = size)
+export const applyTheme = (shown) => typeof document !== 'undefined' && (document.documentElement.dataset.theme = shown)
+export const applyTextSize = (size) => typeof document !== 'undefined' && (document.documentElement.dataset.text = size)

@@ -109,5 +109,199 @@
     "dialogTitle": "Dialog contoh",
     "dialogText": "Tekan Escape, butang Tutup atau kawasan gelap untuk menutup. Fokus kembali ke butang yang membukanya.",
     "toastText": "Ini ialah mesej contoh."
+  },
+  "category": {
+    "gardening": "Berkebun",
+    "crafts": "Seni & Kraf",
+    "music": "Muzik",
+    "exercise": "Senaman",
+    "celebration": "Perayaan"
+  },
+  "eventCategory": {
+    "festive": "Perayaan Meriah",
+    "wellness": "Kesejahteraan",
+    "community": "Komuniti",
+    "family": "Keluarga"
+  },
+  "topic": {
+    "health": "Kesihatan & keselesaan",
+    "meals": "Makanan",
+    "visits": "Lawatan",
+    "belongings": "Barang peribadi",
+    "other": "Perkara lain"
+  },
+  "relationship": {
+    "mother": "Ibu",
+    "father": "Bapa",
+    "aunt": "Makcik"
+  },
+  "staffRole": {
+    "nurse": "Jururawat",
+    "nurse-manager": "Pengurus Jururawat",
+    "care-assistant": "Pembantu Penjagaan",
+    "activities-coordinator": "Penyelaras Aktiviti"
+  },
+  "inquiryStatus": {
+    "pending": "Menunggu",
+    "in-review": "Sedang Disemak",
+    "answered": "Telah Dijawab"
+  },
+  "visitStatus": {
+    "confirmed": "Disahkan",
+    "cancelled": "Dibatalkan",
+    "completed": "Selesai"
+  },
+  "checkIn": {
+    "checkedIn": "Telah daftar masuk",
+    "notArrived": "Belum tiba"
+  },
+  "volunteerAvailability": {
+    "open": "Ada tempat",
+    "limited": "Tempat terhad"
+  },
+  "replyTemplate": {
+    "t1": "Terima kasih kerana bertanya. Orang tersayang anda dalam keadaan baik hari ini.",
+    "t2": "Kami telah menerima soalan anda dan akan memberi maklum balas apabila ada kemas kini.",
+    "t3": "Sila hubungi rumah jagaan terus jika anda ingin berbincang dengan lebih lanjut."
+  },
+  "seed": {
+    "residentNotes": {
+      "wong": "Tidur kurang lena malam tadi. Sila hubungi wad apabila berkelapangan."
+    },
+    "moments": {
+      "m1": {
+        "title": "Berjalan di Taman Pagi",
+        "caption": "Puan Tan dan Encik Lim menikmati udara segar dan cahaya matahari semasa berjalan di taman pagi ini."
+      },
+      "m2": {
+        "title": "Sesi Terapi Muzik",
+        "caption": "Penghuni menyanyi bersama lagu-lagu lama kegemaran dan mengekalkan rentak dengan rebana kecil."
+      },
+      "m3": {
+        "title": "Kraf Tanglung Kertas",
+        "caption": "Pagi yang santai melipat dan mewarna tanglung kertas bersama-sama."
+      },
+      "m4": {
+        "title": "Senaman Kumpulan Duduk",
+        "caption": "Regangan lembut dan permainan bola dipimpin oleh pasukan fisioterapi kami."
+      },
+      "m5": {
+        "title": "Sambutan Hari Lahir",
+        "caption": "Kami meraikan hari lahir Encik Lim dengan kek, nyanyian dan kad yang ditandatangani semua orang."
+      },
+      "m6": {
+        "title": "Nyanyian Beramai-ramai Petang",
+        "caption": "Penghuni dijemput menyertai nyanyian beramai-ramai malam ini di bilik aktiviti."
+      }
+    },
+    "inquiries": {
+      "q1": {
+        "question": "Bagaimana batuk ibu saya hari ini?"
+      },
+      "q2": {
+        "question": "Bolehkah makanan bapa saya dikurangkan garam?"
+      },
+      "q3": {
+        "question": "Bolehkah saya menghantar kardigan baharu hujung minggu ini?"
+      },
+      "q4": {
+        "question": "Bolehkah saya membawa bubur yang dimasak di rumah semasa melawat?",
+        "reply": "Ya, dialu-alukan. Sila maklumkan kepada jururawat bertugas apabila anda tiba supaya kami dapat menyemak pelan dietnya."
+      },
+      "q5": {
+        "question": "Adakah bapa saya masih melakukan latihan fisioterapi?",
+        "reply": "Ya, dia menghadiri fisioterapi tiga kali seminggu dan menunjukkan kemajuan yang baik."
+      }
+    },
+    "events": {
+      "e1": {
+        "title": "Perhimpunan Komuniti",
+        "description": "Sertai penghuni, keluarga dan sukarelawan untuk nyanyian, teh dan juadah meriah. Akses kerusi roda dan tempat duduk disediakan sepanjang acara.",
+        "location": "Dewan Aktiviti, Tingkat 1"
+      },
+      "e2": {
+        "title": "Petang Terbuka Terapi Muzik",
+        "description": "Keluarga dijemput menonton dan menyertai sesi terapi muzik secara langsung serta melihat bagaimana aktiviti yang ditaja membantu penghuni.",
+        "location": "Bilik Aktiviti Siang"
+      },
+      "e3": {
+        "title": "Hari Penghargaan Keluarga",
+        "description": "Petang penghargaan untuk keluarga yang menyokong penghuni kami.",
+        "location": "Pavilion Taman"
+      },
+      "e4": {
+        "title": "Perhimpunan Minum Teh Meriah",
+        "description": "Minum teh meriah dengan juadah tradisional dan persembahan budaya ringkas oleh sukarelawan.",
+        "location": "Dewan Aktiviti, Tingkat 1"
+      },
+      "e5": {
+        "title": "Minum Teh Penghargaan Sukarelawan",
+        "description": "Petang penghargaan untuk sukarelawan yang meluangkan masa bersama penghuni kami setiap minggu.",
+        "location": "Pavilion Taman"
+      }
+    },
+    "news": {
+      "n1": {
+        "title": "Waktu lawatan kekal sama sepanjang musim perayaan ini",
+        "summary": "Lawatan masih dibuka setiap hari. Sila tempah slot terlebih dahulu supaya kami dapat menyambut semua orang dengan selesa."
+      },
+      "n2": {
+        "title": "Sukarelawan diperlukan untuk Perhimpunan Komuniti",
+        "summary": "Kami mencari pembantu yang peramah untuk membantu penghuni pada hari tersebut. Sila berbincang dengan pasukan penjagaan jika anda ingin membantu."
+      },
+      "n3": {
+        "title": "Program senaman duduk baharu",
+        "summary": "Penghuni kini menikmati kelas senaman duduk yang lembut tiga pagi seminggu."
+      }
+    },
+    "volunteers": {
+      "v1": {
+        "title": "Menemani Penghuni",
+        "description": "Luangkan masa berbual, membaca atau bermain permainan mudah bersama penghuni yang inginkan teman.",
+        "commitment": "Kira-kira 2 jam seminggu"
+      },
+      "v2": {
+        "title": "Bantuan Aktiviti",
+        "description": "Bantu pasukan aktiviti kami menyediakan dan menyokong penghuni semasa sesi seni, muzik dan senaman.",
+        "commitment": "Kira-kira 3 jam sebulan"
+      },
+      "v3": {
+        "title": "Sokongan Perayaan Meriah",
+        "description": "Hulurkan bantuan dengan hiasan, jamuan dan membimbing penghuni semasa perayaan.",
+        "commitment": "Setengah hari setiap perayaan"
+      }
+    }
+  },
+  "errors": {
+    "EMPTY_QUESTION": "Sila taip soalan anda.",
+    "QUESTION_TOO_LONG": "Soalan anda terlalu panjang. Sila hadkan kepada {max} aksara.",
+    "NOT_LINKED": "Anda hanya boleh melakukan ini untuk penghuni yang dipautkan kepada akaun anda.",
+    "NOT_FOUND": "Item itu tidak ditemui.",
+    "EMPTY_REPLY": "Sila taip balasan.",
+    "ALREADY_ANSWERED": "Soalan ini telah dijawab.",
+    "EMPTY_TITLE": "Sila tambah tajuk.",
+    "NO_RESIDENTS": "Sila pilih sekurang-kurangnya seorang penghuni.",
+    "NO_CONSENT": "Penghuni tanpa persetujuan foto tidak boleh ditag dalam foto.",
+    "BAD_CATEGORY": "Sila pilih kategori.",
+    "BAD_STATUS": "Sila pilih status.",
+    "NOTE_TOO_LONG": "Nota terlalu panjang. Sila hadkan kepada {max} aksara.",
+    "PAST_DATE": "Sila pilih hari ini atau tarikh kemudian.",
+    "OUT_OF_RANGE": "Tarikh itu terlalu jauh untuk ditempah.",
+    "BAD_SLOT": "Sila pilih slot masa.",
+    "SLOT_PASSED": "Slot masa itu sudah bermula.",
+    "SLOT_FULL": "Slot masa itu sudah penuh.",
+    "NOT_ENOUGH_SPACE": "Ruang tidak mencukupi untuk bilangan pelawat itu ({left} lagi).",
+    "BAD_VISITORS": "Sila pilih antara 1 hingga {max} pelawat.",
+    "NOT_CANCELLABLE": "Lawatan ini tidak lagi boleh diubah atau dibatalkan.",
+    "NO_CHANGE": "Tiada apa yang berubah.",
+    "NOT_TODAY": "Hanya lawatan hari ini boleh didaftar masuk.",
+    "NOT_ACTIVE": "Lawatan ini tidak aktif.",
+    "ALREADY_CHECKED_IN": "Pelawat ini sudah didaftar masuk.",
+    "BELOW_BOOKED": "Kapasiti tidak boleh kurang daripada {booked} ruang yang telah ditempah.",
+    "BAD_CAPACITY": "Sila masukkan kapasiti antara 0 hingga {max}.",
+    "BAD_DATE": "Sila masukkan tarikh yang sah.",
+    "BAD_TIME": "Sila masukkan masa yang sah; masa tamat mesti selepas masa mula.",
+    "EMPTY_LOCATION": "Sila tambah tempat.",
+    "NOT_DRAFT": "Hanya draf boleh diterbitkan."
   }
 }

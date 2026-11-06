@@ -1,12 +1,23 @@
 import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
+import { DEFAULT_CAREGIVER_ID, caregivers } from '../data/caregivers'
+import { DEFAULT_STAFF_ID, staff } from '../data/staff'
 import { TEXT_SIZES, THEMES, applyTextSize, applyTheme, readPref, savePref, systemDarkQuery } from '../theme'
 
-// UI state: demo role (follows the route), theme and text size (saved on this device).
+// UI state: demo role and identities, theme and text size (saved on this device), and app-wide toast messages.
 export const useUiStore = defineStore('ui', () => {
   const role = ref('caregiver') // 'caregiver' | 'staff'; set by the router guard
   const isStaff = computed(() => role.value === 'staff')
   const setRole = (next) => (role.value = next)
+
+  // Demo identities (no sign-in): which fictional caregiver and staff member the screens act as.
+  const currentCaregiverId = ref(DEFAULT_CAREGIVER_ID)
+  const currentStaffId = ref(DEFAULT_STAFF_ID)
+  const currentCaregiver = computed(() => caregivers.find((c) => c.id === currentCaregiverId.value))
+  const currentStaff = computed(() => staff.find((s) => s.id === currentStaffId.value))
+  function setCaregiver(id) {
+    if (caregivers.some((c) => c.id === id)) currentCaregiverId.value = id
+  }
 
   const themeChoice = ref(readPref('theme')) // 'light' | 'dark' | 'system'
   const textSize = ref(readPref('textSize')) // 'standard' | 'large' | 'xlarge'
@@ -28,5 +39,20 @@ export const useUiStore = defineStore('ui', () => {
     savePref('textSize', size)
   }
 
-  return { role, isStaff, setRole, themeChoice, shownTheme, setTheme, textSize, setTextSize }
+  // Short messages shown by <AppToast />. Pass text that is already translated. One message at a time.
+  const toasts = ref([]) // { id, text, kind: 'info' | 'error' }
+  let nextToastId = 1
+  const dismissToast = (id) => (toasts.value = toasts.value.filter((t) => t.id !== id))
+  function notify(text, { kind = 'info', ms = 3500 } = {}) {
+    const id = nextToastId++
+    toasts.value = [{ id, text, kind }]
+    setTimeout(() => dismissToast(id), ms)
+  }
+
+  return {
+    role, isStaff, setRole,
+    currentCaregiverId, currentCaregiver, currentStaffId, currentStaff, setCaregiver,
+    themeChoice, shownTheme, setTheme, textSize, setTextSize,
+    toasts, notify, dismissToast,
+  }
 })

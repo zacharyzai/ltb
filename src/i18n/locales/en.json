@@ -109,5 +109,199 @@
     "dialogTitle": "Example dialog",
     "dialogText": "Press Escape, the Close button or the dark area to close. Focus returns to the button that opened it.",
     "toastText": "This is an example message."
+  },
+  "category": {
+    "gardening": "Gardening",
+    "crafts": "Arts & Crafts",
+    "music": "Music",
+    "exercise": "Exercise",
+    "celebration": "Celebration"
+  },
+  "eventCategory": {
+    "festive": "Festive",
+    "wellness": "Wellness",
+    "community": "Community",
+    "family": "Family"
+  },
+  "topic": {
+    "health": "Health & comfort",
+    "meals": "Meals",
+    "visits": "Visits",
+    "belongings": "Belongings",
+    "other": "Something else"
+  },
+  "relationship": {
+    "mother": "Mother",
+    "father": "Father",
+    "aunt": "Aunt"
+  },
+  "staffRole": {
+    "nurse": "Nurse",
+    "nurse-manager": "Nurse Manager",
+    "care-assistant": "Care Assistant",
+    "activities-coordinator": "Activities Coordinator"
+  },
+  "inquiryStatus": {
+    "pending": "Pending",
+    "in-review": "In Review",
+    "answered": "Answered"
+  },
+  "visitStatus": {
+    "confirmed": "Confirmed",
+    "cancelled": "Cancelled",
+    "completed": "Completed"
+  },
+  "checkIn": {
+    "checkedIn": "Checked in",
+    "notArrived": "Not arrived yet"
+  },
+  "volunteerAvailability": {
+    "open": "Spots available",
+    "limited": "Few spots left"
+  },
+  "replyTemplate": {
+    "t1": "Thank you for checking in. Your loved one is doing well today.",
+    "t2": "We have received your question and will provide an update when available.",
+    "t3": "Please contact the nursing home directly if you would like to discuss this further."
+  },
+  "seed": {
+    "residentNotes": {
+      "wong": "Had a restless night. Please call the ward when convenient."
+    },
+    "moments": {
+      "m1": {
+        "title": "Morning Garden Walk",
+        "caption": "Madam Tan and Mr Lim enjoyed fresh air and sunshine during this morning's garden walk."
+      },
+      "m2": {
+        "title": "Music Therapy Session",
+        "caption": "Residents sang along to old favourites and kept the beat with tambourines."
+      },
+      "m3": {
+        "title": "Paper Lantern Craft",
+        "caption": "A relaxed morning of folding and colouring paper lanterns together."
+      },
+      "m4": {
+        "title": "Seated Group Exercise",
+        "caption": "Gentle stretching and ball games led by our physiotherapy team."
+      },
+      "m5": {
+        "title": "Birthday Celebration",
+        "caption": "We celebrated Mr Lim's birthday with cake, songs and a card signed by everyone."
+      },
+      "m6": {
+        "title": "Evening Singalong",
+        "caption": "Residents are invited to join tonight's singalong in the day room."
+      }
+    },
+    "inquiries": {
+      "q1": {
+        "question": "How has my mother's cough been today?"
+      },
+      "q2": {
+        "question": "Can my father have less salt in his meals?"
+      },
+      "q3": {
+        "question": "May I drop off a new cardigan this weekend?"
+      },
+      "q4": {
+        "question": "Can I bring home-cooked porridge when I visit?",
+        "reply": "Yes, you are welcome to. Please let the nurse on duty know when you arrive so we can check her diet plan."
+      },
+      "q5": {
+        "question": "Is my father still doing his physiotherapy exercises?",
+        "reply": "Yes, he attends physiotherapy three times a week and is making good progress."
+      }
+    },
+    "events": {
+      "e1": {
+        "title": "Community Gathering",
+        "description": "Join residents, families and volunteers for songs, tea and festive snacks. Wheelchair access and seating are provided throughout.",
+        "location": "Activity Hall, Level 1"
+      },
+      "e2": {
+        "title": "Music Therapy Open Afternoon",
+        "description": "Families are invited to watch and join a live music therapy session and see how sponsored activities support residents.",
+        "location": "Day Activity Room"
+      },
+      "e3": {
+        "title": "Family Appreciation Day",
+        "description": "A thank-you afternoon for the families who support our residents.",
+        "location": "Garden Pavilion"
+      },
+      "e4": {
+        "title": "Festive Tea Gathering",
+        "description": "A festive tea with traditional snacks and a short cultural performance by volunteers.",
+        "location": "Activity Hall, Level 1"
+      },
+      "e5": {
+        "title": "Volunteer Appreciation Tea",
+        "description": "A thank-you afternoon for the volunteers who spend time with our residents every week.",
+        "location": "Garden Pavilion"
+      }
+    },
+    "news": {
+      "n1": {
+        "title": "Visiting hours stay the same this festive season",
+        "summary": "Visits remain available daily. Please book a slot in advance so we can welcome everyone comfortably."
+      },
+      "n2": {
+        "title": "Volunteers needed for the Community Gathering",
+        "summary": "We are looking for friendly helpers to assist residents on the day. Speak to the care team if you would like to help."
+      },
+      "n3": {
+        "title": "New seated exercise programme",
+        "summary": "Residents now enjoy a gentle seated exercise class three mornings a week."
+      }
+    },
+    "volunteers": {
+      "v1": {
+        "title": "Resident Befriending",
+        "description": "Spend time chatting, reading or playing simple games with residents who would enjoy company.",
+        "commitment": "About 2 hours a week"
+      },
+      "v2": {
+        "title": "Activity Assistance",
+        "description": "Help our activities team set up and support residents during arts, music and exercise sessions.",
+        "commitment": "About 3 hours a month"
+      },
+      "v3": {
+        "title": "Festive Celebration Support",
+        "description": "Lend a hand with decorations, refreshments and guiding residents during festive celebrations.",
+        "commitment": "One half-day per celebration"
+      }
+    }
+  },
+  "errors": {
+    "EMPTY_QUESTION": "Please type your question.",
+    "QUESTION_TOO_LONG": "Your question is too long. Please keep it under {max} characters.",
+    "NOT_LINKED": "You can only do this for a resident linked to your account.",
+    "NOT_FOUND": "We could not find that item.",
+    "EMPTY_REPLY": "Please type a reply.",
+    "ALREADY_ANSWERED": "This question has already been answered.",
+    "EMPTY_TITLE": "Please add a title.",
+    "NO_RESIDENTS": "Please choose at least one resident.",
+    "NO_CONSENT": "A resident without photo consent cannot be tagged in a photo.",
+    "BAD_CATEGORY": "Please choose a category.",
+    "BAD_STATUS": "Please choose a status.",
+    "NOTE_TOO_LONG": "The note is too long. Please keep it under {max} characters.",
+    "PAST_DATE": "Please choose today or a later date.",
+    "OUT_OF_RANGE": "That date is too far ahead to book.",
+    "BAD_SLOT": "Please choose a time slot.",
+    "SLOT_PASSED": "That time slot has already started.",
+    "SLOT_FULL": "That time slot is fully booked.",
+    "NOT_ENOUGH_SPACE": "Not enough space left for that many visitors ({left} left).",
+    "BAD_VISITORS": "Please choose between 1 and {max} visitors.",
+    "NOT_CANCELLABLE": "This visit can no longer be changed or cancelled.",
+    "NO_CHANGE": "Nothing has changed.",
+    "NOT_TODAY": "Only today's visits can be checked in.",
+    "NOT_ACTIVE": "This visit is not active.",
+    "ALREADY_CHECKED_IN": "This visitor is already checked in.",
+    "BELOW_BOOKED": "Capacity cannot be lower than the {booked} spaces already booked.",
+    "BAD_CAPACITY": "Please enter a capacity between 0 and {max}.",
+    "BAD_DATE": "Please enter a valid date.",
+    "BAD_TIME": "Please enter valid times; the end must be after the start.",
+    "EMPTY_LOCATION": "Please add a place.",
+    "NOT_DRAFT": "Only a draft can be published."
   }
 }

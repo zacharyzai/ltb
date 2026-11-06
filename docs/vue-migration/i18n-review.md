@@ -24,3 +24,16 @@ Phases 1-2 cover page titles and the application shell (navigation, settings, th
 | Theme: Light / Dark / System | 浅色 / 深色 / 跟随系统 | Cerah / Gelap / Sistem | ஒளி / இருள் / கணினி | "கணினி" = computer/system; consider "சாதனம்" (device) |
 | Settings | 设置 | Tetapan | அமைப்புகள் | |
 | Footer disclaimer | see locale files | | | Legal-ish wording: have it checked |
+
+## Phase 3: mock content and messages
+Everything under `seed.*` (moments, inquiries and replies, events, news, volunteer opportunities, one resident note), the reply templates, enumeration labels (`category`, `eventCategory`, `topic`, `relationship`, `staffRole`, `inquiryStatus`, `visitStatus`, `checkIn`, `volunteerAvailability`) and all `errors.*` messages are first-pass translations by the assistant. Terms to check first:
+
+| English | 中文 | Bahasa Melayu | தமிழ் | Review note |
+|---|---|---|---|---|
+| Pending / In Review / Answered | 待处理 / 处理中 / 已回复 | Menunggu / Sedang Disemak / Telah Dijawab | நிலுவையில் / மதிப்பாய்வில் / பதிலளிக்கப்பட்டது | Inquiry status chips |
+| Aunt | 阿姨 | Makcik | அத்தை | Relationship wording varies by family |
+| Nursing home (in reply template) | 疗养院 | rumah jagaan | முதியோர் இல்லம் | Which term does SAS use in each language? |
+| Madam / Mr in captions | 女士 / 先生 | Puan / Encik | திருமதி / திரு | Honorifics inside seeded captions |
+| Photo consent message | 未同意拍照 | persetujuan foto | புகைப்பட ஒப்புதல் | Privacy wording: have it checked |
+| Fully-booked / capacity messages | 约满 / 容量 | penuh / kapasiti | முன்பதிவு / கொள்ளளவு | |
+| Volunteer commitment lines | 每周约2小时 etc. | Kira-kira 2 jam seminggu etc. | வாரத்துக்கு சுமார் 2 மணி நேரம் etc. | |
