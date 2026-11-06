@@ -1,0 +1,53 @@
+/* Application shell. Phones (<992px): sticky header, content, sticky bottom tabs.
+   Desktop (>=992px): persistent sidebar and a wide content column with a readable maximum width. */
+.shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+.shell-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.shell-content {
+  flex: 1;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--s-5) var(--gutter) var(--s-6);
+}
+
+.skip {
+  position: absolute;
+  left: var(--s-3);
+  top: -4rem;
+  z-index: 1200;
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-md);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 700;
+}
+.skip:focus {
+  top: var(--s-3);
+}
+
+@media (max-width: 991.98px) {
+  .only-desktop {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .only-mobile {
+    display: none !important;
+  }
+  .shell {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  }
+  .shell-content {
+    padding-top: var(--s-8);
+  }
+}

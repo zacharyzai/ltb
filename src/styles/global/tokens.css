@@ -1,0 +1,197 @@
+/* SAS Connect design tokens. Components use these names only; the dark theme swaps the same names.
+   Teal and green carry the interface. SAS red and blue (the official site's colours) are accents only. */
+:root {
+  /* Surfaces */
+  --color-page: #fbfaf7;
+  --color-card: #ffffff;
+  --color-surface-2: #f3f1ec;
+  --color-border: #e6e1d8;
+  --color-border-strong: #cfc8bb;
+  --color-control-border: #6f7a76; /* inputs and toggles: 3:1 against the card */
+
+  /* Text */
+  --color-text: #1a1a1a;
+  --color-text-muted: #55605d;
+
+  /* Primary teal. Small text and button fills use the dark teal; the brand teal is for decoration and large type. */
+  --color-primary: #1d6560;
+  --color-primary-hover: #17524d;
+  --color-on-primary: #ffffff;
+  --color-primary-text: #1d6560;
+  --color-brand: #2a8c82;
+  --color-tint: #eef6f4;
+  --color-tint-strong: #d3ebe6;
+  --color-tint-text: #164e4a;
+
+  /* Green support colour */
+  --color-green: #4a9d6f;
+  --color-green-text: #1f6a47;
+  --color-green-tint: #e8f4ed;
+
+  /* SAS official accents (use sparingly) */
+  --color-sas-red: #ee3e3e; /* decoration and large shapes only */
+  --color-sas-red-solid: #b3262b; /* red fills that carry white text */
+  --color-sas-red-text: #b3262b;
+  --color-sas-blue: #005aab;
+  --color-link: #005aab;
+  --color-link-hover: #00427d;
+
+  /* Feedback */
+  --color-success-text: #1f6a47;
+  --color-success-bg: #e8f4ed;
+  --color-warning-text: #7a4b00;
+  --color-warning-bg: #fff0cc;
+  --color-danger-text: #b3262b;
+  --color-danger-bg: #fdecec;
+  --color-danger-border: #e9a9a9;
+  --color-info-text: #00427d;
+  --color-info-bg: #e6f0f9;
+
+  /* Status: always shown with a symbol and words as well as colour */
+  --status-well-bg: #e1f1ee;
+  --status-well-fg: #1d6560;
+  --status-well-border: #2a8c82;
+  --status-resting-bg: #fff0cc;
+  --status-resting-fg: #7a4b00;
+  --status-resting-border: #c58a00;
+  --status-contact-bg: #fbe4e2;
+  --status-contact-fg: #8f2d2d;
+  --status-contact-border: #c0605e;
+  --status-full-bg: #e6e6e6;
+  --status-full-fg: #5f5f5f;
+  --status-full-border: #9b9b9b;
+
+  /* Focus and elevation */
+  --color-focus: #005aab;
+  --focus-ring: 3px solid var(--color-focus);
+  --shadow-card: 0 1px 2px rgba(31, 41, 38, 0.06), 0 8px 20px -10px rgba(31, 41, 38, 0.16);
+  --shadow-raised: 0 2px 6px rgba(31, 41, 38, 0.08), 0 18px 36px -14px rgba(31, 41, 38, 0.26);
+  --scrim: rgba(10, 20, 18, 0.55);
+
+  /* Radii */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+
+  /* Spacing (4px base) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --gutter: 16px;
+
+  /* Type: rem, so the text-size setting (root font-size) scales everything */
+  --font-fallback: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'Tamil Sangam MN', 'Nirmala UI', 'Noto Sans Tamil', system-ui, sans-serif;
+  --font-heading: 'Poppins', var(--font-fallback);
+  --font-body: 'Open Sans', var(--font-fallback);
+  --fs-small: 0.95rem;
+  --fs-body: 1rem;
+  --fs-lead: 1.125rem;
+  --fs-h3: 1.25rem;
+  --fs-h2: 1.5rem;
+  --fs-h1: 1.75rem;
+  --lh-tight: 1.25;
+  --lh-body: 1.6;
+
+  /* Sizes */
+  --hit: max(48px, 3rem); /* minimum touch target */
+  --sidebar-w: 288px;
+  --content-max: 1080px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-fast: 120ms;
+  --dur: 200ms;
+
+  color-scheme: light;
+}
+
+@media (min-width: 992px) {
+  :root {
+    --gutter: 32px;
+    --fs-h1: 2rem;
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-page: #0f1615;
+  --color-card: #17211f;
+  --color-surface-2: #1f2b29;
+  --color-border: #2b3a37;
+  --color-border-strong: #3d4f4b;
+  --color-control-border: #7d8b87;
+
+  --color-text: #e8eeed;
+  --color-text-muted: #a9b6b3;
+
+  --color-primary: #7fd6cc;
+  --color-primary-hover: #9be3da;
+  --color-on-primary: #082623;
+  --color-primary-text: #8fdcd5;
+  --color-brand: #3aa89c;
+  --color-tint: #14302d;
+  --color-tint-strong: #1d4a45;
+  --color-tint-text: #a6e6df;
+
+  --color-green: #5fb583;
+  --color-green-text: #7fd6a5;
+  --color-green-tint: #12291d;
+
+  --color-sas-red: #f36b6b;
+  --color-sas-red-solid: #f07a7a;
+  --color-sas-red-text: #ff9a9a;
+  --color-sas-blue: #8ec5ff;
+  --color-link: #8ec5ff;
+  --color-link-hover: #b5d9ff;
+
+  --color-success-text: #7fd6a5;
+  --color-success-bg: #12291d;
+  --color-warning-text: #ffcf7a;
+  --color-warning-bg: #33270f;
+  --color-danger-text: #ff9a9a;
+  --color-danger-bg: #3a1d1d;
+  --color-danger-border: #7a3b3b;
+  --color-info-text: #b5d9ff;
+  --color-info-bg: #14263a;
+
+  --status-well-bg: #14302d;
+  --status-well-fg: #8fdcd5;
+  --status-well-border: #3aa89c;
+  --status-resting-bg: #33270f;
+  --status-resting-fg: #ffcf7a;
+  --status-resting-border: #c58a00;
+  --status-contact-bg: #3a1d1d;
+  --status-contact-fg: #ffaaa6;
+  --status-contact-border: #c0605e;
+  --status-full-bg: #2a2f2e;
+  --status-full-fg: #b8c2c0;
+  --status-full-border: #5c6664;
+
+  --color-focus: #8ec5ff;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 20px -10px rgba(0, 0, 0, 0.6);
+  --shadow-raised: 0 2px 6px rgba(0, 0, 0, 0.5), 0 18px 36px -14px rgba(0, 0, 0, 0.7);
+  --scrim: rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
+}
+
+/* Bootstrap bridge: Bootstrap utilities pick up the same colours and fonts. */
+:root,
+:root[data-theme='dark'] {
+  --bs-body-bg: var(--color-page);
+  --bs-body-color: var(--color-text);
+  --bs-body-font-family: var(--font-body);
+  --bs-body-font-size: var(--fs-body);
+  --bs-body-line-height: var(--lh-body);
+  --bs-border-color: var(--color-border);
+  --bs-emphasis-color: var(--color-text);
+  --bs-secondary-color: var(--color-text-muted);
+  --bs-link-color: var(--color-link);
+  --bs-link-hover-color: var(--color-link-hover);
+}

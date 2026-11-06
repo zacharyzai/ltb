@@ -1,6 +1,34 @@
 {
   "app": {
-    "name": "SAS Connect"
+    "name": "SAS Connect",
+    "disclaimer": "SAS Connect ialah prototaip demonstrasi. Imej dan maklumat penghuni adalah untuk tujuan demonstrasi sahaja."
+  },
+  "nav": {
+    "skip": "Langkau ke kandungan utama",
+    "main": "Navigasi utama",
+    "staffMain": "Navigasi kakitangan",
+    "brandHome": "SAS Connect, ke halaman utama",
+    "settings": "Tetapan",
+    "account": "Akaun",
+    "home": "Utama",
+    "moments": "Momen",
+    "visits": "Lawatan",
+    "community": "Komuniti",
+    "dashboard": "Papan Pemuka",
+    "updates": "Kemas Kini Penghuni",
+    "postMoment": "Hantar Momen",
+    "inquiries": "Pertanyaan",
+    "visitsEvents": "Lawatan & Acara"
+  },
+  "tab": {
+    "home": "Utama",
+    "moments": "Momen",
+    "visits": "Lawatan",
+    "community": "Komuniti",
+    "dashboard": "Utama",
+    "updates": "Kemas Kini",
+    "inquiries": "Soalan",
+    "visitsEvents": "Lawatan & Acara"
   },
   "pages": {
     "home": "Utama",
@@ -17,9 +45,69 @@
     "staffAccount": "Akaun Kakitangan",
     "notFound": "Halaman tidak ditemui"
   },
-  "scaffold": {
-    "note": "Perancah Fasa 1: skrin sebenar akan tiba dalam fasa kemudian.",
-    "role": "Peranan demo semasa: {role}",
-    "routes": "Semua laluan"
+  "role": {
+    "label": "Paparan demo",
+    "caregiver": "Penjaga",
+    "staff": "Kakitangan"
+  },
+  "settings": {
+    "language": "Bahasa",
+    "theme": "Tema",
+    "textSize": "Saiz teks"
+  },
+  "theme": {
+    "light": "Cerah",
+    "dark": "Gelap",
+    "system": "Sistem"
+  },
+  "textSize": {
+    "standard": "Biasa",
+    "large": "Besar",
+    "xlarge": "Sangat besar"
+  },
+  "status": {
+    "well": "Berasa Sihat",
+    "resting": "Sedang Berehat",
+    "contact": "Sila Hubungi Kakitangan",
+    "available": "Tersedia",
+    "limited": "Terhad",
+    "full": "Penuh"
+  },
+  "dialog": {
+    "close": "Tutup",
+    "cancel": "Batal",
+    "confirm": "Sahkan"
+  },
+  "toast": {
+    "dismiss": "Tutup mesej",
+    "language": "Bahasa ditukar kepada {name}",
+    "theme": "Tema: {name}",
+    "textSize": "Saiz teks: {name}"
+  },
+  "common": {
+    "loading": "Memuatkan…"
+  },
+  "empty": {
+    "title": "Belum ada apa-apa di sini",
+    "text": "Item akan muncul di sini apabila ada sesuatu untuk dipaparkan."
+  },
+  "placeholder": {
+    "description": "Halaman ini ialah ruang letak dalam sistem reka bentuk baharu. Kandungan sebenar akan tiba dalam fasa kemudian.",
+    "exampleButton": "Tindakan contoh",
+    "quickTitle": "Tindakan pantas",
+    "quickText": "Kongsi sesuatu yang indah hari ini dengan keluarga penghuni.",
+    "cardTitle": "Komponen dikongsi",
+    "cardText": "Butang, lencana status dan dialog yang dipaparkan di sini ialah blok binaan untuk setiap skrin.",
+    "primary": "Utama",
+    "secondary": "Kedua",
+    "ghost": "Ringkas",
+    "danger": "Buang",
+    "disabled": "Tidak tersedia",
+    "statusTitle": "Lencana status",
+    "openDialog": "Buka dialog",
+    "sectionTitle": "Keadaan kosong dan memuatkan",
+    "dialogTitle": "Dialog contoh",
+    "dialogText": "Tekan Escape, butang Tutup atau kawasan gelap untuk menutup. Fokus kembali ke butang yang membukanya.",
+    "toastText": "Ini ialah mesej contoh."
   }
 }

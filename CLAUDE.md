@@ -26,30 +26,33 @@ Not allowed: React, Tailwind, Lucide package, axios, UI kits, date/animation lib
 Modern, clean, friendly, spacious; rounded cards; warm neutral backgrounds; teal and green accents; clean typography; icon + word everywhere; subtle motion; large buttons. Inspired by **Ah Ma Ah Gong Can** (https://github.com/zacharyzai/wad2-proj): adapt its application shell, desktop sidebar + mobile bottom nav, tokens + Bootstrap bridge, theme switching, i18n architecture, native `<dialog>` confirmations and toasts. **Do not** copy its mascot, medicine illustrations, scan/bill/auth features or backend.
 The hand-drawn wireframe styling (Kalam, Patrick Hand, hand-drawn borders) is retired. `reference/wireframe/` remains the source of user journeys and content only.
 
-**Brand research (official SAS site, checked in Phase 1):** the site uses red (`#ee3e3e`, `#e02b20`, dark `#921515`), blue (`#005aab`, link blue `#2ea3f2`), white and `#333`; fonts Poppins and Open Sans; Divi (WordPress) theme. It is **not** teal/green. Decision to confirm in Phase 2: keep the approved teal + green UI palette (`#1d6560` primary, `#2a8c82` accent, green support colour, warm neutrals) and use SAS red sparingly as a brand accent (e.g. donate call-to-action, logo mark), without implying an official SAS logo. Prefer Atkinson Hyperlegible Next (reference) for readability over Poppins.
+**Brand research (official SAS site, checked in Phase 1):** the site uses red (`#ee3e3e`, `#e02b20`, dark `#921515`), blue (`#005aab`, link blue `#2ea3f2`), white and `#333`; fonts Poppins and Open Sans; Divi (WordPress) theme. It is **not** teal/green. **Decided (Phase 2):** teal + green carry the UI; SAS red (`#ee3e3e`) and blue (`#005aab`) are accents only, never the main action colour. Fonts: **Poppins** (headings) and **Open Sans** (body) via Google Fonts, with system CJK/Tamil fallbacks (no web fonts for Chinese or Tamil). No imitation of the SAS logo (the header uses an original "S" tile).
+
+**Palette rules (all in `src/styles/global/tokens.css`, verified by `npm run contrast`):** primary fill/text `#1d6560` (6.8:1 with white; dark theme uses a light teal fill with dark text); brand teal `#2a8c82` is decoration/large type only (white on it is 4.06:1); green support `#4a9d6f`/`#1f6a47`; warm page `#fbfaf7`, soft teal `#eef6f4`, text `#1a1a1a`; SAS blue is the link colour; SAS red appears as `--color-sas-red` (decoration), `--color-sas-red-solid` (red fill with white text, 6.5:1) and danger text. Never hard-code a colour outside `tokens.css`.
 
 **Imagery:** original, consistent, friendly illustrations (authored SVG), respectful depictions of elderly residents and caregivers. No unverified photographs, no striped placeholders where avoidable, no imitation SAS logo, no real SAS resident photos. A `MomentPhoto`-style component may later render licensed photos. Keep the notice "Images and resident information are for demonstration purposes only."
 
 ## 5. Project structure
 ```
-legacy-react/      preserved React prototype (read-only reference; runs on its own)
+legacy-react/         preserved React prototype (read-only reference; runs on its own)
 reference/wireframe/  original Claude Design export (NEVER modify)
 docs/vue-migration/   MIGRATION_PLAN.md, i18n-review.md
-scripts/              check-i18n.mjs (added in Phase 2)
-tests/  e2e/          Vitest unit tests, Playwright specs (added when needed)
+scripts/              check-contrast.mjs (npm run contrast), check-i18n.mjs (npm run i18n:check)
 src/
-  main.js  App.vue  theme.js  screenFade.js
+  main.js  App.vue  theme.js  navigation.js
   router/index.js
-  i18n/{index.js, format.js, locales/{en,zh,ms,ta}.json}
-  stores/{ui,residents,moments,inquiries,visits,events}.js
-  data/        seed data (ids + ISO dates), dates.js
-  composables/ only when reused twice
-  components/{layout,ui,controls,guide,domain}/
-  views/{caregiver,staff}/  SettingsView.vue  NotFoundView.vue
-  assets/      original illustrations
-  styles/      main.css, global/{tokens,base,buttons,forms,feedback,surfaces,layout,motion}.css
+  i18n/{index.js, locales/{en,zh,ms,ta}.json}      (format.js for Intl dates arrives with the data phase)
+  stores/ui.js                                     (more stores in Phase 3)
+  composables/useToast.js
+  components/
+    ui/        AppIcon AppButton AppCard StatusBadge AppDialog AppToast SegmentedControl
+               PageHeader SectionHeader EmptyState LoadingState
+    controls/  LanguageSwitch ThemeSwitch TextSizeSwitch RoleSwitch SettingsControls
+    layout/    AppSidebar AppHeader BottomNavigation AppFooter BrandMark
+  views/PlaceholderView.vue                        (every route, until its phase)
+  styles/      main.css, global/{tokens,base,layout}.css
 ```
-Do not create folders without files. Phase 1 currently contains only the scaffold (router, ui store, i18n, placeholder view).
+Later phases add `data/`, the other stores, `components/domain/`, `components/guide/`, `views/{caregiver,staff}/`, tests. Do not create folders without files.
 
 ## 6. Routes
 Caregiver: `/` Home, `/moments`, `/visits`, `/visits/book` (4-step flow, `?reschedule=<id>`), `/community` (`?event=<id>` opens detail), `/account`.
@@ -58,7 +61,7 @@ Staff: `/staff` Dashboard, `/staff/updates`, `/staff/moment`, `/staff/inquiries`
 
 ## 7. Navigation
 **Desktop (≥992 px):** sidebar (brand, nav, language, theme, text size, role switch, guide link, account), content area max ≈1080 px with responsive cards. Do not lock the app to a 480 px column.
-**Mobile (<992 px):** compact header (brand, account/settings, controls) + fixed bottom nav. **Caregiver: 4 tabs** Home, Moments, Visits, Community; Account/Settings from the header. **Staff: 4 tabs** Dashboard, Updates, Inquiries, Visits & Events; **Post a Moment** is a prominent quick action on the dashboard and the Updates page (desktop sidebar lists all five). Do not add tabs if labels do not stay readable at 320 px in all four languages.
+**Mobile (<992 px):** compact header (brand, account/settings, controls) + fixed bottom nav. **Caregiver: 4 tabs** Home, Moments, Visits, Community; Account/Settings from the header. **Staff: 4 tabs** Dashboard, Updates, Inquiries, Visits & Events; **Post a Moment** is a prominent quick action on the dashboard and the Updates page (desktop sidebar lists all five). Do not add tabs if labels do not stay readable at 320 px in all four languages. (Verified in Phase 2: tab labels wrap to at most two lines, nothing clips, in all four languages at standard and extra-large text.)
 
 ## 8. State (Pinia)
 Six stores: `ui` (role, locale, theme, text size, guide), `residents` (residents + well-being statuses), `moments`, `inquiries`, `visits` (bookings + per-date/slot capacity), `events`. Store ISO dates/timestamps only; derive pending count, upcoming/past, availability, latest moment and published events with getters; never duplicate derived state. Cancelled bookings never count toward capacity. Revoke object URLs for removed/replaced/abandoned uploads (published moments keep theirs).
@@ -93,11 +96,12 @@ Simplified card dialog (no spotlight, no voice narration): **caregiver 5 steps**
 6. Staff saves a draft or publishes an event → caregiver Community updates (drafts hidden; only public events shareable).
 
 ## 14. Coding conventions
+**Bootstrap class collisions:** Bootstrap CSS is loaded globally, so never name our classes `row`, `col*`, `container`, `card`, `card-title`, `btn`, `toast`, `lead`, `badge`, `nav`, `nav-item`, `nav-link`, `alert`, `modal`, `tab-*`, `list-group*`, `dropdown*` (Phase 2 hit this with `.row`, `.toast`, `.lead`). Prefix component classes (`app-…`, `seg-…`, `side-…`) and use Bootstrap only for utilities like `visually-hidden`, `m-0`, `d-flex`, `gap-*`.
 `<script setup>` SFCs, PascalCase files, props down / emits up, shared state in Pinia only, composables only when reused, scoped CSS using tokens (`var(--…)`), Bootstrap utilities for layout/spacing only, no hex colours outside `tokens.css`, comments only for non-obvious "why". Use ISO dates in state; format at render.
 
 ## 15. Migration phases (each ends with a summary and waits for approval)
 1. **Safety checkpoint + Vue scaffold** — ✅ done: Git repo, baseline commit, tag `react-prototype-final`, React moved to `legacy-react/`, Vue 3 + Vite + Router + Pinia + Bootstrap + vue-i18n scaffold, this file.
-2. **Foundation / design system:** tokens, themes, text size, i18n infrastructure + parity script, fonts, shell (sidebar ↔ bottom nav), role switch, shared UI components (buttons, cards, tabs, badges, dialogs, toast, icons, form fields), contrast verification.
+2. **Foundation / design system** — ✅ done: tokens (light/dark) + contrast script, Poppins/Open Sans, themes (light/dark/system, no flash, saved), text size (standard 17px / large 19px / extra large 21px, saved), i18n parity script, responsive shell (≥992px sidebar; phone header + 4-tab bottom nav), role switch, shared UI components, translated placeholder pages. Form-field components arrive with the first form (Phase 4).
 3. **Data + stores:** seed data, six stores, Vitest tests for capacity/availability/derived state and cross-role transitions.
 4. **Caregiver screens** (with all four languages as each screen is built, illustrations, volunteer section).
 5. **Staff screens** + all cross-role journeys.
@@ -109,12 +113,12 @@ Simplified card dialog (no spotlight, no voice narration): **caregiver 5 steps**
 1. Read this file first. 2. Preserve `reference/wireframe/` and `legacy-react/` (read-only; port logic, never edit). 3. Frontend-only, fictional data. 4. Incremental phases; no feature or dependency without approval. 5. Verify navigation, the six journeys, language/theme/text-size switching and keyboard use after each phase. 6. Run `npm run build` and `npm run lint` (and tests once they exist). 7. Keep commits small and the repo clean; the React baseline is recoverable via tag `react-prototype-final`.
 
 ## 17. Commands
-`npm install` · `npm run dev` (http://localhost:5173) · `npm run build` · `npm run preview` · `npm run lint`.
+`npm install` · `npm run dev` (http://localhost:5173) · `npm run build` · `npm run preview` · `npm run lint` · `npm run contrast` (WCAG check of all token pairs, both themes) · `npm run i18n:check` (key/placeholder parity across the 4 locales).
 Legacy React app: `cd legacy-react && npm install && npm run dev`.
 Note: if `npm install` fails with an EACCES/EEXIST error on `~/.npm/_cacache`, the user-level npm cache has root-owned files; use `npm install --cache <temp dir>` rather than changing permissions.
 
 ## 18. Open decisions
-- Final palette and SAS-red accent usage (Phase 2).
-- Staff mobile tab set (proposed above) confirmed against Tamil label widths (Phase 2).
 - Names of demo people (currently Sarah Tan, Madam Tan Mei Ling, Nurse Aisha).
 - Contents of "Donation information" beyond the verified SAS donation link: https://www.societyagedsick.org.sg/donation/ (Facebook: https://www.facebook.com/SASNursingHome, Instagram: https://www.instagram.com/sasnursinghome/).
+- Phase 2 left for later: a screen cross-fade on theme/language change (not needed yet), form-field components (Phase 4), per-page document titles use `pages.*` keys.
+- Native-speaker review of all non-English text: see `docs/vue-migration/i18n-review.md`.

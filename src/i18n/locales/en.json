@@ -1,6 +1,34 @@
 {
   "app": {
-    "name": "SAS Connect"
+    "name": "SAS Connect",
+    "disclaimer": "SAS Connect is a demonstration prototype. Images and resident information are for demonstration purposes only."
+  },
+  "nav": {
+    "skip": "Skip to main content",
+    "main": "Main navigation",
+    "staffMain": "Staff navigation",
+    "brandHome": "SAS Connect, go to home",
+    "settings": "Settings",
+    "account": "Account",
+    "home": "Home",
+    "moments": "Moments",
+    "visits": "Visits",
+    "community": "Community",
+    "dashboard": "Dashboard",
+    "updates": "Resident Updates",
+    "postMoment": "Post a Moment",
+    "inquiries": "Inquiries",
+    "visitsEvents": "Visits & Events"
+  },
+  "tab": {
+    "home": "Home",
+    "moments": "Moments",
+    "visits": "Visits",
+    "community": "Community",
+    "dashboard": "Dashboard",
+    "updates": "Updates",
+    "inquiries": "Inquiries",
+    "visitsEvents": "Visits & Events"
   },
   "pages": {
     "home": "Home",
@@ -17,9 +45,69 @@
     "staffAccount": "Staff Account",
     "notFound": "Page not found"
   },
-  "scaffold": {
-    "note": "Phase 1 scaffold: the real screens arrive in later phases.",
-    "role": "Current demo role: {role}",
-    "routes": "All routes"
+  "role": {
+    "label": "Demo view",
+    "caregiver": "Caregiver",
+    "staff": "Staff"
+  },
+  "settings": {
+    "language": "Language",
+    "theme": "Theme",
+    "textSize": "Text size"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "textSize": {
+    "standard": "Standard",
+    "large": "Large",
+    "xlarge": "Extra large"
+  },
+  "status": {
+    "well": "Feeling Well",
+    "resting": "Resting",
+    "contact": "Please Contact Staff",
+    "available": "Available",
+    "limited": "Limited",
+    "full": "Fully Booked"
+  },
+  "dialog": {
+    "close": "Close",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "toast": {
+    "dismiss": "Dismiss message",
+    "language": "Language changed to {name}",
+    "theme": "Theme: {name}",
+    "textSize": "Text size: {name}"
+  },
+  "common": {
+    "loading": "Loading…"
+  },
+  "empty": {
+    "title": "Nothing here yet",
+    "text": "Items will appear here once there is something to show."
+  },
+  "placeholder": {
+    "description": "This page is a placeholder in the new design system. Its real content arrives in a later phase.",
+    "exampleButton": "Example action",
+    "quickTitle": "Quick action",
+    "quickText": "Share something nice that happened today with residents' families.",
+    "cardTitle": "Shared components",
+    "cardText": "Buttons, status badges and dialogs shown here are the building blocks for every screen.",
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "ghost": "Subtle",
+    "danger": "Remove",
+    "disabled": "Unavailable",
+    "statusTitle": "Status badges",
+    "openDialog": "Open a dialog",
+    "sectionTitle": "Empty and loading states",
+    "dialogTitle": "Example dialog",
+    "dialogText": "Press Escape, the Close button or the dark area to close. Focus returns to the button that opened it.",
+    "toastText": "This is an example message."
   }
 }

@@ -1,0 +1,81 @@
+/* Base element styles: type, links, focus, reduced motion. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Text-size setting: everything is in rem, so this scales the whole interface. */
+html {
+  font-size: 17px;
+  -webkit-text-size-adjust: 100%;
+}
+html[data-text='large'] {
+  font-size: 19px;
+}
+html[data-text='xlarge'] {
+  font-size: 21px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+/* Tamil script needs more line height. */
+:lang(ta) body {
+  line-height: 1.8;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+}
+:lang(ta) h1,
+:lang(ta) h2,
+:lang(ta) h3 {
+  line-height: 1.5;
+}
+p {
+  margin-top: 0;
+}
+
+a {
+  color: var(--color-link);
+}
+a:hover {
+  color: var(--color-link-hover);
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+[tabindex='-1']:focus {
+  outline: none; /* the page heading and main area take focus after navigation; no ring needed */
+}
+
+/* Dialogs block the page behind them from scrolling. */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
