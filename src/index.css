@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Kalam", cursive;
+  --font-body: "Patrick Hand", system-ui, sans-serif;
+
+  --color-ink: #1a1a1a;
+  --color-paper: #fbfaf7;
+  --color-canvas: #e9e7e2;
+  --color-teal: #2a8c82;
+  --color-teal-dark: #1d6560;
+  --color-tint: #eef6f4;
+  --color-muted: #555555;
+  --color-dash: #bbbbbb;
+
+  --color-well: #1d6560;
+  --color-well-bg: #e1f1ee;
+  --color-rest: #7a4b00;
+  --color-rest-bg: #fff0cc;
+  --color-rest-dot: #d98a00;
+  --color-contact: #8f2d2d;
+  --color-contact-bg: #fbe4e2;
+  --color-contact-dot: #b84a4a;
+  --color-full: #5f5f5f;
+  --color-full-bg: #e6e6e6;
+
+  --animate-fade: fade-in 0.2s ease-out;
+  --animate-sheet: sheet-in 0.22s ease-out;
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes sheet-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+}
+
+/* Text-size toggle (Aa): everything is rem, so the root size scales the whole UI. */
+html { font-size: 17px; }
+html[data-text="lg"] { font-size: 19px; }
+html[data-text="xl"] { font-size: 21px; }
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+:focus-visible {
+  outline: 3px solid #2a78d6;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
