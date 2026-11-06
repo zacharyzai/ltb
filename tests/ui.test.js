@@ -19,6 +19,14 @@ describe('ui store', () => {
     ui.setCaregiver('cg-nobody')
     expect(ui.currentCaregiverId).toBe('cg-david')
   })
+  it('remembers the resident being viewed, and forgets it when the caregiver changes', () => {
+    const ui = useUiStore()
+    expect(ui.selectedResidentId).toBeNull()
+    ui.setSelectedResident('res-wong')
+    expect(ui.selectedResidentId).toBe('res-wong')
+    ui.setCaregiver('cg-david')
+    expect(ui.selectedResidentId).toBeNull()
+  })
   it('shows one toast at a time and hides it after its time', () => {
     const ui = useUiStore()
     ui.notify('One')

@@ -37,5 +37,6 @@ function choose(value) {
 }
 .word {
   flex-basis: 100%;
+  font-size: 0.9em;
 }
 </style>

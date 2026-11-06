@@ -43,7 +43,8 @@
     "staffInquiries": "Pertanyaan",
     "staffVisitsEvents": "Lawatan & Acara",
     "staffAccount": "Akaun Kakitangan",
-    "notFound": "Halaman tidak ditemui"
+    "notFound": "Halaman tidak ditemui",
+    "rescheduleVisit": "Jadual Semula Lawatan"
   },
   "role": {
     "label": "Paparan demo",
@@ -85,7 +86,8 @@
     "textSize": "Saiz teks: {name}"
   },
   "common": {
-    "loading": "Memuatkan…"
+    "loading": "Memuatkan…",
+    "done": "Selesai"
   },
   "empty": {
     "title": "Belum ada apa-apa di sini",
@@ -303,5 +305,174 @@
     "BAD_TIME": "Sila masukkan masa yang sah; masa tamat mesti selepas masa mula.",
     "EMPTY_LOCATION": "Sila tambah tempat.",
     "NOT_DRAFT": "Hanya draf boleh diterbitkan."
+  },
+  "home": {
+    "greeting": {
+      "morning": "Selamat pagi, {name}",
+      "afternoon": "Selamat petang, {name}",
+      "evening": "Selamat malam, {name}"
+    },
+    "intro": "Berikut keadaan orang tersayang anda dan perkara yang akan datang.",
+    "latestMoment": "Momen terkini",
+    "viewMoments": "Semua momen",
+    "noMoments": "Belum ada momen untuk dipaparkan.",
+    "upcomingVisit": "Lawatan akan datang",
+    "allVisits": "Semua lawatan",
+    "viewVisit": "Lihat lawatan",
+    "noVisit": "Belum ada lawatan ditempah.",
+    "community": "Sorotan komuniti",
+    "allEvents": "Semua acara"
+  },
+  "resident": {
+    "viewing": "Melihat kemas kini untuk",
+    "updated": "Kemas kini terakhir: {when}",
+    "notUpdated": "Belum dikemas kini hari ini",
+    "note": "Nota pasukan penjagaan:"
+  },
+  "time": {
+    "today": "Hari ini",
+    "tomorrow": "Esok",
+    "todayAt": "Hari ini, {time}",
+    "yesterdayAt": "Semalam, {time}"
+  },
+  "moments": {
+    "intro": "Aktiviti dan kemas kini kesejahteraan daripada pasukan penjagaan, dikongsi hanya dengan keluarga yang terlibat.",
+    "wellbeing": "Kesejahteraan hari ini",
+    "disclaimer": "Ini ialah kemas kini umum daripada pasukan penjagaan, bukan penilaian perubatan. Untuk kebimbangan kesihatan, sila hubungi rumah jagaan.",
+    "feed": "Momen",
+    "filterLabel": "Papar momen",
+    "filter": {
+      "latest": "Terkini",
+      "week": "Minggu ini",
+      "all": "Semua"
+    },
+    "empty": "Belum ada momen di sini",
+    "emptyText": "Semak semula nanti, atau cuba penapis lain."
+  },
+  "ask": {
+    "title": "Tanya pasukan penjagaan",
+    "cta": "Ada soalan tentang penjagaan, makanan atau lawatan? Hantar di sini dan pasukan akan membalas.",
+    "open": "Tanya soalan",
+    "resident": "Tentang penghuni yang mana?",
+    "topic": "Topik",
+    "topicNone": "Pilih topik",
+    "question": "Soalan anda",
+    "placeholder": "Taip soalan anda di sini…",
+    "counter": "{n} daripada {max} aksara",
+    "urgent": "Untuk perkara segera, sila telefon rumah jagaan terus. Mesej di sini tidak dijawab dalam masa nyata.",
+    "send": "Hantar soalan",
+    "sent": "Soalan anda telah dihantar. Pasukan penjagaan akan membalas di sini.",
+    "sentToast": "Soalan dihantar",
+    "another": "Tanya soalan lain",
+    "history": "Soalan anda",
+    "noHistory": "Anda belum bertanya apa-apa tentang penghuni ini.",
+    "about": "Mengenai {name}",
+    "careTeamReplied": "Balasan pasukan penjagaan"
+  },
+  "form": {
+    "required": "wajib",
+    "optional": "pilihan"
+  },
+  "visits": {
+    "intro": "Tempah, ubah atau semak lawatan anda. Sila tempah slot supaya kami dapat menyambut semua orang dengan selesa.",
+    "book": "Tempah lawatan",
+    "upcoming": "Lawatan akan datang",
+    "past": "Lawatan lepas",
+    "cancelledTitle": "Lawatan dibatalkan",
+    "noUpcoming": "Tiada lawatan akan datang",
+    "noPast": "Belum ada lawatan lepas",
+    "viewPass": "Lihat pas",
+    "reschedule": "Jadual semula",
+    "cancel": "Batalkan lawatan",
+    "cancelTitle": "Batalkan lawatan ini?",
+    "cancelText": "{date}, {time}. Slot masa ini akan dilepaskan untuk keluarga lain.",
+    "keep": "Kekalkan lawatan saya",
+    "confirmCancel": "Ya, batalkan lawatan",
+    "cancelledToast": "Lawatan dibatalkan",
+    "visitors": "{n} pelawat",
+    "with": "Melawat {name}"
+  },
+  "pass": {
+    "title": "Pas lawatan",
+    "demo": "Pas demo: bukan kod sebenar yang boleh diimbas",
+    "hint": "Tunjukkan ini di kaunter hadapan. Dalam prototaip ini, ia tidak disambungkan kepada sistem daftar masuk SAS.",
+    "alt": "Pas lawatan demo {ref}"
+  },
+  "book": {
+    "progress": "Kemajuan tempahan",
+    "step": {
+      "date": "Pilih tarikh",
+      "time": "Pilih masa",
+      "review": "Semak",
+      "confirmed": "Disahkan"
+    },
+    "stepOf": "Langkah {n} daripada {total}",
+    "dateHelp": "Pilih hari yang sesuai. Hari bertanda ✕ sudah penuh.",
+    "calendar": "Pilih tarikh lawatan",
+    "pastDate": "tarikh lepas, tidak tersedia",
+    "notYetOpen": "belum dibuka untuk tempahan",
+    "timeHelp": "Pilih masa pada {date}.",
+    "spacesLeft": "{n} ruang lagi",
+    "slotPassed": "Sudah bermula",
+    "reviewHelp": "Sila semak butiran, kemudian sahkan.",
+    "resident": "Penghuni",
+    "date": "Tarikh",
+    "time": "Masa",
+    "visitors": "Pelawat",
+    "fewer": "Kurangkan pelawat",
+    "more": "Tambah pelawat",
+    "maxNote": "Sehingga {max} pelawat boleh hadir pada masa ini.",
+    "back": "Kembali",
+    "next": "Seterusnya",
+    "confirm": "Sahkan tempahan",
+    "confirmMove": "Sahkan masa baharu",
+    "confirmed": "Lawatan anda telah ditempah.",
+    "rescheduled": "Lawatan anda telah dijadualkan semula.",
+    "reference": "Rujukan tempahan",
+    "backToVisits": "Kembali ke lawatan saya",
+    "forWho": "Menempah lawatan untuk"
+  },
+  "community": {
+    "intro": "Acara, berita dan cara membantu di rumah jagaan.",
+    "sections": "Bahagian komuniti",
+    "tab": {
+      "upcoming": "Acara akan datang",
+      "news": "Berita",
+      "past": "Acara lepas",
+      "volunteering": "Sukarelawan"
+    },
+    "noUpcoming": "Tiada acara akan datang buat masa ini",
+    "noPast": "Tiada acara lepas untuk dipaparkan",
+    "viewDetails": "Lihat butiran",
+    "viewDetailsFor": "Lihat butiran: {title}",
+    "familiesOnly": "Penghuni & keluarga sahaja",
+    "when": "Bila",
+    "where": "Di mana"
+  },
+  "share": {
+    "title": "Kongsi acara ini",
+    "note": "Hanya butiran acara awam dikongsi. Kemas kini penghuni tidak pernah dikongsi.",
+    "private": "Acara ini untuk penghuni dan keluarga sahaja, jadi tidak boleh dikongsi secara awam.",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "copy": "Salin pautan",
+    "copied": "Pautan disalin",
+    "copyFailed": "Pautan tidak dapat disalin"
+  },
+  "volunteer": {
+    "title": "Jadi sukarelawan bersama kami",
+    "intro": "Beberapa jam sahaja boleh membuat perbezaan besar kepada minggu seorang penghuni.",
+    "express": "Nyatakan minat",
+    "expressFor": "Nyatakan minat: {title}",
+    "noted": "Minat dicatat",
+    "demo": "Demo sahaja: tiada apa-apa dihantar dan tiada butiran peribadi dikumpul.",
+    "toast": "Terima kasih! Minat anda terhadap “{title}” telah dicatat."
+  },
+  "support": {
+    "title": "Sokong SAS",
+    "text": "Sumbangan anda membantu membiayai aktiviti seperti terapi muzik yang membawa keselesaan dan kegembiraan kepada penghuni.",
+    "donate": "Derma di laman web SAS",
+    "website": "Laman web SAS",
+    "note": "Membuka laman web rasmi SAS dalam tab baharu. Derma tidak diproses dalam prototaip ini."
   }
 }

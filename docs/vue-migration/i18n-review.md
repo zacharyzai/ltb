@@ -37,3 +37,24 @@ Everything under `seed.*` (moments, inquiries and replies, events, news, volunte
 | Photo consent message | 未同意拍照 | persetujuan foto | புகைப்பட ஒப்புதல் | Privacy wording: have it checked |
 | Fully-booked / capacity messages | 约满 / 容量 | penuh / kapasiti | முன்பதிவு / கொள்ளளவு | |
 | Volunteer commitment lines | 每周约2小时 etc. | Kira-kira 2 jam seminggu etc. | வாரத்துக்கு சுமார் 2 மணி நேரம் etc. | |
+
+## Phase 4: caregiver pages
+All `home.*`, `resident.*`, `moments.*`, `ask.*`, `visits.*`, `pass.*`, `book.*`, `community.*`, `share.*`, `volunteer.*`, `support.*`, `form.*`, `time.*` text is a first-pass translation by the assistant. Please review these first:
+
+| English | 中文 | Bahasa Melayu | தமிழ் | Review note |
+|---|---|---|---|---|
+| Good morning / afternoon / evening, {name} | 早上好 / 下午好 / 晚上好 | Selamat pagi / petang / malam | காலை / மதிய / மாலை வணக்கம் | Greeting convention; Malay "petang" vs "tengah hari" |
+| Moments | 动态 | Momen | தருணங்கள் | Is there a warmer word families would use? |
+| Today's well-being | 今日状态 | Kesejahteraan hari ini | இன்றைய நலம் | Must not read as a medical result |
+| General updates, not medical assessments (disclaimer) | 一般性更新，并非医疗评估 | kemas kini umum, bukan penilaian perubatan | பொதுவான புதுப்பிப்புகள்; மருத்துவ மதிப்பீடுகள் அல்ல | Legal-ish: have it checked |
+| Ask the care team | 咨询护理团队 | Tanya pasukan penjagaan | பராமரிப்புக் குழுவிடம் கேளுங்கள் | "Care team" term |
+| Urgent: call the nursing home directly | 紧急情况请直接致电疗养院 | Untuk perkara segera, sila telefon rumah jagaan | அவசர விஷயங்களுக்கு முதியோர் இல்லத்தை நேரடியாக அழைக்கவும் | Safety message: must be clear |
+| Visit pass / Demo pass | 探访通行证 / 演示通行证 | Pas lawatan / Pas demo | வருகை அனுமதிச் சீட்டு | "Pass" wording |
+| Fully booked / Limited / Available | 已约满 / 名额有限 / 可预约 | Penuh / Terhad / Tersedia | முழுமையாக முன்பதிவு / குறைவான இடங்கள் / கிடைக்கிறது | Shown on calendar and slots |
+| {n} space(s) left | 剩余 {n} 个名额 | {n} ruang lagi | {n} இடம் மீதம் | Plural forms (en, ta) |
+| Reschedule | 改期 | Jadual semula | மறுதிட்டமிடு | |
+| Express interest | 表达意愿 | Nyatakan minat | ஆர்வம் தெரிவி | Volunteer call-to-action |
+| Volunteering | 义工服务 | Sukarelawan | தன்னார்வப் பணி | 义工 (Singapore usage) vs 志愿者 |
+| Support SAS / Donate | 支持 SAS / 捐款 | Sokong SAS / Derma | SAS-ஐ ஆதரியுங்கள் / நன்கொடை | Fundraising tone |
+| Residents & families only | 仅限住户及家属 | Penghuni & keluarga sahaja | குடியிருப்பாளர்கள் & குடும்பத்தினர் மட்டும் | |
+| Dates and times | zh-SG, ms-SG, ta-SG via Intl | | | Check weekday/month names and 12-hour times read naturally to native users |

@@ -55,7 +55,8 @@ const items = computed(() => NAV[ui.role].filter((item) => !item.desktopOnly))
   font: 600 0.8125rem / 1.2 var(--font-body);
   text-align: center;
   text-decoration: none;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto; /* a long word at the largest text size breaks at a syllable, not mid-letter */
 }
 .pill {
   display: grid;
@@ -64,6 +65,9 @@ const items = computed(() => NAV[ui.role].filter((item) => !item.desktopOnly))
   height: 2rem;
   border-radius: var(--r-pill);
   transition: background-color var(--dur-fast);
+}
+.label {
+  max-width: 100%;
 }
 .tab.on {
   color: var(--color-tint-text);

@@ -15,6 +15,7 @@ export const useEventsStore = defineStore('events', () => {
   const events = ref(buildEvents())
   const news = ref(buildNews())
   const volunteers = ref(buildVolunteers())
+  const interestedIds = ref([]) // volunteer opportunities the caregiver has expressed interest in (simulated; nothing is sent)
 
   const byDate = (a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime)
   const published = computed(() => events.value.filter((e) => e.status === 'published'))
@@ -70,5 +71,12 @@ export const useEventsStore = defineStore('events', () => {
     return ok(event)
   }
 
-  return { events, news, volunteers, published, upcoming, past, drafts, shareable, newsAnnouncements, byId, createEvent, saveDraft, updateEvent, publishEvent }
+  const hasInterest = (id) => interestedIds.value.includes(id)
+  function expressInterest(id) {
+    if (!volunteers.value.some((v) => v.id === id)) return fail('NOT_FOUND')
+    if (!hasInterest(id)) interestedIds.value.push(id)
+    return ok(id)
+  }
+
+  return { events, news, volunteers, interestedIds, hasInterest, expressInterest, published, upcoming, past, drafts, shareable, newsAnnouncements, byId, createEvent, saveDraft, updateEvent, publishEvent }
 })

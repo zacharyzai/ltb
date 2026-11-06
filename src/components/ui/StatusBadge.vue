@@ -3,17 +3,19 @@
 import { useI18n } from 'vue-i18n'
 
 defineProps({
-  status: { type: String, required: true }, // 'well' | 'resting' | 'contact' | 'available' | 'limited' | 'full'
+  // well | resting | contact | available | limited | full | pending | in-review | answered | confirmed | cancelled | completed
+  status: { type: String, required: true },
 })
 const { t } = useI18n()
-const SYMBOLS = { well: '●', resting: '◆', contact: '▲', available: '●', limited: '◆', full: '✕' }
-const TONE = { well: 'well', resting: 'resting', contact: 'contact', available: 'well', limited: 'resting', full: 'full' }
+const SYMBOLS = { well: '●', resting: '◆', contact: '▲', available: '●', limited: '◆', full: '✕', pending: '○', 'in-review': '◐', answered: '✓', confirmed: '✓', cancelled: '✕', completed: '✓' }
+const TONE = { well: 'well', resting: 'resting', contact: 'contact', available: 'well', limited: 'resting', full: 'full', pending: 'plain', 'in-review': 'resting', answered: 'well', confirmed: 'well', cancelled: 'full', completed: 'plain' }
+const NAMESPACE = { pending: 'inquiryStatus', 'in-review': 'inquiryStatus', answered: 'inquiryStatus', confirmed: 'visitStatus', cancelled: 'visitStatus', completed: 'visitStatus' }
 </script>
 
 <template>
   <span class="status" :class="`tone-${TONE[status]}`">
     <span aria-hidden="true">{{ SYMBOLS[status] }}</span>
-    {{ t(`status.${status}`) }}
+    {{ t(`${NAMESPACE[status] ?? 'status'}.${status}`) }}
   </span>
 </template>
 
@@ -34,4 +36,5 @@ const TONE = { well: 'well', resting: 'resting', contact: 'contact', available: 
 .tone-resting { --bg: var(--status-resting-bg); --fg: var(--status-resting-fg); --b: var(--status-resting-border); }
 .tone-contact { --bg: var(--status-contact-bg); --fg: var(--status-contact-fg); --b: var(--status-contact-border); }
 .tone-full { --bg: var(--status-full-bg); --fg: var(--status-full-fg); --b: var(--status-full-border); }
+.tone-plain { --bg: var(--color-card); --fg: var(--color-text); --b: var(--color-control-border); }
 </style>

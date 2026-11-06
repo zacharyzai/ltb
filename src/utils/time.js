@@ -32,3 +32,9 @@ export const at = (iso, hhmm) => new Date(`${iso}T${hhmm}:00+08:00`).toISOString
 
 export const isIsoDate = (s) => typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s) && new Date(`${s}T00:00:00Z`).toISOString().slice(0, 10) === s
 export const isTime = (s) => typeof s === 'string' && /^([01]\d|2[0-3]):[0-5]\d$/.test(s)
+
+// 'morning' | 'afternoon' | 'evening' in Singapore, for greetings.
+export const greetingPeriod = () => {
+  const hour = Number(nowTime().slice(0, 2))
+  return hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening'
+}

@@ -7,12 +7,13 @@ defineProps({
   modelValue: { type: String, required: true },
   label: { type: String, required: true }, // accessible name of the group
   check: { type: Boolean, default: true }, // show a ✓ on the chosen option (a cue that is not colour)
+  wrap: { type: Boolean, default: false }, // let options wrap onto several rows (long labels, many options)
 })
 const emit = defineEmits(['update:modelValue'])
 </script>
 
 <template>
-  <div class="seg" role="group" :aria-label="label">
+  <div class="seg" :class="{ wrap }" role="group" :aria-label="label">
     <button
       v-for="option in options"
       :key="option.value"
@@ -41,6 +42,12 @@ const emit = defineEmits(['update:modelValue'])
   border: 2px solid var(--color-control-border);
   border-radius: var(--r-lg);
   background: var(--color-card);
+}
+.seg.wrap {
+  flex-wrap: wrap;
+}
+.seg.wrap .seg-btn {
+  flex: 1 1 9rem;
 }
 .seg-btn {
   flex: 1 1 0;

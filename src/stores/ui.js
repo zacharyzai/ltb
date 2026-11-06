@@ -15,8 +15,13 @@ export const useUiStore = defineStore('ui', () => {
   const currentStaffId = ref(DEFAULT_STAFF_ID)
   const currentCaregiver = computed(() => caregivers.find((c) => c.id === currentCaregiverId.value))
   const currentStaff = computed(() => staff.find((s) => s.id === currentStaffId.value))
+  // The resident a caregiver is currently viewing (null = their first linked resident). Kept here so it survives page changes.
+  const selectedResidentId = ref(null)
+  const setSelectedResident = (id) => (selectedResidentId.value = id)
   function setCaregiver(id) {
-    if (caregivers.some((c) => c.id === id)) currentCaregiverId.value = id
+    if (!caregivers.some((c) => c.id === id)) return
+    currentCaregiverId.value = id
+    selectedResidentId.value = null
   }
 
   const themeChoice = ref(readPref('theme')) // 'light' | 'dark' | 'system'
@@ -51,7 +56,7 @@ export const useUiStore = defineStore('ui', () => {
 
   return {
     role, isStaff, setRole,
-    currentCaregiverId, currentCaregiver, currentStaffId, currentStaff, setCaregiver,
+    currentCaregiverId, currentCaregiver, currentStaffId, currentStaff, setCaregiver, selectedResidentId, setSelectedResident,
     themeChoice, shownTheme, setTheme, textSize, setTextSize,
     toasts, notify, dismissToast,
   }

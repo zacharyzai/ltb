@@ -34,4 +34,15 @@ const { t } = useI18n()
   font: 700 var(--fs-lead) / var(--lh-tight) var(--font-heading);
   color: var(--color-text);
 }
+/* Narrow phones: a slightly smaller brand so it never collides with the header buttons, even at the largest text size. */
+@media (max-width: 400px) {
+  .tile {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+  .name {
+    font-size: var(--fs-small);
+  }
+}
 </style>

@@ -19,7 +19,7 @@ const settingsOpen = ref(false)
 
 <template>
   <header class="top">
-    <RouterLink :to="HOME[ui.role]" class="brand-link" :aria-label="t('nav.brandHome')"><BrandMark /></RouterLink>
+    <RouterLink :to="HOME[ui.role]" class="brand-link"><BrandMark /></RouterLink>
     <button type="button" class="icon-btn" :aria-label="t('nav.settings')" @click="settingsOpen = true"><AppIcon name="sliders" /></button>
     <RouterLink :to="account" class="icon-btn" :class="{ on: route.path === account }" :aria-label="t('nav.account')" :aria-current="route.path === account ? 'page' : null">
       <AppIcon name="user" />

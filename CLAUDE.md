@@ -19,7 +19,7 @@ Mock data and Pinia state reset on refresh. Only UI preferences (language, theme
 
 ## 3. Stack (final)
 Vue 3 (Composition API, `<script setup>`), Vite, Vue Router, Pinia (setup stores), Bootstrap 5 **CSS only** (no Bootstrap JS) with custom CSS design tokens, vue-i18n, **JavaScript (no TypeScript)**.
-Testing: **Vitest installed** (store/logic tests in `tests/`); Playwright and `@axe-core/playwright` are approved and will be installed when the feature pages exist. Keep the suite small.
+Testing: **Vitest** (store/logic tests in `tests/`) and **Playwright + `@axe-core/playwright`** (end-to-end and accessibility specs in `e2e/`, config `playwright.config.js`, starts its own dev server on port 5199). Keep the suites small.
 Not allowed: React, Tailwind, Lucide package, axios, UI kits, date/animation libraries, other state libraries. Any new dependency needs approval.
 
 ## 4. Design direction
@@ -38,24 +38,28 @@ legacy-react/         preserved React prototype (read-only reference; runs on it
 reference/wireframe/  original Claude Design export (NEVER modify)
 docs/vue-migration/   MIGRATION_PLAN.md, i18n-review.md
 scripts/              check-contrast.mjs (npm run contrast), check-i18n.mjs (npm run i18n:check)
-tests/                Vitest: helpers.js (frozen Singapore clock) + one file per store, data, time, ui, cross-role
+tests/                Vitest: helpers.js (frozen Singapore clock) + one file per store, data, time, format, ui, caregiver, cross-role
+e2e/                  Playwright: caregiver.spec.js (journeys), a11y-responsive.spec.js (axe + viewport/language matrix), routes.spec.js
 src/
   main.js  App.vue  theme.js  navigation.js
   router/index.js
-  i18n/{index.js, locales/{en,zh,ms,ta}.json}
+  i18n/{index.js, format.js, locales/{en,zh,ms,ta}.json}   (format.js = Intl dates/times in Singapore time)
   utils/       time.js (Singapore clock + dates), result.js (ok/fail), content.js (seeded-text helper)
   data/        residents caregivers staff moments inquiries visits events (mock data, see §8)
   stores/      ui residents moments inquiries visits events
-  composables/useToast.js  (thin wrapper over the ui store)
+  composables/ useToast.js (thin wrapper over the ui store), useCaregiver.js (linked residents + selected resident)
   components/
-    ui/        AppIcon AppButton AppCard StatusBadge AppDialog AppToast SegmentedControl
-               PageHeader SectionHeader EmptyState LoadingState
+    ui/        AppIcon AppButton AppCard StatusBadge AppDialog AppToast SegmentedControl FormField
+               PageHeader SectionHeader EmptyState LoadingState AppIllustration ArtPerson QrPass
+    domain/    ResidentSwitcher ResidentCard MomentCard VisitCard EventCard InquiryCard BookingCalendar
+               BookingStepIndicator EventDetailDialog AskCareTeamDialog
     controls/  LanguageSwitch ThemeSwitch TextSizeSwitch RoleSwitch SettingsControls
     layout/    AppSidebar AppHeader BottomNavigation AppFooter BrandMark
-  views/PlaceholderView.vue                        (every route, until its phase)
+  views/caregiver/ HomeView MomentsView VisitsView BookVisitView CommunityView
+  views/PlaceholderView.vue                        (Account and all staff routes, until their phases)
   styles/      main.css, global/{tokens,base,layout}.css
 ```
-Later phases add `components/domain/`, `components/guide/`, `views/{caregiver,staff}/`, Intl date formatting (`i18n/format.js`), Playwright specs. Do not create folders without files.
+Later phases add `components/guide/` and `views/staff/`. Do not create folders without files.
 
 ## 6. Routes
 Caregiver: `/` Home, `/moments`, `/visits`, `/visits/book` (4-step flow, `?reschedule=<id>`), `/community` (`?event=<id>` opens detail), `/account`.
@@ -123,7 +127,7 @@ Simplified card dialog (no spotlight, no voice narration): **caregiver 5 steps**
 1. **Safety checkpoint + Vue scaffold** — ✅ done: Git repo, baseline commit, tag `react-prototype-final`, React moved to `legacy-react/`, Vue 3 + Vite + Router + Pinia + Bootstrap + vue-i18n scaffold, this file.
 2. **Foundation / design system** — ✅ done: tokens (light/dark) + contrast script, Poppins/Open Sans, themes (light/dark/system, no flash, saved), text size (standard 17px / large 19px / extra large 21px, saved), i18n parity script, responsive shell (≥992px sidebar; phone header + 4-tab bottom nav), role switch, shared UI components, translated placeholder pages. Form-field components arrive with the first form (Phase 4).
 3. **Data + stores** — ✅ done: relative-date mock data, six Pinia stores with validation and result objects, translated seed content/enumerations/error messages (197 keys x 4 locales), Vitest suite (101 tests) including the six cross-role journeys and a robustness check on awkward dates. Toasts moved into the ui store; no UI changes.
-4. **Caregiver screens** (with all four languages as each screen is built, illustrations, volunteer section).
+4. **Caregiver screens** — ✅ done: Home (resident switcher, status, latest moment, next visit, community highlight), Moments (well-being, filters, Ask the care team, inquiry history with staff replies), Visits (upcoming/past/cancelled, pass, cancel, reschedule) and the 4-step booking flow with calendar, time slots, review and demo QR pass, Community (events, news, past events, volunteering with simulated interest, event dialog with WhatsApp/Facebook/Copy link, Support SAS). Original SVG illustrations, `FormField`, Intl date formatting, 334 i18n keys x 4 languages, 43 Playwright tests incl. axe.
 5. **Staff screens** + all cross-role journeys.
 6. **Settings + beginner's guide.**
 7. **Polish:** illustrations, motion, empty/error states, dark-mode and Tamil/Chinese layout audit.
@@ -133,12 +137,22 @@ Simplified card dialog (no spotlight, no voice narration): **caregiver 5 steps**
 1. Read this file first. 2. Preserve `reference/wireframe/` and `legacy-react/` (read-only; port logic, never edit). 3. Frontend-only, fictional data. 4. Incremental phases; no feature or dependency without approval. 5. Verify navigation, the six journeys, language/theme/text-size switching and keyboard use after each phase. 6. Run `npm run build` and `npm run lint` (and tests once they exist). 7. Keep commits small and the repo clean; the React baseline is recoverable via tag `react-prototype-final`.
 
 ## 17. Commands
-`npm install` · `npm run dev` (http://localhost:5173) · `npm run build` · `npm run preview` · `npm run lint` · `npm test` (Vitest) · `npm run contrast` (WCAG check of all token pairs, both themes) · `npm run i18n:check` (key/placeholder parity across the 4 locales).
+`npm install` · `npm run dev` (http://localhost:5173) · `npm run build` · `npm run preview` · `npm run lint` · `npm test` (Vitest) · `npm run e2e` (Playwright; first run needs `npx playwright install chromium`) · `npm run contrast` (WCAG check of all token pairs, both themes) · `npm run i18n:check` (key/placeholder parity across the 4 locales).
 Legacy React app: `cd legacy-react && npm install && npm run dev`.
 Note: if `npm install` fails with an EACCES/EEXIST error on `~/.npm/_cacache`, the user-level npm cache has root-owned files; use `npm install --cache <temp dir>` rather than changing permissions.
 
+## 17b. Caregiver portal conventions (Phase 4)
+- The viewed resident lives in the ui store (`selectedResidentId`) and is read through `useCaregiver()`; pages never show a resident the caregiver is not linked to. The booking flow's resident switcher uses the caption key `book.forWho`.
+- Dates are displayed only via `useFormat()` (`i18n/format.js`): ISO dates carry no time zone, timestamps are shown in Singapore time. Reference dates for time-of-day formatting must be modern (Singapore was UTC+7:30 before 1982; a test guards this). Calendar cells show only the day number; month and availability symbol are CSS pseudo-content so the button's visible text matches its accessible name (WCAG 2.5.3).
+- Illustrations are original SVG scenes (`AppIllustration`, figures from `ArtPerson`); they are decorative, never real people, and chosen from a moment's category / an event's category (`utils/content.js`). A `blob:`/`data:`/`https:` image value (staff upload, Phase 5) is shown as a picture instead.
+- Event detail opens from `?event=<id>` (Back closes it); only **published** events resolve, so a draft id opens nothing. Only public events show sharing links; share links never include resident information.
+- Express Interest is stored in the events store (`interestedIds`) and is a simulation: nothing is sent or collected.
+- Donation and social links come from `data/links.js` (verified reachable). No payments are processed.
+- Dialogs use `AppDialog` (native `<dialog>`); forms use `FormField` with `novalidate` forms and store result codes mapped to `t('errors.<CODE>')`.
+
 ## 18. Open decisions
 - Names of demo people (currently Sarah Tan, Madam Tan Mei Ling, Nurse Aisha).
+- Account/Settings page content and the beginner's guide arrive in Phase 6; staff pages in Phase 5.
 - Contents of "Donation information" beyond the verified SAS donation link: https://www.societyagedsick.org.sg/donation/ (Facebook: https://www.facebook.com/SASNursingHome, Instagram: https://www.instagram.com/sasnursinghome/).
 - Phase 2 left for later: a screen cross-fade on theme/language change (not needed yet), form-field components (Phase 4), per-page document titles use `pages.*` keys.
 - Native-speaker review of all non-English text: see `docs/vue-migration/i18n-review.md`.

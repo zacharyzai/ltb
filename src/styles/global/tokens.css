@@ -102,7 +102,7 @@
 
   /* Sizes */
   --hit: max(48px, 3rem); /* minimum touch target */
-  --sidebar-w: 288px;
+  --sidebar-w: clamp(288px, 17rem, 344px); /* grows a little with the text size */
   --content-max: 1080px;
 
   /* Motion */

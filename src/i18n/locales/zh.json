@@ -43,7 +43,8 @@
     "staffInquiries": "咨询",
     "staffVisitsEvents": "探访与活动",
     "staffAccount": "员工账户",
-    "notFound": "找不到页面"
+    "notFound": "找不到页面",
+    "rescheduleVisit": "探访改期"
   },
   "role": {
     "label": "演示视图",
@@ -85,7 +86,8 @@
     "textSize": "文字大小：{name}"
   },
   "common": {
-    "loading": "加载中…"
+    "loading": "加载中…",
+    "done": "完成"
   },
   "empty": {
     "title": "这里还没有内容",
@@ -303,5 +305,174 @@
     "BAD_TIME": "请输入有效时间，结束时间须晚于开始时间。",
     "EMPTY_LOCATION": "请填写地点。",
     "NOT_DRAFT": "只有草稿才能发布。"
+  },
+  "home": {
+    "greeting": {
+      "morning": "早上好，{name}",
+      "afternoon": "下午好，{name}",
+      "evening": "晚上好，{name}"
+    },
+    "intro": "以下是您家人的近况和接下来的安排。",
+    "latestMoment": "最新动态",
+    "viewMoments": "全部动态",
+    "noMoments": "暂无动态。",
+    "upcomingVisit": "即将到来的探访",
+    "allVisits": "全部探访",
+    "viewVisit": "查看探访",
+    "noVisit": "尚未预约探访。",
+    "community": "社区精选",
+    "allEvents": "全部活动"
+  },
+  "resident": {
+    "viewing": "正在查看以下住户的动态",
+    "updated": "最近更新：{when}",
+    "notUpdated": "今天尚未更新",
+    "note": "护理团队备注："
+  },
+  "time": {
+    "today": "今天",
+    "tomorrow": "明天",
+    "todayAt": "今天 {time}",
+    "yesterdayAt": "昨天 {time}"
+  },
+  "moments": {
+    "intro": "护理团队分享的活动和状态更新，仅与相关家属共享。",
+    "wellbeing": "今日状态",
+    "disclaimer": "这些是护理团队提供的一般性更新，并非医疗评估。如有健康方面的疑虑，请联系疗养院。",
+    "feed": "动态",
+    "filterLabel": "显示动态",
+    "filter": {
+      "latest": "最新",
+      "week": "本周",
+      "all": "全部"
+    },
+    "empty": "这里还没有动态",
+    "emptyText": "请稍后再来看看，或试试其他筛选。"
+  },
+  "ask": {
+    "title": "咨询护理团队",
+    "cta": "对护理、饮食或探访有疑问？在此发送，团队会回复您。",
+    "open": "提出问题",
+    "resident": "关于哪位住户？",
+    "topic": "主题",
+    "topicNone": "选择主题",
+    "question": "您的问题",
+    "placeholder": "请在此输入您的问题…",
+    "counter": "{n}/{max} 个字符",
+    "urgent": "紧急情况请直接致电疗养院。此处的消息不会实时回复。",
+    "send": "发送问题",
+    "sent": "您的问题已发送，护理团队会在此回复。",
+    "sentToast": "问题已发送",
+    "another": "再提一个问题",
+    "history": "您的提问",
+    "noHistory": "您尚未就这位住户提出问题。",
+    "about": "关于{name}",
+    "careTeamReplied": "护理团队回复"
+  },
+  "form": {
+    "required": "必填",
+    "optional": "选填"
+  },
+  "visits": {
+    "intro": "预约、更改或查看您的探访。请先预约时段，方便我们妥善接待。",
+    "book": "预约探访",
+    "upcoming": "即将到来的探访",
+    "past": "过往探访",
+    "cancelledTitle": "已取消的探访",
+    "noUpcoming": "没有即将到来的探访",
+    "noPast": "暂无过往探访",
+    "viewPass": "查看通行证",
+    "reschedule": "改期",
+    "cancel": "取消探访",
+    "cancelTitle": "取消此次探访？",
+    "cancelText": "{date}，{time}。该时段将释放给其他家庭。",
+    "keep": "保留探访",
+    "confirmCancel": "是，取消探访",
+    "cancelledToast": "探访已取消",
+    "visitors": "{n} 位访客",
+    "with": "探访{name}"
+  },
+  "pass": {
+    "title": "探访通行证",
+    "demo": "演示通行证：非真实可扫描的二维码",
+    "hint": "请在前台出示。在此原型中，它并未连接 SAS 的签到系统。",
+    "alt": "演示探访通行证 {ref}"
+  },
+  "book": {
+    "progress": "预约进度",
+    "step": {
+      "date": "选择日期",
+      "time": "选择时间",
+      "review": "核对",
+      "confirmed": "已确认"
+    },
+    "stepOf": "第{n}步，共{total}步",
+    "dateHelp": "请选择合适的日期。标有 ✕ 的日期已约满。",
+    "calendar": "选择探访日期",
+    "pastDate": "已过去的日期，不可选",
+    "notYetOpen": "暂未开放预约",
+    "timeHelp": "请选择{date}的时间。",
+    "spacesLeft": "剩余 {n} 个名额",
+    "slotPassed": "已开始",
+    "reviewHelp": "请核对详情后确认。",
+    "resident": "住户",
+    "date": "日期",
+    "time": "时间",
+    "visitors": "访客人数",
+    "fewer": "减少访客",
+    "more": "增加访客",
+    "maxNote": "此时段最多可有{max}位访客。",
+    "back": "返回",
+    "next": "下一步",
+    "confirm": "确认预约",
+    "confirmMove": "确认新时间",
+    "confirmed": "您的探访已预约。",
+    "rescheduled": "您的探访已改期。",
+    "reference": "预约编号",
+    "backToVisits": "返回我的探访",
+    "forWho": "为以下住户预约探访"
+  },
+  "community": {
+    "intro": "疗养院的活动、新闻和参与方式。",
+    "sections": "社区栏目",
+    "tab": {
+      "upcoming": "即将举行的活动",
+      "news": "新闻",
+      "past": "过往活动",
+      "volunteering": "义工服务"
+    },
+    "noUpcoming": "目前没有即将举行的活动",
+    "noPast": "没有过往活动",
+    "viewDetails": "查看详情",
+    "viewDetailsFor": "查看详情：{title}",
+    "familiesOnly": "仅限住户及家属",
+    "when": "时间",
+    "where": "地点"
+  },
+  "share": {
+    "title": "分享此活动",
+    "note": "仅分享公开的活动信息，住户动态绝不会被分享。",
+    "private": "此活动仅限住户及家属参加，因此不能公开分享。",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "copy": "复制链接",
+    "copied": "链接已复制",
+    "copyFailed": "无法复制链接"
+  },
+  "volunteer": {
+    "title": "加入义工行列",
+    "intro": "几个小时的陪伴，就能让住户的一周更美好。",
+    "express": "表达意愿",
+    "expressFor": "表达意愿：{title}",
+    "noted": "已记录您的意愿",
+    "demo": "仅为演示：未发送任何信息，也未收集任何个人资料。",
+    "toast": "谢谢！已记录您对“{title}”的意愿。"
+  },
+  "support": {
+    "title": "支持 SAS",
+    "text": "您的捐助有助于资助音乐治疗等活动，为住户带来安慰与欢乐。",
+    "donate": "前往 SAS 网站捐款",
+    "website": "SAS 网站",
+    "note": "将在新标签页打开 SAS 官方网站。此原型不处理任何捐款。"
   }
 }

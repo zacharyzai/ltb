@@ -43,7 +43,8 @@
     "staffInquiries": "Inquiries",
     "staffVisitsEvents": "Visits & Events",
     "staffAccount": "Staff Account",
-    "notFound": "Page not found"
+    "notFound": "Page not found",
+    "rescheduleVisit": "Reschedule a Visit"
   },
   "role": {
     "label": "Demo view",
@@ -85,7 +86,8 @@
     "textSize": "Text size: {name}"
   },
   "common": {
-    "loading": "Loading…"
+    "loading": "Loading…",
+    "done": "Done"
   },
   "empty": {
     "title": "Nothing here yet",
@@ -303,5 +305,174 @@
     "BAD_TIME": "Please enter valid times; the end must be after the start.",
     "EMPTY_LOCATION": "Please add a place.",
     "NOT_DRAFT": "Only a draft can be published."
+  },
+  "home": {
+    "greeting": {
+      "morning": "Good morning, {name}",
+      "afternoon": "Good afternoon, {name}",
+      "evening": "Good evening, {name}"
+    },
+    "intro": "Here is how your loved ones are doing, and what is coming up.",
+    "latestMoment": "Latest moment",
+    "viewMoments": "All moments",
+    "noMoments": "No moments to show yet.",
+    "upcomingVisit": "Upcoming visit",
+    "allVisits": "All visits",
+    "viewVisit": "View visit",
+    "noVisit": "No visit booked yet.",
+    "community": "Community highlight",
+    "allEvents": "All events"
+  },
+  "resident": {
+    "viewing": "Viewing updates for",
+    "updated": "Last updated: {when}",
+    "notUpdated": "Not updated today",
+    "note": "Care team note:"
+  },
+  "time": {
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "todayAt": "Today, {time}",
+    "yesterdayAt": "Yesterday, {time}"
+  },
+  "moments": {
+    "intro": "Activities and well-being updates from the care team, shared only with the families involved.",
+    "wellbeing": "Today's well-being",
+    "disclaimer": "These are general updates from the care team, not medical assessments. For health concerns, please speak to the nursing home.",
+    "feed": "Moments",
+    "filterLabel": "Show moments",
+    "filter": {
+      "latest": "Latest",
+      "week": "This week",
+      "all": "All"
+    },
+    "empty": "No moments here yet",
+    "emptyText": "Check back soon, or try a different filter."
+  },
+  "ask": {
+    "title": "Ask the care team",
+    "cta": "Have a question about care, meals or visits? Send it here and the team will reply.",
+    "open": "Ask a question",
+    "resident": "About which resident?",
+    "topic": "Topic",
+    "topicNone": "Choose a topic",
+    "question": "Your question",
+    "placeholder": "Type your question here…",
+    "counter": "{n} of {max} characters",
+    "urgent": "For urgent matters, please call the nursing home directly. Messages here are not answered in real time.",
+    "send": "Send question",
+    "sent": "Your question has been sent. The care team will reply here.",
+    "sentToast": "Question sent",
+    "another": "Ask another",
+    "history": "Your questions",
+    "noHistory": "You have not asked anything about this resident yet.",
+    "about": "About {name}",
+    "careTeamReplied": "Care team reply"
+  },
+  "form": {
+    "required": "required",
+    "optional": "optional"
+  },
+  "visits": {
+    "intro": "Book, change or review your visits. Please book a slot so we can welcome everyone comfortably.",
+    "book": "Book a visit",
+    "upcoming": "Upcoming visits",
+    "past": "Past visits",
+    "cancelledTitle": "Cancelled visits",
+    "noUpcoming": "No upcoming visits",
+    "noPast": "No past visits yet",
+    "viewPass": "View pass",
+    "reschedule": "Reschedule",
+    "cancel": "Cancel visit",
+    "cancelTitle": "Cancel this visit?",
+    "cancelText": "{date}, {time}. The time slot will be released for other families.",
+    "keep": "Keep my visit",
+    "confirmCancel": "Yes, cancel visit",
+    "cancelledToast": "Visit cancelled",
+    "visitors": "{n} visitor | {n} visitors",
+    "with": "Visiting {name}"
+  },
+  "pass": {
+    "title": "Visit pass",
+    "demo": "Demo pass: not a real, scannable code",
+    "hint": "Show this at the front desk. In this prototype it is not connected to SAS's check-in system.",
+    "alt": "Demo visit pass {ref}"
+  },
+  "book": {
+    "progress": "Booking progress",
+    "step": {
+      "date": "Choose a date",
+      "time": "Choose a time",
+      "review": "Review",
+      "confirmed": "Confirmed"
+    },
+    "stepOf": "Step {n} of {total}",
+    "dateHelp": "Pick a day that suits you. Days marked ✕ are fully booked.",
+    "calendar": "Choose a visit date",
+    "pastDate": "past date, not available",
+    "notYetOpen": "not open for booking yet",
+    "timeHelp": "Choose a time on {date}.",
+    "spacesLeft": "{n} space left | {n} spaces left",
+    "slotPassed": "Already started",
+    "reviewHelp": "Please check the details, then confirm.",
+    "resident": "Resident",
+    "date": "Date",
+    "time": "Time",
+    "visitors": "Visitors",
+    "fewer": "Fewer visitors",
+    "more": "More visitors",
+    "maxNote": "Up to {max} visitors can come for this time.",
+    "back": "Back",
+    "next": "Next",
+    "confirm": "Confirm booking",
+    "confirmMove": "Confirm new time",
+    "confirmed": "Your visit is booked.",
+    "rescheduled": "Your visit has been moved.",
+    "reference": "Booking reference",
+    "backToVisits": "Back to my visits",
+    "forWho": "Booking a visit for"
+  },
+  "community": {
+    "intro": "Events, news and ways to help at the nursing home.",
+    "sections": "Community sections",
+    "tab": {
+      "upcoming": "Upcoming events",
+      "news": "News",
+      "past": "Past events",
+      "volunteering": "Volunteering"
+    },
+    "noUpcoming": "No upcoming events right now",
+    "noPast": "No past events to show",
+    "viewDetails": "View details",
+    "viewDetailsFor": "View details: {title}",
+    "familiesOnly": "Residents & families only",
+    "when": "When",
+    "where": "Where"
+  },
+  "share": {
+    "title": "Share this event",
+    "note": "Only public event details are shared. Resident updates are never shared.",
+    "private": "This event is for residents and families only, so it cannot be shared publicly.",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "copy": "Copy link",
+    "copied": "Link copied",
+    "copyFailed": "Could not copy the link"
+  },
+  "volunteer": {
+    "title": "Volunteer with us",
+    "intro": "A few hours can make a real difference to a resident's week.",
+    "express": "Express interest",
+    "expressFor": "Express interest: {title}",
+    "noted": "Interest noted",
+    "demo": "Demo only: nothing was sent and no personal details were collected.",
+    "toast": "Thank you! Your interest in “{title}” has been noted."
+  },
+  "support": {
+    "title": "Support SAS",
+    "text": "Your gift helps fund activities like music therapy, which bring comfort and joy to residents.",
+    "donate": "Donate on the SAS website",
+    "website": "SAS website",
+    "note": "Opens the official SAS website in a new tab. Donations are not processed in this prototype."
   }
 }

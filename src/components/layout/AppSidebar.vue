@@ -18,7 +18,7 @@ const account = computed(() => ACCOUNT[ui.role])
 
 <template>
   <aside class="side">
-    <RouterLink :to="HOME[ui.role]" class="brand-link" :aria-label="t('nav.brandHome')"><BrandMark /></RouterLink>
+    <RouterLink :to="HOME[ui.role]" class="brand-link"><BrandMark /></RouterLink>
 
     <nav :aria-label="t(ui.isStaff ? 'nav.staffMain' : 'nav.main')">
       <ul class="side-list">

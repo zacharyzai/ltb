@@ -93,6 +93,20 @@ describe('editing events', () => {
   })
 })
 
+describe('volunteer interest', () => {
+  it('records interest once, without collecting anything', () => {
+    expect(store.hasInterest('vol-1')).toBe(false)
+    expect(store.expressInterest('vol-1')).toEqual({ ok: true, value: 'vol-1' })
+    expect(store.hasInterest('vol-1')).toBe(true)
+    store.expressInterest('vol-1')
+    expect(store.interestedIds).toEqual(['vol-1'])
+  })
+  it('ignores unknown opportunities', () => {
+    expect(store.expressInterest('vol-ghost').error).toBe('NOT_FOUND')
+    expect(store.interestedIds).toEqual([])
+  })
+})
+
 describe('news and volunteers', () => {
   it('lists news newest first', () => {
     expect(store.newsAnnouncements.map((n) => n.id)).toEqual(['nw-1', 'nw-2', 'nw-3'])
