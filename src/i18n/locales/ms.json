@@ -1,0 +1,25 @@
+{
+  "app": {
+    "name": "SAS Connect"
+  },
+  "pages": {
+    "home": "Utama",
+    "moments": "Momen",
+    "visits": "Lawatan",
+    "bookVisit": "Tempah Lawatan",
+    "community": "Komuniti",
+    "account": "Akaun",
+    "staffDashboard": "Papan Pemuka Kakitangan",
+    "staffUpdates": "Kemas Kini Penghuni",
+    "staffMoment": "Hantar Momen",
+    "staffInquiries": "Pertanyaan",
+    "staffVisitsEvents": "Lawatan & Acara",
+    "staffAccount": "Akaun Kakitangan",
+    "notFound": "Halaman tidak ditemui"
+  },
+  "scaffold": {
+    "note": "Perancah Fasa 1: skrin sebenar akan tiba dalam fasa kemudian.",
+    "role": "Peranan demo semasa: {role}",
+    "routes": "Semua laluan"
+  }
+}

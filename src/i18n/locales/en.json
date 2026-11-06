@@ -1,0 +1,25 @@
+{
+  "app": {
+    "name": "SAS Connect"
+  },
+  "pages": {
+    "home": "Home",
+    "moments": "Moments",
+    "visits": "Visits",
+    "bookVisit": "Book a Visit",
+    "community": "Community",
+    "account": "Account",
+    "staffDashboard": "Staff Dashboard",
+    "staffUpdates": "Resident Updates",
+    "staffMoment": "Post a Moment",
+    "staffInquiries": "Inquiries",
+    "staffVisitsEvents": "Visits & Events",
+    "staffAccount": "Staff Account",
+    "notFound": "Page not found"
+  },
+  "scaffold": {
+    "note": "Phase 1 scaffold: the real screens arrive in later phases.",
+    "role": "Current demo role: {role}",
+    "routes": "All routes"
+  }
+}

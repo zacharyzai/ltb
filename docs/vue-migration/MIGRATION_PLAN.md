@@ -1,6 +1,6 @@
 # SAS Connect: Vue 3 Migration Plan
 
-Status: **proposal, awaiting approval.** No source changed, nothing installed, nothing deleted.
+Status: **approved with the final decisions recorded in the root `CLAUDE.md`** (supersedes §13 and the phase list where they differ: staff mobile nav is 4 tabs, caregiver mobile nav is 4 tabs with Account in the header, simplified guide, illustrations, translated seed content, Vitest/Playwright/axe approved, volunteer section added).
 Inputs inspected: the current React app and `CLAUDE.md`; the reference repo `zacharyzai/wad2-proj` (Ah Ma Ah Gong Can), cloned read-only into the session scratchpad.
 
 ---

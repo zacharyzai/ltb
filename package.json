@@ -1,27 +1,24 @@
 {
-  "name": "sas-tmp",
+  "name": "sas-connect",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "oxlint src",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "oxlint src"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.3.4",
-    "lucide-react": "^1.69.0",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "react-router-dom": "^7.18.5",
-    "tailwindcss": "^4.3.4"
+    "bootstrap": "^5.3.8",
+    "pinia": "^4.1.0",
+    "vue": "^3.5.45",
+    "vue-i18n": "^11.4.18",
+    "vue-router": "^5.4.0"
   },
   "devDependencies": {
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.2",
-    "oxlint": "^1.90.0",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "oxlint": "^1.91.0",
     "vite": "^8.3.6"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "app": {
+    "name": "SAS Connect"
+  },
+  "pages": {
+    "home": "首页",
+    "moments": "动态",
+    "visits": "探访",
+    "bookVisit": "预约探访",
+    "community": "社区",
+    "account": "账户",
+    "staffDashboard": "员工首页",
+    "staffUpdates": "住户状态更新",
+    "staffMoment": "发布动态",
+    "staffInquiries": "咨询",
+    "staffVisitsEvents": "探访与活动",
+    "staffAccount": "员工账户",
+    "notFound": "找不到页面"
+  },
+  "scaffold": {
+    "note": "第一阶段脚手架：正式页面将在后续阶段推出。",
+    "role": "当前演示角色：{role}",
+    "routes": "所有页面"
+  }
+}

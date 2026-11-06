@@ -1,173 +1,120 @@
-# CLAUDE.md — SAS Connect (frontend-only visual prototype)
+# CLAUDE.md — SAS Connect (Vue 3 prototype)
 
-Always read this file before making changes.
+Always read this file before making changes. The earlier React version of this file lives in `legacy-react/CLAUDE.md` and no longer applies.
 
-## 1. Overview
+## 1. Project
+**SAS Connect** is a caregiver engagement prototype for the Society for the Aged Sick (SAS), Singapore (https://www.societyagedsick.org.sg/). Family caregivers stay connected with nursing-home residents; staff get a low-effort portal.
 
-**SAS Connect** is a caregiver engagement website for the Society for the Aged Sick (SAS), Singapore (https://www.societyagedsick.org.sg/ — secondary branding reference only). Family caregivers stay connected with elderly nursing-home residents; staff get a fast, simplified dashboard.
+Three goals:
+1. **Caregiver reassurance**: meaningful resident updates and a way to ask staff questions.
+2. **Convenient visitation**: book, manage and review visits; QR visit pass.
+3. **Community engagement**: events, announcements, volunteering, donations.
 
-Three caregiver areas: **Moments & Inquiries**, **Visits**, **Community & Support**. A staff view exists in the wireframe (5 screens, §5).
+Target users: older family caregivers with limited tech experience (large text, clear labels, one action per card) and nursing staff on ward rounds (speed first: a status update in ~3 taps, a moment in ~15 s).
 
-**Goal:** a polished, demo-ready prototype. Priority: **visual fidelity > navigation > light simulated interaction.**
+## 2. Scope: frontend-only visual prototype
+**Required:** polished UI, routing, dialogs, simulated forms/booking, four languages, light/dark/system themes, text-size control, beginner's guide, fictional mock data, cross-role updates within one browser session.
+**Forbidden:** backend, database, real auth/JWT, MongoDB/Express, external AI or translation services, payments, real SMS/email, real medical records, production infrastructure, runtime machine translation.
+Mock data and Pinia state reset on refresh. Only UI preferences (language, theme, text size, guide-seen) may persist, in `localStorage` guarded by try/catch.
 
-## 2. Target users
+## 3. Stack (final)
+Vue 3 (Composition API, `<script setup>`), Vite, Vue Router, Pinia (setup stores), Bootstrap 5 **CSS only** (no Bootstrap JS) with custom CSS design tokens, vue-i18n, **JavaScript (no TypeScript)**.
+Testing tools approved: Vitest, Playwright, `@axe-core/playwright` (install when first needed, keep the suite small).
+Not allowed: React, Tailwind, Lucide package, axios, UI kits, date/animation libraries, other state libraries. Any new dependency needs approval.
 
-- Caregivers (family), many elderly / low tech literacy → large text, one action per card, labels on every icon.
-- Nursing staff on ward rounds → speed first (≤3 taps for status update, ~15 s for a moment).
+## 4. Design direction
+Modern, clean, friendly, spacious; rounded cards; warm neutral backgrounds; teal and green accents; clean typography; icon + word everywhere; subtle motion; large buttons. Inspired by **Ah Ma Ah Gong Can** (https://github.com/zacharyzai/wad2-proj): adapt its application shell, desktop sidebar + mobile bottom nav, tokens + Bootstrap bridge, theme switching, i18n architecture, native `<dialog>` confirmations and toasts. **Do not** copy its mascot, medicine illustrations, scan/bill/auth features or backend.
+The hand-drawn wireframe styling (Kalam, Patrick Hand, hand-drawn borders) is retired. `reference/wireframe/` remains the source of user journeys and content only.
 
-## 3. Scope
+**Brand research (official SAS site, checked in Phase 1):** the site uses red (`#ee3e3e`, `#e02b20`, dark `#921515`), blue (`#005aab`, link blue `#2ea3f2`), white and `#333`; fonts Poppins and Open Sans; Divi (WordPress) theme. It is **not** teal/green. Decision to confirm in Phase 2: keep the approved teal + green UI palette (`#1d6560` primary, `#2a8c82` accent, green support colour, warm neutrals) and use SAS red sparingly as a brand accent (e.g. donate call-to-action, logo mark), without implying an official SAS logo. Prefer Atkinson Hyperlegible Next (reference) for readability over Poppins.
 
-**Required:** faithful reproduction of the wireframe, working React Router navigation, modals/sheets, simulated forms and booking flow, responsive layout, reusable components, static fictional data, `useState`/`useContext`.
+**Imagery:** original, consistent, friendly illustrations (authored SVG), respectful depictions of elderly residents and caregivers. No unverified photographs, no striped placeholders where avoidable, no imitation SAS logo, no real SAS resident photos. A `MomentPhoto`-style component may later render licensed photos. Keep the notice "Images and resident information are for demonstration purposes only."
 
-**Not required / forbidden:** backend, database, real auth, APIs, payments, SMS/email, persistence (reset on refresh is fine), real medical data, deployment infra.
-
-## 4. Stack
-
-React + Vite + Tailwind CSS + React Router + Lucide React. JavaScript/JSX (no TypeScript). Functional components + hooks. State: `useState` / `useContext` only (no Redux/Zustand). No other dependencies without approval.
-
-## 5. Wireframe analysis
-
-Source: `reference/wireframe/SAS Connect Wireframes.dc.html` (+ `support.js`, a Claude Design canvas runtime — ignore it). **Read-only; never edit.** Single static canvas, **no JS interactions**, one page of 8 phone-frame screens (300×640, rounded 30px) in three groups. All interactions below are *documented from annotations (yellow sticky notes)*, not implemented in the export.
-
-### 1a Caregiver (mobile, 3 bottom tabs: Moments & Inquiries · Visits · Community & Support)
-
-| # | Screen | Content |
-|---|---|---|
-| 01 | Caregiver Home | Header: logo circle, "SAS Connect", `Aa` text-size toggle (3 sizes), icon button, avatar. "Good morning, Sarah!" Resident card (Madam Tan Mei Ling, SAS-1024 · Mother, status dot "Feeling well today", "Last updated: Today, 9:30 AM", **View Latest Moments** button). Three single-action cards: Latest Moment (Morning Garden Walk · 9:15 AM ›), Upcoming Visit (Thu 12 Nov · 2:00–3:00 PM → View Booking), Community (Christmas Gathering · 19 Dec → Explore Events). |
-| 02 | Moments & Well-being | Today's well-being card with legend: ● Feeling Well / ◆ Resting / ▲ Please Contact Staff (colour + shape + words); disclaimer "General updates only…". Tabs Latest / This Week / All. Moment card (photo, title, category tag, time, caption). **Ask the Care Team** button + "urgent → call directly" note. Note: Ask opens a **bottom sheet** (question box, optional topic, Send) → status chips Submitted / In Review / Answered + history. |
-| 03 | My Visits | Reminder banner (visit tomorrow 2 PM). **+ Book a Visit**. Upcoming card (Thu 12 Nov, ✓ Confirmed, 2:00–3:00 PM · 2 visitors, with Madam Tan) with **View Visit Pass / Reschedule / Cancel**. Past (Sun 1 Nov · Visited). "Remind me by" SMS + Website checkboxes. Note: Book = **4 full-screen steps**, one question each: resident → date → time slot (Available / Limited / Full, shown in words) → confirm → **QR pass**. |
-| 04 | Community & Events | Tabs Upcoming / Past / News. Event card (photo, FESTIVE · PUBLIC tag, Christmas Gathering, Sat 19 Dec · 10:00 AM–12:00 PM) with **View Details** + **Share**. "Make a Difference in Their Lives" donation card → **Support SAS ↗**. Social links Website / Facebook / Instagram. Note: Share (WhatsApp / Facebook / Copy Link) on **public events only, never on resident moments**. |
-
-### 1b Staff (mobile, 4 bottom tabs: Home · Inquiries · Visits · Events)
-
-| # | Screen | Content |
-|---|---|---|
-| 05 | Staff Dashboard | "SAS Connect · Staff", user menu "Nurse Aisha ▾". Stat tiles: 3 Pending inquiries, 12/40 Status updates today, 8 Visits today, 2 Upcoming events. Quick actions: **Update Status**, **Post a Moment**. "Needs reply": Sarah Tan re Mdm Tan (8:42 AM, quote) with **Reply**; Mr Lim's son (In Review). Note: replies offer saved templates. |
-| 06 | Quick Status Update | Modal/full screen (✕). Search resident/bed. "My ward · not yet updated today" chips (Mdm Tan, Mr Lim, Mdm Wong, Mr Rahim). Status options Feeling Well ✓ / Resting / ▲ Please Contact Staff. Optional note + mic icon. **Save & next resident →** jumps to next un-updated resident. |
-| 07 | Quick Moments Upload | Modal (✕). Photo preview + Take photo · Gallery. "Who's in it?" resident chips (✓ Mdm Tan, ✓ Mr Lim, Mdm Wong ⚠, + more). ⚠ = no photo consent → cannot be tagged. Caption + mic. Category chips Gardening / Music / Crafts (optional). Consent confirmation line. **Preview** + **Publish to 2 families**. |
-| 08 | Visits & Events | "Today · Thu 12 Nov" + **Scan pass**. Capacity by slot with −/+ steppers (10–11 AM 3/6, 11–12 PM 5/6, 2–3 PM Full). "Arriving next": Sarah Tan +1 → Mdm Tan, SAS-V-4821, **Check in**; David Lim ✓ In. Events list with **+ New event** (Christmas Gathering – Published; Family Appreciation Day – Draft · Edit). Note: new event form = photo, title, date, place, audience, Publish. |
-
-### 1c Cross-role sync (simulate via shared context)
-- 06 Save status → caregiver 01 status line + 02 well-being card update; "Last updated" refreshes.
-- 07 Publish moment → top of 02 feed and 01 "Latest Moment", tagged residents' families only.
-- 05 Reply to inquiry → caregiver 02 Ask sheet status Submitted → In Review → Answered, reply in history.
-
-### Design system discovered
-- **Style:** hand-drawn wireframe look (sketchy borders). Fonts: **Kalam** (700, headings/buttons/names) and **Patrick Hand** (body), via Google Fonts. Fallback `system-ui`.
-- **Colours:** ink `#1a1a1a` (borders/text), primary teal `#2a8c82` (primary buttons, status dot), teal hover/dark `#1d6560`, teal tint card bg `#eef6f4`, page bg `#fbfaf7`, canvas bg `#f0eee9`, muted text `#555`, dashed divider `#bbb`, placeholder avatar `#ddd`, striped image placeholder (`#f2f2f2`/`#ddd` 45° stripes), sticky-note yellow `#fff3b0` (annotation only — do **not** ship). No other status colours defined; see open questions.
-- **Shapes:** borders 1.5–2.5px solid ink; radii 6–14px cards, 30px device frame, pill/circle avatars; primary button min-height 44px, teal fill, white Kalam bold text; secondary = outlined small button.
-- **Type scale (px):** title 22, resident name/header 16, body 14–15, labels/captions 12–13, tab labels 12.
-- **Layout:** mobile-first column, sticky header, bottom tab bar (3-col grid, dashed separators, icon box + label).
-- **Pattern:** status = colour + shape (●◆▲) + words, never colour alone.
-
-### Missing / not in export
-No real images (striped placeholders only), no logo (circle placeholder), no icon set (empty boxes — map to Lucide), no desktop layout, no booking steps 1–4 / QR pass / inquiry sheet / event detail / share sheet / donation destination / news / past-tab visuals (described only in notes), no staff Inquiries or Events tabs beyond screen 08.
+## 5. Project structure
+```
+legacy-react/      preserved React prototype (read-only reference; runs on its own)
+reference/wireframe/  original Claude Design export (NEVER modify)
+docs/vue-migration/   MIGRATION_PLAN.md, i18n-review.md
+scripts/              check-i18n.mjs (added in Phase 2)
+tests/  e2e/          Vitest unit tests, Playwright specs (added when needed)
+src/
+  main.js  App.vue  theme.js  screenFade.js
+  router/index.js
+  i18n/{index.js, format.js, locales/{en,zh,ms,ta}.json}
+  stores/{ui,residents,moments,inquiries,visits,events}.js
+  data/        seed data (ids + ISO dates), dates.js
+  composables/ only when reused twice
+  components/{layout,ui,controls,guide,domain}/
+  views/{caregiver,staff}/  SettingsView.vue  NotFoundView.vue
+  assets/      original illustrations
+  styles/      main.css, global/{tokens,base,buttons,forms,feedback,surfaces,layout,motion}.css
+```
+Do not create folders without files. Phase 1 currently contains only the scaffold (router, ui store, i18n, placeholder view).
 
 ## 6. Routes
+Caregiver: `/` Home, `/moments`, `/visits`, `/visits/book` (4-step flow, `?reschedule=<id>`), `/community` (`?event=<id>` opens detail), `/account`.
+Staff: `/staff` Dashboard, `/staff/updates`, `/staff/moment`, `/staff/inquiries`, `/staff/visits-events` (internal tabs **Visits** and **Events**, `?tab=`), `/staff/account`.
+`meta.role` decides the shell; the router guard sets `ui.role`. The role switch simply navigates. Views are lazy-loaded; after navigation set `document.title` from i18n, focus the page `<h1>`, scroll to top.
 
-Caregiver (layout: header + 3-tab bottom nav)
-- `/` Home (01)
-- `/moments` Moments & Well-being (02); Ask sheet = modal on this route
-- `/visits` My Visits (03); `/visits/book` 4-step booking (stepper state), ends in QR pass; pass = modal
-- `/community` Community & Events (04); event details = modal or `/community/:id`
+## 7. Navigation
+**Desktop (≥992 px):** sidebar (brand, nav, language, theme, text size, role switch, guide link, account), content area max ≈1080 px with responsive cards. Do not lock the app to a 480 px column.
+**Mobile (<992 px):** compact header (brand, account/settings, controls) + fixed bottom nav. **Caregiver: 4 tabs** Home, Moments, Visits, Community; Account/Settings from the header. **Staff: 4 tabs** Dashboard, Updates, Inquiries, Visits & Events; **Post a Moment** is a prominent quick action on the dashboard and the Updates page (desktop sidebar lists all five). Do not add tabs if labels do not stay readable at 320 px in all four languages.
 
-Staff (layout: header + 4-tab bottom nav), under `/staff`
-- `/staff` Dashboard (05); `/staff/status` (06); `/staff/moment` (07); `/staff/visits` Visits & Events (08)
-- `/staff/inquiries` and `/staff/events` tabs: **only if approved** (see §12).
+## 8. State (Pinia)
+Six stores: `ui` (role, locale, theme, text size, guide), `residents` (residents + well-being statuses), `moments`, `inquiries`, `visits` (bookings + per-date/slot capacity), `events`. Store ISO dates/timestamps only; derive pending count, upcoming/past, availability, latest moment and published events with getters; never duplicate derived state. Cancelled bookings never count toward capacity. Revoke object URLs for removed/replaced/abandoned uploads (published moments keep theirs).
 
-Role switch: a small control in the header (Nurse Aisha ▾ / a "Switch to Staff" link) toggles `/` ↔ `/staff`. Exact caregiver-side switch UI is not in the wireframe (open question).
+## 9. Internationalisation (mandatory)
+English, Simplified Chinese (中文), Malay (Bahasa Melayu), Tamil (தமிழ்). **All user-facing content is translatable**: navigation, buttons, forms, validation messages, status labels, dialogs, notifications, booking steps, staff screens, settings, beginner's guide, resident moments, community events, announcements, volunteer opportunities, `aria-label`/`title`/`placeholder`.
+- Follow the reference architecture: vue-i18n Composition mode, English bundled, other locales lazy-loaded, saved locale loaded before mount, `<html lang>` updated (`zh-Hans` for Chinese).
+- No English literals in `.vue`/JS; no translated strings scattered through components. One JSON per locale, namespaced (`nav`, `pages`, `status`, `home`, `moments`, `visits`, `book`, `community`, `volunteer`, `staff.*`, `guide`, `form`, `toast`, `dialog`, `a11y`, `seed.*`). Seed content (moments, events, news, volunteer roles, inquiry templates) lives under `seed.*` keyed by id. **User-typed content is shown as typed, never auto-translated.**
+- Locale-aware dates/times/numbers via `Intl` with locale `en-SG | zh-SG | ms-SG | ta-SG` and `timeZone: 'Asia/Singapore'`.
+- Static files only. Add each new key to all four locales in the same change (`npm run i18n:check` enforces parity from Phase 2). Flag wording that needs native-speaker review in `docs/vue-migration/i18n-review.md`.
+- Test all four languages at 320 px (Tamil and Chinese text expansion).
 
-## 7. Key components
+## 10. Theme and accessibility
+- Themes: light, dark, system (`data-theme` on `<html>`, applied before first paint). Text size `md/lg/xl` via root font-size; all sizes in `rem`; body ≥16 px at default. Respect `prefers-reduced-motion`.
+- WCAG AA contrast in both themes (verify with a contrast script before adding colours). Interactive targets ≥48 px. Visible focus ring. Skip link. Descriptive labels; no icon-only essential actions.
+- Native `<dialog>` for dialogs/sheets: focus trapped, Esc closes, focus returns to the opener. Live regions for toasts and confirmations. Clear validation messages with required fields marked.
+- Status = colour + symbol + words: Feeling Well teal ●, Resting amber ◆, Please Contact Staff muted red ▲; availability Available teal, Limited amber, Fully Booked grey + disabled. General indicators, not medical assessments.
+- Focus the page heading after route changes. Test at 320, 390, 768, 1024, 1440 px at every text size.
 
-`AppHeader` (logo, `Aa`, icon, avatar) · `BottomTabBar` (config-driven, 3 or 4 tabs) · `ResidentCard` · `StatusBadge` (●◆▲ + words) · `ActionCard` (label, text, one button) · `MomentCard` · `Tabs` (segmented) · `VisitCard` · `SlotPicker` · `EventCard` · `StatTile` · `InquiryItem` · `BottomSheet`/`Modal` · `ImagePlaceholder` · `Button` (primary/outline) · `QRPass` (simulated, static SVG pattern).
+## 11. Beginner's guide
+Simplified card dialog (no spotlight, no voice narration): **caregiver 5 steps** (check updates, view moments, ask staff, book a visit, explore community), **staff 4 steps** (dashboard, status updates, publish a moment, reply to inquiries). Progress indicator, Back/Next/Skip, optional "Take me there", dismiss and reopen (sidebar + settings), keyboard accessible, fully translated, shown once per role per device.
 
-## 8. Project structure
+## 12. Volunteer opportunities (Community)
+2–3 fictional opportunities (befriending residents, assisting with community activities, supporting festive celebrations), each with title, short description, time commitment and **Express Interest** → simulated confirmation. No personal data collected or submitted.
 
-```
-src/
-  assets/          # logo/images if supplied
-  components/      # components listed in §7
-  layouts/         # CaregiverLayout.jsx, StaffLayout.jsx
-  pages/           # Home, Moments, Visits, BookVisit, Community, staff/{Dashboard,StatusUpdate,PostMoment,VisitsEvents}
-  data/            # residents.js, moments.js, inquiries.js, visits.js, events.js, staff.js
-  context/         # AppContext.jsx (status, moments, inquiries, bookings, textSize)
-  App.jsx  main.jsx  index.css
-```
-No `hooks/` folder until a hook is actually needed.
+## 13. Preserved user journeys (must keep working)
+1. Staff updates resident status → caregiver sees it (Home + Moments).
+2. Staff publishes a moment → caregiver sees it (feed + Home), photo-consent rule enforced.
+3. Caregiver submits inquiry → staff queue.
+4. Staff replies (templates available) → caregiver sees the response; status Submitted → In Review → Answered.
+5. Caregiver books / cancels / reschedules a visit → staff schedule and capacity update (cancelled bookings free their space; capacity is per date and slot); QR pass; staff check-in.
+6. Staff saves a draft or publishes an event → caregiver Community updates (drafts hidden; only public events shareable).
 
-## 9. Mock data
+## 14. Coding conventions
+`<script setup>` SFCs, PascalCase files, props down / emits up, shared state in Pinia only, composables only when reused, scoped CSS using tokens (`var(--…)`), Bootstrap utilities for layout/spacing only, no hex colours outside `tokens.css`, comments only for non-obvious "why". Use ISO dates in state; format at render.
 
-Plain JS exports, fictional only. Seed with wireframe values: Madam Tan Mei Ling (SAS-1024), Mr Lim, Mdm Wong, Mr Rahim; caregiver Sarah Tan; Nurse Aisha; visit Thu 12 Nov 2:00–3:00 PM (SAS-V-4821); Morning Garden Walk moment; Christmas Gathering (Sat 19 Dec, 10 AM–12 PM, public); Family Appreciation Day (draft); slot capacities 3/6, 5/6, Full. Shared mutable bits live in `AppContext` and reset on refresh. Wireframe dates (Nov 2026) are shown as-is, not computed.
+## 15. Migration phases (each ends with a summary and waits for approval)
+1. **Safety checkpoint + Vue scaffold** — ✅ done: Git repo, baseline commit, tag `react-prototype-final`, React moved to `legacy-react/`, Vue 3 + Vite + Router + Pinia + Bootstrap + vue-i18n scaffold, this file.
+2. **Foundation / design system:** tokens, themes, text size, i18n infrastructure + parity script, fonts, shell (sidebar ↔ bottom nav), role switch, shared UI components (buttons, cards, tabs, badges, dialogs, toast, icons, form fields), contrast verification.
+3. **Data + stores:** seed data, six stores, Vitest tests for capacity/availability/derived state and cross-role transitions.
+4. **Caregiver screens** (with all four languages as each screen is built, illustrations, volunteer section).
+5. **Staff screens** + all cross-role journeys.
+6. **Settings + beginner's guide.**
+7. **Polish:** illustrations, motion, empty/error states, dark-mode and Tamil/Chinese layout audit.
+8. **QA:** Playwright + axe regression, viewport/theme/language/text-size matrix, `i18n:check`, build + lint.
 
-## 10. Interaction rules (all simulated)
+## 16. Development rules
+1. Read this file first. 2. Preserve `reference/wireframe/` and `legacy-react/` (read-only; port logic, never edit). 3. Frontend-only, fictional data. 4. Incremental phases; no feature or dependency without approval. 5. Verify navigation, the six journeys, language/theme/text-size switching and keyboard use after each phase. 6. Run `npm run build` and `npm run lint` (and tests once they exist). 7. Keep commits small and the repo clean; the React baseline is recoverable via tag `react-prototype-final`.
 
-- Nav items and cards route to the correct screen; tab bar highlights active tab.
-- Ask Care Team → sheet → Send → success message + new history item (Submitted).
-- Book a Visit → 4 steps → confirmation → View Visit Pass shows QR modal. Reschedule/Cancel: simple confirm modal that updates local state.
-- Event View Details → modal. Share → small sheet (WhatsApp / Facebook / Copy Link) public events only. Support SAS ↗ → open official site in new tab.
-- `Aa` cycles 3 text sizes via root font-size.
-- Staff: Save & next advances to next un-updated resident; Publish adds to moments; Reply adds an answered state; Check in marks "✓ In"; −/+ adjusts slot counts.
-- No real network calls, no persistence.
+## 17. Commands
+`npm install` · `npm run dev` (http://localhost:5173) · `npm run build` · `npm run preview` · `npm run lint`.
+Legacy React app: `cd legacy-react && npm install && npm run dev`.
+Note: if `npm install` fails with an EACCES/EEXIST error on `~/.npm/_cacache`, the user-level npm cache has root-owned files; use `npm install --cache <temp dir>` rather than changing permissions.
 
-## 11. Accessibility & responsive
-
-- Min 16px body in implementation scale (wireframe sizes 12–13 are too small — scale up, keep hierarchy), tap targets ≥44px, WCAG AA contrast (verify teal `#2a8c82` on white for small text; use `#1d6560` if it fails), visible focus rings, labels on every input and icon button (`aria-label`), semantic buttons/links, modals trap focus and close on Esc, status never by colour alone.
-- Mobile-first; centred max-width column on desktop (≈480px for caregiver, matching the wireframe) unless approval is given for a wider layout. Test at 360, 390, 768, 1280 widths.
-
-## 12. Decisions (resolved open questions)
-
-1. **Visual:** keep the hand-drawn Kalam / Patrick Hand look, #fbfaf7 paper, teal #2a8c82. Improve spacing/readability/accessibility only. No corporate-dashboard look.
-2. **Layout:** mobile-first; on desktop a centred ~480px column on a neutral background (`canvas`). No new desktop layout.
-3. **Accessibility:** body ~17px (rem-based; `Aa` cycles 17/19/21px on `<html>`), touch targets ≥48px, visible focus ring, text labels beside icons, status = symbol + words. **Contrast checked:** #2a8c82 on white = 4.06:1 (fails AA for small text, passes for large) → use `teal-dark` #1d6560 (6.8:1) for small text/active states; #2a8c82 only for decorative elements and large bold button text (≥1.15rem bold).
-4. **Assets:** Lucide icons; royalty-free placeholder photos (elderly care / community only); text-only "SAS Connect" logo, no SAS logo imitation, no real resident photos.
-5. **Missing screens to build in the existing style:** Ask Care Team sheet, 4-step booking, confirmation, QR pass, event detail modal, share sheet, News and Past tabs, Staff Inquiries, Staff Events.
-6. **Status colours:** Feeling Well teal ●; Resting amber ◆; Please Contact Staff muted red ▲. Availability: Available teal, Limited amber, Fully Booked grey + disabled. Always with text. General indicators, not medical assessments.
-7. **Role switching:** "Demo view: Caregiver View | Staff View" control under the header (no auth).
-8. **Synced interactions (AppContext, session only):** staff status → caregiver status; staff moment → caregiver feed; caregiver inquiry → staff queue; staff reply → caregiver; book / cancel / reschedule visit → UI + QR pass.
-
-Theme tokens live in `src/index.css` (`@theme`); use them (`bg-teal`, `text-teal-dark`, `bg-rest-bg`, …) rather than raw hex. Tailwind v4 via `@tailwindcss/vite` (no tailwind.config).
-
-**Progress:** All four phases complete. See §16 for the final state and known limitations.
-
-## 13. Coding conventions
-
-Functional components, one per file, PascalCase filenames; named props, no prop-drilling beyond two levels (use context); Tailwind utilities only (define palette/fonts in Tailwind config theme, not ad-hoc hex); Lucide for icons; no inline style unless dynamic; no comments except non-obvious why.
-
-## 14. Development rules
-
-1. Read `CLAUDE.md` first. 2. Wireframe is the spec. 3. Preserve existing UI. 4. Functional components. 5. Tailwind. 6. React Router. 7. Fictional mock data. 8. Frontend-only. 9. No backend/DB. 10. No unnecessary dependencies. 11. Reusable components where repeated. 12. Responsive + accessible. 13. Build incrementally. 14. Verify navigation after every change (click through every route). 15. No extra features without approval.
-
-**Do not:** add TypeScript, state libraries, form libraries, animation libraries, UI kits, test frameworks, i18n, abstraction layers, or pages/features not in the wireframe.
-
-## 15. Recommended implementation order
-
-1. Vite + Tailwind + Router + Lucide setup; theme tokens (fonts, colours).
-2. Shared primitives: Button, Tabs, Modal/BottomSheet, StatusBadge, ImagePlaceholder.
-3. Mock data + AppContext.
-4. Caregiver layout + tab bar + Home (01).
-5. Moments (02) + Ask sheet.
-6. Visits (03) + booking flow + QR pass.
-7. Community (04) + event modal + share.
-8. Staff layout + Dashboard (05).
-9. Status update (06) and Post moment (07) with cross-role sync.
-10. Staff Visits & Events (08).
-11. Text-size toggle, responsive/accessibility pass, full navigation check.
-
-## 16. Final implementation (Phase 4) and known limitations
-
-**Run:** `npm install`, `npm run dev` (http://localhost:5173), `npm run build`, `npm run lint` (oxlint on `src/` only).
-
-**Behaviour worth knowing before changing things**
-- **Dates:** "today" is the browser clock in Asia/Singapore (`src/data/dates.js`). All mock bookings, events, news, moments and inquiries are offsets from today, so the demo works on any date. Event titles are deliberately season-neutral ("Community Gathering", not "Christmas Gathering"). Times of day in seed data (e.g. "9:30 AM") are fixed strings.
-- **Capacity:** stored per date + slot in `AppContext.slotCapacity` (`"<isoDate>|<slotIndex>"` keys, default 6). Availability = capacity − baseline taken − active bookings (`confirmed`/`in`); cancelled bookings free their spaces. Logic lives in `data/visits.js`.
-- **Shared state:** everything cross-role is in `AppContext` (status, moments, inquiries, bookings, capacity, events). Resets on refresh by design.
-- **Uploaded photos:** object URLs are revoked on remove/replace/leaving unpublished; a published moment keeps its URL for the session.
-- **Accessibility:** skip link, per-route document title, roving-tabindex tabs with arrow keys, focus-trapped bottom sheets that restore focus, `prefers-reduced-motion` honoured, disabled buttons shown grey. Contrast of every text/background pair checked ≥ AA (white on #2a8c82 only for large bold button text). Text size cycles 17/19/21px.
-- **Header:** avatar initials shown from 360px up (hidden below it so controls stay usable). The wireframe's decorative icon box was not restored.
-
-**Known limitations**
-- Photographs are still striped placeholders: no suitable image with a verifiable licence was found within the time-box. A demo disclaimer is shown on every page. To add photos later, store them in `src/assets/` with licence and attribution recorded here.
-- Booking reference numbers and all state reset on refresh. QR pass and staff "Scan pass" are demonstrations only.
-- Staff "Visits" and "Events" are separate tabs (wireframe screen 08 combined them).
-- The wireframe's header "Nurse Aisha ▾" menu is replaced by the Demo view role switch.
-- No automated test suite (out of scope); verification was manual browser scripting.
+## 18. Open decisions
+- Final palette and SAS-red accent usage (Phase 2).
+- Staff mobile tab set (proposed above) confirmed against Tamil label widths (Phase 2).
+- Names of demo people (currently Sarah Tan, Madam Tan Mei Ling, Nurse Aisha).
+- Contents of "Donation information" beyond the verified SAS donation link: https://www.societyagedsick.org.sg/donation/ (Facebook: https://www.facebook.com/SASNursingHome, Instagram: https://www.instagram.com/sasnursinghome/).
