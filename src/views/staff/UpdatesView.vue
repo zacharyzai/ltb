@@ -76,7 +76,7 @@ function save({ advance }) {
   <div class="layout">
     <section class="list" :aria-label="t('staff.updates.listTitle')">
       <SectionHeader :title="t('staff.updates.listTitle')" />
-      <FormField v-model="query" type="search" :label="t('staff.updates.search')" :placeholder="t('staff.updates.searchPlaceholder')" />
+      <FormField v-model="query" type="search" :label="t('staff.updates.search')" :show-optional="false" :placeholder="t('staff.updates.searchPlaceholder')" />
       <ul class="rows">
         <li v-for="r in shown" :key="r.id">
           <button type="button" class="row" :class="{ on: r.id === selectedId }" :aria-pressed="r.id === selectedId" @click="choose(r.id)">

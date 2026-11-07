@@ -166,6 +166,84 @@
     "t2": "We have received your question and will provide an update when available.",
     "t3": "Please contact the nursing home directly if you would like to discuss this further."
   },
+  "account": {
+    "profile": "Profile",
+    "demoAccount": "Demo account",
+    "caregiverRole": "Family caregiver",
+    "linked": "Linked residents",
+    "linkedHelp": "Choose whose updates you are viewing. You can only see residents linked to your account.",
+    "viewing": "Viewing",
+    "staffAbout": "About the staff portal",
+    "staffAboutText": "The staff portal helps the care team post resident updates, reply to family questions and manage visits and events in just a few taps.",
+    "roleTitle": "Demo view",
+    "roleHelp": "Switch between the family and staff views to see how the two sides connect. This is a demonstration control, not a sign-in.",
+    "settings": "Settings",
+    "settingsHelp": "Changes apply straight away and are remembered on this device.",
+    "help": "Help",
+    "about": "About SAS Connect",
+    "aboutText": "SAS Connect helps families stay close to loved ones at the Society for the Aged Sick, and helps staff share updates with very little effort.",
+    "demoTitle": "About this demo",
+    "demo1": "Residents, caregivers and staff are fictional.",
+    "demo2": "Updates, questions and replies are simulated and reset when you refresh.",
+    "demo3": "Visit bookings and QR passes are not connected to the real nursing home.",
+    "demo4": "SAS Connect is not a medical assessment or an emergency service. In an emergency, call the nursing home or 995."
+  },
+  "guide": {
+    "title": "Beginner's guide",
+    "open": "Beginner's guide",
+    "openLong": "Open the beginner's guide",
+    "step": "Step {n} of {total}",
+    "progress": "Guide progress",
+    "prev": "Previous",
+    "next": "Next",
+    "finish": "Finish",
+    "skip": "Skip guide",
+    "doneToast": "You are all set. You can reopen the guide from Account.",
+    "offerTitle": "New here?",
+    "offerText": "Take a one-minute tour of SAS Connect.",
+    "offerStart": "Start the tour",
+    "offerLater": "Not now",
+    "caregiver": {
+      "s1": {
+        "title": "Welcome to SAS Connect",
+        "body": "SAS Connect helps you stay close to your loved one at the nursing home. This short tour shows you around."
+      },
+      "s2": {
+        "title": "Home: how are they today?",
+        "body": "Home shows your loved one's general well-being, the latest update from staff and your next visit. Use the name buttons to switch between residents."
+      },
+      "s3": {
+        "title": "Moments and questions",
+        "body": "Moments shows highlights of daily activities. Use Ask a question to send the care team a non-urgent question and read their reply."
+      },
+      "s4": {
+        "title": "Visits",
+        "body": "Book a visit in four short steps, change or cancel it later, and show your demo visit pass at the front desk."
+      },
+      "s5": {
+        "title": "Community",
+        "body": "Find events, news and volunteering opportunities, and see ways to support SAS."
+      }
+    },
+    "staff": {
+      "s1": {
+        "title": "Welcome to the staff portal",
+        "body": "The Dashboard shows what needs attention today: questions to answer, residents to update and visitors to check in."
+      },
+      "s2": {
+        "title": "Resident updates",
+        "body": "Pick a resident, tap a general status, add an optional note, then choose Save & next resident to keep moving."
+      },
+      "s3": {
+        "title": "Post a moment",
+        "body": "Share what residents are enjoying. Only tag residents with photo consent in photos, and confirm consent before publishing."
+      },
+      "s4": {
+        "title": "Inquiries, visits and events",
+        "body": "Reply to family questions with quick replies you can edit, check in visitors, set visitor capacity and publish community events."
+      }
+    }
+  },
   "staff": {
     "dash": {
       "intro": "Here is what needs your attention today.",

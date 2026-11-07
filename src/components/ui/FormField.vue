@@ -15,6 +15,7 @@ const props = defineProps({
   maxlength: { type: Number, default: null },
   rows: { type: Number, default: 4 },
   autofocus: { type: Boolean, default: false },
+  showOptional: { type: Boolean, default: true }, // false for fields that are not part of a form (a search box)
 })
 const emit = defineEmits(['update:modelValue'])
 const { t } = useI18n()
@@ -30,7 +31,7 @@ const onInput = (event) => emit('update:modelValue', event.target.value)
     <label :for="id" class="label">
       {{ label }}
       <span v-if="required" class="req">({{ t('form.required') }})</span>
-      <span v-else class="opt">({{ t('form.optional') }})</span>
+      <span v-else-if="showOptional" class="opt">({{ t('form.optional') }})</span>
     </label>
     <textarea v-if="type === 'textarea'" :id="id" class="control" :value="modelValue" :rows="rows" :placeholder="placeholder" :maxlength="maxlength" :aria-required="required || undefined" :aria-invalid="error ? 'true' : undefined" :aria-describedby="describedBy" :autofocus="autofocus" @input="onInput" />
     <select v-else-if="type === 'select'" :id="id" class="control" :value="modelValue" :aria-required="required || undefined" :aria-invalid="error ? 'true' : undefined" :aria-describedby="describedBy" :autofocus="autofocus" @change="onInput">

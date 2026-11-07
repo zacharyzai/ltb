@@ -5,6 +5,7 @@ import AppButton from '../../components/ui/AppButton.vue'
 import AppIcon from '../../components/ui/AppIcon.vue'
 import EmptyState from '../../components/ui/EmptyState.vue'
 import SectionHeader from '../../components/ui/SectionHeader.vue'
+import GuideOffer from '../../components/guide/GuideOffer.vue'
 import EventCard from '../../components/domain/EventCard.vue'
 import MomentCard from '../../components/domain/MomentCard.vue'
 import ResidentCard from '../../components/domain/ResidentCard.vue'
@@ -37,6 +38,7 @@ const openEvent = (event) => router.push({ name: 'community', query: { event: ev
     <p class="lead">{{ t('home.intro') }}</p>
   </header>
 
+  <GuideOffer />
   <ResidentSwitcher />
 
   <div v-if="selected" class="grid">

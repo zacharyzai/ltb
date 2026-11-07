@@ -1,5 +1,6 @@
 <!-- The four demo and accessibility controls, shared by the sidebar and the phone settings dialog. -->
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LanguageSwitch from './LanguageSwitch.vue'
 import RoleSwitch from './RoleSwitch.vue'
@@ -7,13 +8,15 @@ import TextSizeSwitch from './TextSizeSwitch.vue'
 import ThemeSwitch from './ThemeSwitch.vue'
 import AppIcon from '../ui/AppIcon.vue'
 
+const props = defineProps({ skipRole: { type: Boolean, default: false } }) // the Account page has its own demo-view section
 const { t } = useI18n()
-const rows = [
+const all = [
   { icon: 'swap', label: 'role.label', control: RoleSwitch },
   { icon: 'globe', label: 'settings.language', control: LanguageSwitch },
   { icon: 'sun', label: 'settings.theme', control: ThemeSwitch },
   { icon: 'type', label: 'settings.textSize', control: TextSizeSwitch },
 ]
+const rows = computed(() => (props.skipRole ? all.filter((r) => r.control !== RoleSwitch) : all))
 </script>
 
 <template>

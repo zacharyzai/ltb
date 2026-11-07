@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import AppButton from '../../components/ui/AppButton.vue'
 import AppCard from '../../components/ui/AppCard.vue'
 import AppIcon from '../../components/ui/AppIcon.vue'
+import GuideOffer from '../../components/guide/GuideOffer.vue'
 import PageHeader from '../../components/ui/PageHeader.vue'
 import SectionHeader from '../../components/ui/SectionHeader.vue'
 import StatCard from '../../components/domain/StatCard.vue'
@@ -13,6 +14,7 @@ import { useFormat } from '../../i18n/format'
 import { useEventsStore } from '../../stores/events'
 import { useInquiriesStore } from '../../stores/inquiries'
 import { useResidentsStore } from '../../stores/residents'
+import { useUiStore } from '../../stores/ui'
 import { useVisitsStore } from '../../stores/visits'
 
 const { t } = useI18n()
@@ -21,6 +23,7 @@ const residents = useResidentsStore()
 const inquiries = useInquiriesStore()
 const visits = useVisitsStore()
 const events = useEventsStore()
+const ui = useUiStore()
 
 const NEEDS_LIMIT = 3
 const checkedIn = computed(() => visits.todays.filter((b) => b.checkedInAt).length)
@@ -30,7 +33,10 @@ const allClear = computed(() => !inquiries.pendingCount && !residents.notUpdated
 </script>
 
 <template>
-  <PageHeader :title="t('pages.staffDashboard')">{{ t('staff.dash.intro') }}</PageHeader>
+  <PageHeader :title="t('pages.staffDashboard')">{{ t('staff.dash.intro') }}
+    <template #actions><AppButton variant="secondary" @click="ui.openGuide()"><AppIcon name="info" />{{ t('guide.open') }}</AppButton></template>
+  </PageHeader>
+  <GuideOffer />
 
   <div class="stack">
     <section class="stats" :aria-label="t('pages.staffDashboard')">

@@ -166,6 +166,84 @@
     "t2": "Kami telah menerima soalan anda dan akan memberi maklum balas apabila ada kemas kini.",
     "t3": "Sila hubungi rumah jagaan terus jika anda ingin berbincang dengan lebih lanjut."
   },
+  "account": {
+    "profile": "Profil",
+    "demoAccount": "Akaun demo",
+    "caregiverRole": "Penjaga keluarga",
+    "linked": "Penghuni berkaitan",
+    "linkedHelp": "Pilih kemas kini siapa yang anda lihat. Anda hanya boleh melihat penghuni yang dikaitkan dengan akaun anda.",
+    "viewing": "Sedang dilihat",
+    "staffAbout": "Mengenai portal kakitangan",
+    "staffAboutText": "Portal kakitangan membantu pasukan penjagaan menyiarkan kemas kini penghuni, membalas soalan keluarga dan mengurus lawatan serta acara dengan beberapa ketikan sahaja.",
+    "roleTitle": "Paparan demo",
+    "roleHelp": "Tukar antara paparan keluarga dan kakitangan untuk melihat bagaimana kedua-duanya berhubung. Ini kawalan demonstrasi, bukan log masuk.",
+    "settings": "Tetapan",
+    "settingsHelp": "Perubahan terpakai serta-merta dan diingati pada peranti ini.",
+    "help": "Bantuan",
+    "about": "Mengenai SAS Connect",
+    "aboutText": "SAS Connect membantu keluarga kekal rapat dengan orang tersayang di Society for the Aged Sick, dan membantu kakitangan berkongsi kemas kini dengan mudah.",
+    "demoTitle": "Mengenai demo ini",
+    "demo1": "Penghuni, penjaga dan kakitangan adalah rekaan.",
+    "demo2": "Kemas kini, soalan dan balasan adalah simulasi dan ditetapkan semula apabila anda muat semula.",
+    "demo3": "Tempahan lawatan dan pas QR tidak disambungkan kepada rumah jagaan sebenar.",
+    "demo4": "SAS Connect bukan penilaian perubatan atau perkhidmatan kecemasan. Dalam kecemasan, telefon rumah jagaan atau 995."
+  },
+  "guide": {
+    "title": "Panduan permulaan",
+    "open": "Panduan permulaan",
+    "openLong": "Buka panduan permulaan",
+    "step": "Langkah {n} daripada {total}",
+    "progress": "Kemajuan panduan",
+    "prev": "Sebelumnya",
+    "next": "Seterusnya",
+    "finish": "Selesai",
+    "skip": "Langkau panduan",
+    "doneToast": "Anda sudah bersedia. Anda boleh membuka semula panduan dari Akaun.",
+    "offerTitle": "Baru di sini?",
+    "offerText": "Ikuti lawatan satu minit SAS Connect.",
+    "offerStart": "Mulakan lawatan",
+    "offerLater": "Bukan sekarang",
+    "caregiver": {
+      "s1": {
+        "title": "Selamat datang ke SAS Connect",
+        "body": "SAS Connect membantu anda kekal rapat dengan orang tersayang di rumah jagaan. Lawatan ringkas ini akan membimbing anda."
+      },
+      "s2": {
+        "title": "Laman Utama: bagaimana keadaan mereka hari ini?",
+        "body": "Laman Utama menunjukkan keadaan umum orang tersayang, kemas kini terkini daripada kakitangan dan lawatan seterusnya. Gunakan butang nama untuk bertukar antara penghuni."
+      },
+      "s3": {
+        "title": "Momen dan soalan",
+        "body": "Momen menunjukkan sorotan aktiviti harian. Gunakan Tanya soalan untuk menghantar soalan tidak segera kepada pasukan penjagaan dan baca balasan mereka."
+      },
+      "s4": {
+        "title": "Lawatan",
+        "body": "Tempah lawatan dalam empat langkah ringkas, ubah atau batalkan kemudian, dan tunjukkan pas lawatan demo di kaunter."
+      },
+      "s5": {
+        "title": "Komuniti",
+        "body": "Lihat acara, berita dan peluang sukarelawan, serta cara menyokong SAS."
+      }
+    },
+    "staff": {
+      "s1": {
+        "title": "Selamat datang ke portal kakitangan",
+        "body": "Papan pemuka menunjukkan perkara yang perlu perhatian hari ini: soalan untuk dijawab, penghuni untuk dikemas kini dan pelawat untuk didaftar masuk."
+      },
+      "s2": {
+        "title": "Kemas kini penghuni",
+        "body": "Pilih penghuni, ketik status umum, tambah nota jika perlu, kemudian pilih Simpan & penghuni seterusnya untuk terus maju."
+      },
+      "s3": {
+        "title": "Siarkan momen",
+        "body": "Kongsi apa yang penghuni nikmati. Hanya tanda penghuni yang bersetuju foto dalam foto, dan sahkan persetujuan sebelum menerbitkan."
+      },
+      "s4": {
+        "title": "Pertanyaan, lawatan dan acara",
+        "body": "Balas soalan keluarga dengan balasan pantas yang boleh disunting, daftar masuk pelawat, tetapkan kapasiti pelawat dan terbitkan acara komuniti."
+      }
+    }
+  },
   "staff": {
     "dash": {
       "intro": "Ini yang memerlukan perhatian anda hari ini.",

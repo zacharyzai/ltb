@@ -24,6 +24,22 @@ export function savePref(name, value) {
   }
 }
 
+// Guide flags ('done' | 'skipped') are per role and saved on this device only.
+export const readFlag = (key) => {
+  try {
+    return localStorage.getItem(key)
+  } catch {
+    return null
+  }
+}
+export const saveFlag = (key, value) => {
+  try {
+    localStorage.setItem(key, value)
+  } catch {
+    // Not critical: the guide may be offered again.
+  }
+}
+
 export const systemDarkQuery = typeof matchMedia === 'function' ? matchMedia('(prefers-color-scheme: dark)') : null
 
 // `shown` is always 'light' or 'dark' ('system' already resolved).

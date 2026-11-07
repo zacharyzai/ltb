@@ -42,4 +42,17 @@ describe('ui store', () => {
     ui.setTextSize('large'); ui.setTextSize('huge')
     expect([ui.themeChoice, ui.textSize]).toEqual(['dark', 'large'])
   })
+  it('offers the guide once per role, and closing it for one role leaves the other offered', () => {
+    const ui = useUiStore()
+    expect(ui.showGuideOffer).toBe(true)
+    ui.openGuide()
+    expect(ui.guideOpen).toBe(true)
+    ui.closeGuide('done')
+    expect(ui.guideOpen).toBe(false)
+    expect(ui.showGuideOffer).toBe(false)
+    ui.setRole('staff')
+    expect(ui.showGuideOffer).toBe(true) // the staff guide has its own flag
+    ui.closeGuide('skipped')
+    expect(ui.guideSeen).toEqual({ caregiver: 'done', staff: 'skipped' })
+  })
 })

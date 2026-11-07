@@ -6,6 +6,7 @@ import AppFooter from './components/layout/AppFooter.vue'
 import AppHeader from './components/layout/AppHeader.vue'
 import AppSidebar from './components/layout/AppSidebar.vue'
 import BottomNavigation from './components/layout/BottomNavigation.vue'
+import GuideDialog from './components/guide/GuideDialog.vue'
 import AppToast from './components/ui/AppToast.vue'
 
 const { t, locale } = useI18n()
@@ -41,6 +42,7 @@ const skipToMain = () => document.getElementById('main')?.focus()
       <AppFooter />
     </div>
     <BottomNavigation class="only-mobile" />
+    <GuideDialog />
     <AppToast />
   </div>
 </template>

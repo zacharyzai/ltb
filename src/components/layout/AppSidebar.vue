@@ -35,6 +35,11 @@ const account = computed(() => ACCOUNT[ui.role])
       <SettingsControls />
     </section>
 
+    <button type="button" class="side-item guide" @click="ui.openGuide()">
+      <AppIcon name="info" :size="22" />
+      <span>{{ t('guide.open') }}</span>
+    </button>
+
     <RouterLink :to="account" class="side-item account" :class="{ on: route.path === account }" :aria-current="route.path === account ? 'page' : null">
       <AppIcon name="user" :size="22" />
       <span>{{ t('nav.account') }}</span>
@@ -96,7 +101,14 @@ const account = computed(() => ACCOUNT[ui.role])
   padding-top: var(--s-4);
   border-top: 1px solid var(--color-border);
 }
-.account {
+.guide {
   margin-top: auto;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.account {
+  margin-top: calc(-1 * var(--s-3));
 }
 </style>

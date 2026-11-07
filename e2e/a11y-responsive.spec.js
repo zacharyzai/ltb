@@ -2,8 +2,8 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
-const CAREGIVER_ROUTES = ['/', '/moments', '/visits', '/visits/book', '/community']
-const STAFF_ROUTES = ['/staff', '/staff/updates', '/staff/moment', '/staff/inquiries', '/staff/visits-events', '/staff/visits-events?tab=events']
+const CAREGIVER_ROUTES = ['/', '/account', '/moments', '/visits', '/visits/book', '/community']
+const STAFF_ROUTES = ['/staff/account', '/staff', '/staff/updates', '/staff/moment', '/staff/inquiries', '/staff/visits-events', '/staff/visits-events?tab=events']
 const ROUTES = [...CAREGIVER_ROUTES, ...STAFF_ROUTES]
 const WIDTHS = [320, 390, 768, 1024, 1440]
 const LANGS = [['en', 'English'], ['zh', '中文'], ['ms', 'Bahasa Melayu'], ['ta', 'தமிழ்']]

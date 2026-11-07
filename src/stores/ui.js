@@ -2,7 +2,7 @@ import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { DEFAULT_CAREGIVER_ID, caregivers } from '../data/caregivers'
 import { DEFAULT_STAFF_ID, staff } from '../data/staff'
-import { TEXT_SIZES, THEMES, applyTextSize, applyTheme, readPref, savePref, systemDarkQuery } from '../theme'
+import { TEXT_SIZES, THEMES, applyTextSize, applyTheme, readFlag, readPref, savePref, saveFlag, systemDarkQuery } from '../theme'
 
 // UI state: demo role and identities, theme and text size (saved on this device), and app-wide toast messages.
 export const useUiStore = defineStore('ui', () => {
@@ -44,6 +44,17 @@ export const useUiStore = defineStore('ui', () => {
     savePref('textSize', size)
   }
 
+  // Beginner's guide: one 'done' | 'skipped' flag per role, kept on this device so it is offered once and can always be reopened.
+  const guideSeen = ref({ caregiver: readFlag('sas.guide.caregiver'), staff: readFlag('sas.guide.staff') })
+  const guideOpen = ref(false)
+  const showGuideOffer = computed(() => !guideSeen.value[role.value])
+  const openGuide = () => (guideOpen.value = true)
+  function closeGuide(outcome = 'skipped') {
+    guideOpen.value = false
+    guideSeen.value[role.value] = outcome
+    saveFlag(`sas.guide.${role.value}`, outcome)
+  }
+
   // Short messages shown by <AppToast />. Pass text that is already translated. One message at a time.
   const toasts = ref([]) // { id, text, kind: 'info' | 'error' }
   let nextToastId = 1
@@ -58,6 +69,7 @@ export const useUiStore = defineStore('ui', () => {
     role, isStaff, setRole,
     currentCaregiverId, currentCaregiver, currentStaffId, currentStaff, setCaregiver, selectedResidentId, setSelectedResident,
     themeChoice, shownTheme, setTheme, textSize, setTextSize,
+    guideSeen, guideOpen, showGuideOffer, openGuide, closeGuide,
     toasts, notify, dismissToast,
   }
 })

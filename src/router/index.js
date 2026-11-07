@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useUiStore } from '../stores/ui'
 
-// Account pages and the 404 still use the placeholder until Phase 6.
+// The 404 is the only page still using the scaffold placeholder.
 // meta.role decides which shell (caregiver or staff) a page belongs to; meta.titleKey is its i18n title.
 const page = () => import('../views/PlaceholderView.vue')
 const view = (name) => () => import(`../views/caregiver/${name}.vue`)
+const accountView = () => import('../views/AccountView.vue')
 const staffView = (name) => () => import(`../views/staff/${name}.vue`)
 const caregiver = { role: 'caregiver' }
 const staff = { role: 'staff' }
@@ -15,13 +16,13 @@ export const routes = [
   { path: '/visits', name: 'visits', component: view('VisitsView'), meta: { ...caregiver, titleKey: 'pages.visits' } },
   { path: '/visits/book', name: 'book-visit', component: view('BookVisitView'), meta: { ...caregiver, titleKey: 'pages.bookVisit' } },
   { path: '/community', name: 'community', component: view('CommunityView'), meta: { ...caregiver, titleKey: 'pages.community' } },
-  { path: '/account', name: 'account', component: page, meta: { ...caregiver, titleKey: 'pages.account' } },
+  { path: '/account', name: 'account', component: accountView, meta: { ...caregiver, titleKey: 'pages.account' } },
   { path: '/staff', name: 'staff-dashboard', component: staffView('DashboardView'), meta: { ...staff, titleKey: 'pages.staffDashboard' } },
   { path: '/staff/updates', name: 'staff-updates', component: staffView('UpdatesView'), meta: { ...staff, titleKey: 'pages.staffUpdates' } },
   { path: '/staff/moment', name: 'staff-moment', component: staffView('PostMomentView'), meta: { ...staff, titleKey: 'pages.staffMoment' } },
   { path: '/staff/inquiries', name: 'staff-inquiries', component: staffView('InquiriesView'), meta: { ...staff, titleKey: 'pages.staffInquiries' } },
   { path: '/staff/visits-events', name: 'staff-visits-events', component: staffView('VisitsEventsView'), meta: { ...staff, titleKey: 'pages.staffVisitsEvents' } },
-  { path: '/staff/account', name: 'staff-account', component: page, meta: { ...staff, titleKey: 'pages.staffAccount' } },
+  { path: '/staff/account', name: 'staff-account', component: accountView, meta: { ...staff, titleKey: 'pages.staffAccount' } },
   { path: '/:pathMatch(.*)*', name: 'not-found', component: page, meta: { ...caregiver, titleKey: 'pages.notFound' } },
 ]
 

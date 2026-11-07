@@ -71,3 +71,17 @@ All `staff.*` text (dashboard, resident updates, post a moment, inquiries, visit
 | No photo consent | 未同意拍照 | Tiada persetujuan foto | புகைப்பட ஒப்புதல் இல்லை | Shown beside a resident's name |
 | Quick replies | 快捷回复 | Balasan pantas | விரைவுப் பதில்கள்  | |
 | Draft / Publish | 草稿 / 发布 | Draf / Terbitkan | வரைவு / வெளியிடு | |
+
+## Phase 6: account, settings and beginner's guide
+All `account.*` and `guide.*` text is a first-pass translation by the assistant. Please review these first:
+
+| English | 中文 | Bahasa Melayu | தமிழ் | Review note |
+|---|---|---|---|---|
+| Family caregiver | 家属照护者 | Penjaga keluarga | குடும்பப் பராமரிப்பாளர் | Role label shown on the profile |
+| Demo account | 演示账户 | Akaun demo | டெமோ கணக்கு | Must read as "not a real account" |
+| Demo view (role switch) | 演示视图 | Paparan demo | டெமோ காட்சி | Not a sign-in |
+| Beginner's guide | 新手指南 | Panduan permulaan | தொடக்க வழிகாட்டி | Friendly, non-technical term |
+| Step {n} of {total} | 第 {n} 步，共 {total} 步 | Langkah {n} daripada {total} | படி {n} / {total} | Read aloud by screen readers on each step |
+| Skip guide / Not now | 跳过指南 / 暂不需要 | Langkau panduan / Bukan sekarang | வழிகாட்டியைத் தவிர் / இப்போது வேண்டாம் | |
+| Disclaimer: not a medical assessment or emergency service; call the nursing home or 995 | 并非医疗评估或紧急服务；致电疗养院或 995 | bukan penilaian perubatan atau perkhidmatan kecemasan; telefon rumah jagaan atau 995 | மருத்துவ மதிப்பீடோ அவசர சேவையோ அல்ல; 995 | Safety wording: have it checked by SAS |
+| Guide step bodies (caregiver s1–s5, staff s1–s4) | | | | Check tone is warm and simple for older caregivers |
