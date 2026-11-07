@@ -85,3 +85,7 @@ All `account.*` and `guide.*` text is a first-pass translation by the assistant.
 | Skip guide / Not now | 跳过指南 / 暂不需要 | Langkau panduan / Bukan sekarang | வழிகாட்டியைத் தவிர் / இப்போது வேண்டாம் | |
 | Disclaimer: not a medical assessment or emergency service; call the nursing home or 995 | 并非医疗评估或紧急服务；致电疗养院或 995 | bukan penilaian perubatan atau perkhidmatan kecemasan; telefon rumah jagaan atau 995 | மருத்துவ மதிப்பீடோ அவசர சேவையோ அல்ல; 995 | Safety wording: have it checked by SAS |
 | Guide step bodies (caregiver s1–s5, staff s1–s4) | | | | Check tone is warm and simple for older caregivers |
+
+## Phase 7: polish
+New empty-state sentences (`home.noMomentsText`, `visits.noUpcomingText`, `visits.noPastText`, `community.noUpcomingText`, `community.noPastText`, `staff.dash.noInquiries`, `staff.ve.noTodayText`, `staff.ve.noUpcomingText`, `staff.ve.noEventsText`) and the Not Found page (`notFound.*`) are first-pass translations by the assistant. Please check the friendly tone ("Well done!" / 做得好 / Syabas / நன்று) feels natural for staff, and that the Not Found wording is not too casual.
+Layout notes from the visual audit (no translation change): Tamil letters are wider, so the mobile tab labels use 0.75rem in Tamil only; Chinese at Extra Large wraps the date tile ("11月 / 7") and long names, which is expected.

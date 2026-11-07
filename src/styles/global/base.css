@@ -69,6 +69,35 @@ body:has(dialog[open]) {
   overflow: hidden;
 }
 
+/* Subtle motion: short, never blocks interaction, and switched off below for reduced-motion users. */
+.page {
+  animation: page-in var(--dur) var(--ease-out);
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+dialog[open]::backdrop {
+  animation: fade-in var(--dur) var(--ease-out);
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+/* A success tick that pops in. */
+.pop-in {
+  animation: pop-in 280ms var(--ease-out);
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -13,6 +13,7 @@ defineProps({
     <span class="empty-icon"><AppIcon :name="icon" :size="28" /></span>
     <p class="empty-title">{{ title }}</p>
     <p v-if="$slots.default" class="empty-text"><slot /></p>
+    <div v-if="$slots.action" class="empty-action"><slot name="action" /></div>
   </div>
 </template>
 
@@ -39,6 +40,9 @@ defineProps({
 .empty-title {
   margin: 0;
   font: 600 var(--fs-lead) / var(--lh-tight) var(--font-heading);
+}
+.empty-action {
+  margin-top: var(--s-3);
 }
 .empty-text {
   margin: 0;

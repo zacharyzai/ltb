@@ -67,7 +67,7 @@ const emit = defineEmits(['update:modelValue'])
   text-align: center;
   overflow-wrap: break-word;
   cursor: pointer;
-  transition: background-color var(--dur-fast);
+  transition: background-color var(--dur-fast), color var(--dur-fast);
 }
 .seg-btn:hover {
   background: var(--color-tint);

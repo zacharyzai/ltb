@@ -60,13 +60,14 @@ const allClear = computed(() => !inquiries.pendingCount && !residents.notUpdated
       <SectionHeader :title="t('staff.dash.attention')" />
       <AppCard v-if="allClear" tint><p class="m-0"><AppIcon name="check" :size="20" :stroke="3" /> {{ t('staff.dash.allClear') }}</p></AppCard>
       <div v-else class="attention">
-        <AppCard v-if="inquiries.pendingCount" :title="t('staff.dash.attInquiries')">
-          <ul class="list">
+        <AppCard :title="t('staff.dash.attInquiries')">
+          <p v-if="!inquiries.pendingCount" class="m-0 good"><AppIcon name="check" :size="20" :stroke="3" /> {{ t('staff.dash.noInquiries') }}</p>
+          <ul v-else class="list">
             <li v-for="q in inquiries.pending.slice(0, NEEDS_LIMIT)" :key="q.id">
               {{ t('staff.inq.from', { caregiver: nameOf(q.caregiverId), resident: residents.byId(q.residentId).shortName }) }}
             </li>
           </ul>
-          <AppButton variant="secondary" to="/staff/inquiries">{{ t('nav.inquiries') }}</AppButton>
+          <AppButton v-if="inquiries.pendingCount" variant="secondary" to="/staff/inquiries">{{ t('nav.inquiries') }}</AppButton>
         </AppCard>
         <AppCard v-if="residents.notUpdatedToday.length" :title="t('staff.dash.attResidents')">
           <ul class="list">
@@ -97,7 +98,7 @@ const allClear = computed(() => !inquiries.pendingCount && !residents.notUpdated
 .attention {
   display: grid;
   gap: var(--s-4);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
 }
 .attention {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
@@ -105,7 +106,14 @@ const allClear = computed(() => !inquiries.pendingCount && !residents.notUpdated
 .quick {
   display: grid;
   gap: var(--s-3);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.5rem), 1fr));
+}
+.good {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--color-success-text);
+  font-weight: 600;
 }
 .list {
   display: flex;

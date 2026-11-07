@@ -58,6 +58,10 @@ const items = computed(() => NAV[ui.role].filter((item) => !item.desktopOnly))
   overflow-wrap: break-word;
   hyphens: auto; /* a long word at the largest text size breaks at a syllable, not mid-letter */
 }
+/* Tamil letters are wider than Latin ones at the same size; a touch smaller keeps each tab label whole. */
+:lang(ta) .tab {
+  font-size: 0.75rem;
+}
 .pill {
   display: grid;
   place-items: center;

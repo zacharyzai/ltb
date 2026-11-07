@@ -89,29 +89,6 @@
     "loading": "加载中…",
     "done": "完成"
   },
-  "empty": {
-    "title": "这里还没有内容",
-    "text": "有内容时会显示在这里。"
-  },
-  "placeholder": {
-    "description": "这是新设计系统中的占位页面，正式内容将在后续阶段推出。",
-    "exampleButton": "示例操作",
-    "quickTitle": "快捷操作",
-    "quickText": "与住户家属分享今天发生的美好时刻。",
-    "cardTitle": "共用组件",
-    "cardText": "这里的按钮、状态标签和对话框是每个页面的基础组件。",
-    "primary": "主要",
-    "secondary": "次要",
-    "ghost": "轻量",
-    "danger": "移除",
-    "disabled": "不可用",
-    "statusTitle": "状态标签",
-    "openDialog": "打开对话框",
-    "sectionTitle": "空白与加载状态",
-    "dialogTitle": "示例对话框",
-    "dialogText": "按 Esc 键、关闭按钮或点击深色区域即可关闭，焦点会回到打开它的按钮。",
-    "toastText": "这是一条示例消息。"
-  },
   "category": {
     "gardening": "园艺",
     "crafts": "手工艺",
@@ -264,7 +241,8 @@
       "attResidents": "今日尚未更新的住户",
       "attVisits": "今日待签到的访客",
       "visitItem": "{name} 探访 {resident}，{time}",
-      "allClear": "一切正常，目前没有需要关注的事项。"
+      "allClear": "一切正常，目前没有需要关注的事项。",
+      "noInquiries": "没有待回复的问题，做得好！"
     },
     "updates": {
       "intro": "选择住户，选择其今日状态，然后保存。这些只是一般性指标，并非医疗记录。",
@@ -364,7 +342,10 @@
       "edit": "编辑",
       "editFor": "编辑 {title}",
       "publish": "发布",
-      "publishFor": "发布 {title}"
+      "publishFor": "发布 {title}",
+      "noTodayText": "家属预约今天的探访后会显示在这里。",
+      "noUpcomingText": "之后的预约会列在这里。",
+      "noEventsText": "创建活动即可开始。"
     },
     "ev": {
       "createTitle": "创建活动",
@@ -540,7 +521,8 @@
     "viewVisit": "查看探访",
     "noVisit": "尚未预约探访。",
     "community": "社区精选",
-    "allEvents": "全部活动"
+    "allEvents": "全部活动",
+    "noMomentsText": "护理团队分享动态后会显示在这里。"
   },
   "resident": {
     "viewing": "正在查看以下住户的动态",
@@ -609,7 +591,9 @@
     "confirmCancel": "是，取消探访",
     "cancelledToast": "探访已取消",
     "visitors": "{n} 位访客",
-    "with": "探访{name}"
+    "with": "探访{name}",
+    "noUpcomingText": "预约探访后，会显示在这里。",
+    "noPastText": "已完成的探访会列在这里。"
   },
   "pass": {
     "title": "探访通行证",
@@ -666,7 +650,9 @@
     "viewDetailsFor": "查看详情：{title}",
     "familiesOnly": "仅限住户及家属",
     "when": "时间",
-    "where": "地点"
+    "where": "地点",
+    "noUpcomingText": "新活动会在这里公布，请稍后再来看看。",
+    "noPastText": "活动举行后会移到这里。"
   },
   "share": {
     "title": "分享此活动",
@@ -693,5 +679,10 @@
     "donate": "前往 SAS 网站捐款",
     "website": "SAS 网站",
     "note": "将在新标签页打开 SAS 官方网站。此原型不处理任何捐款。"
+  },
+  "notFound": {
+    "text": "找不到您要查看的页面。它可能已被移动，或网址有误。",
+    "homeCaregiver": "返回首页",
+    "homeStaff": "返回仪表板"
   }
 }

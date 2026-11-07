@@ -44,6 +44,7 @@ const location = computed(() => localized(props.event, 'location', t))
 
 <style scoped>
 .event {
+  transition: box-shadow var(--dur), transform var(--dur);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -115,5 +116,11 @@ const location = computed(() => localized(props.event, 'location', t))
 }
 .compact .media {
   aspect-ratio: 21 / 9;
+}
+@media (hover: hover) {
+  .event:hover {
+    box-shadow: var(--shadow-raised);
+    transform: translateY(-2px);
+  }
 }
 </style>

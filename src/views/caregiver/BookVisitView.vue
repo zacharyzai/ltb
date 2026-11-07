@@ -141,7 +141,7 @@ function confirm() {
       <!-- 4: confirmed -->
       <template v-else>
         <div class="done" role="status">
-          <span class="ok"><AppIcon name="check" :size="30" :stroke="3" /></span>
+          <span class="ok pop-in"><AppIcon name="check" :size="30" :stroke="3" /></span>
           <p class="msg">{{ existing ? t('book.rescheduled') : t('book.confirmed') }}</p>
           <p class="who">{{ resident.name }}<br />{{ fmt.dateLong(result.date) }}<br />{{ fmt.timeRange(SLOTS.find((s) => s.id === result.slotId).start, SLOTS.find((s) => s.id === result.slotId).end) }}<br />{{ t('visits.visitors', { n: result.visitors }, result.visitors) }}</p>
           <p class="ref"><span>{{ t('book.reference') }}</span> <strong>{{ result.ref }}</strong></p>

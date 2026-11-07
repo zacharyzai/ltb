@@ -17,6 +17,8 @@ const { t } = useI18n()
       <span class="label">{{ label }}</span>
     </li>
   </ol>
+  <!-- Phones: the current step's name gets the full width (a column is too narrow for long Tamil or Malay words). -->
+  <p class="now" aria-hidden="true">{{ steps[current] }}</p>
 </template>
 
 <style scoped>
@@ -64,9 +66,18 @@ const { t } = useI18n()
 .label {
   overflow-wrap: anywhere;
 }
+.now {
+  display: none;
+  margin: calc(-1 * var(--s-2)) 0 var(--s-4);
+  text-align: center;
+  font: 600 var(--fs-body) / var(--lh-tight) var(--font-body);
+}
 @media (max-width: 575.98px) {
-  .step:not(.on) .label {
-    display: none; /* small screens: only the current step's name; the page heading also says "Step n of 4" */
+  .label {
+    display: none; /* the page heading also says "Step n of 4" */
+  }
+  .now {
+    display: block;
   }
 }
 </style>

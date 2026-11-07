@@ -1,4 +1,4 @@
-<!-- SAS Connect wordmark: an original teal tile with an "S" (not the SAS logo). -->
+<!-- SAS Connect wordmark: an original maroon tile with an "S" (not the SAS logo). -->
 <script setup>
 import { useI18n } from 'vue-i18n'
 

@@ -38,7 +38,9 @@ const skipToMain = () => document.getElementById('main')?.focus()
     <AppSidebar class="only-desktop" />
     <AppHeader class="only-mobile" />
     <div class="shell-main">
-      <main id="main" class="shell-content" tabindex="-1"><RouterView /></main>
+      <main id="main" class="shell-content" tabindex="-1">
+        <RouterView v-slot="{ Component, route: current }"><div :key="current.path" class="page"><component :is="Component" /></div></RouterView>
+      </main>
       <AppFooter />
     </div>
     <BottomNavigation class="only-mobile" />

@@ -51,7 +51,7 @@ const close = () => emit('update:modelValue', false)
 <template>
   <AppDialog :model-value="modelValue" :title="t('ask.title')" @update:model-value="emit('update:modelValue', $event)">
     <div v-if="sent" class="sent" role="status">
-      <span class="ok"><AppIcon name="check" :size="28" :stroke="3" /></span>
+      <span class="ok pop-in"><AppIcon name="check" :size="28" :stroke="3" /></span>
       <p class="msg">{{ t('ask.sent') }}</p>
       <p class="urgent">{{ t('ask.urgent') }}</p>
       <div class="actions">

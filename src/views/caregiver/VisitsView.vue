@@ -60,14 +60,15 @@ function confirmCancel() {
         </VisitCard>
       </div>
       <EmptyState v-else icon="calendar" :title="t('visits.noUpcoming')">
-        <AppButton to="/visits/book">{{ t('visits.book') }}</AppButton>
+        {{ t('visits.noUpcomingText') }}
+        <template #action><AppButton to="/visits/book"><AppIcon name="plus" :size="20" />{{ t('visits.book') }}</AppButton></template>
       </EmptyState>
     </section>
 
     <section :aria-label="t('visits.past')">
       <SectionHeader :title="t('visits.past')" />
       <div v-if="past.length" class="list"><VisitCard v-for="b in past" :key="b.id" :booking="b" compact /></div>
-      <EmptyState v-else icon="clock" :title="t('visits.noPast')" />
+      <EmptyState v-else icon="clock" :title="t('visits.noPast')">{{ t('visits.noPastText') }}</EmptyState>
     </section>
 
     <section v-if="cancelled.length" :aria-label="t('visits.cancelledTitle')">

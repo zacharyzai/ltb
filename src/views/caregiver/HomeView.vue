@@ -64,7 +64,7 @@ const openEvent = (event) => router.push({ name: 'community', query: { event: ev
         <template #action><AppButton to="/moments" variant="ghost">{{ t('home.viewMoments') }}<AppIcon name="arrow-right" :size="18" /></AppButton></template>
       </SectionHeader>
       <MomentCard v-if="latestMoment" :moment="latestMoment" :visible-resident-ids="visibleIds" />
-      <EmptyState v-else icon="image" :title="t('home.noMoments')" />
+      <EmptyState v-else icon="image" :title="t('home.noMoments')">{{ t('home.noMomentsText') }}</EmptyState>
     </section>
 
     <section v-if="highlight" class="community" :aria-label="t('home.community')">

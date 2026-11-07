@@ -89,29 +89,6 @@
     "loading": "Memuatkan…",
     "done": "Selesai"
   },
-  "empty": {
-    "title": "Belum ada apa-apa di sini",
-    "text": "Item akan muncul di sini apabila ada sesuatu untuk dipaparkan."
-  },
-  "placeholder": {
-    "description": "Halaman ini ialah ruang letak dalam sistem reka bentuk baharu. Kandungan sebenar akan tiba dalam fasa kemudian.",
-    "exampleButton": "Tindakan contoh",
-    "quickTitle": "Tindakan pantas",
-    "quickText": "Kongsi sesuatu yang indah hari ini dengan keluarga penghuni.",
-    "cardTitle": "Komponen dikongsi",
-    "cardText": "Butang, lencana status dan dialog yang dipaparkan di sini ialah blok binaan untuk setiap skrin.",
-    "primary": "Utama",
-    "secondary": "Kedua",
-    "ghost": "Ringkas",
-    "danger": "Buang",
-    "disabled": "Tidak tersedia",
-    "statusTitle": "Lencana status",
-    "openDialog": "Buka dialog",
-    "sectionTitle": "Keadaan kosong dan memuatkan",
-    "dialogTitle": "Dialog contoh",
-    "dialogText": "Tekan Escape, butang Tutup atau kawasan gelap untuk menutup. Fokus kembali ke butang yang membukanya.",
-    "toastText": "Ini ialah mesej contoh."
-  },
   "category": {
     "gardening": "Berkebun",
     "crafts": "Seni & Kraf",
@@ -264,7 +241,8 @@
       "attResidents": "Penghuni belum dikemas kini hari ini",
       "attVisits": "Pelawat untuk didaftar masuk hari ini",
       "visitItem": "{name} melawat {resident}, {time}",
-      "allClear": "Semua selesai. Tiada yang perlu perhatian sekarang."
+      "allClear": "Semua selesai. Tiada yang perlu perhatian sekarang.",
+      "noInquiries": "Tiada soalan menunggu jawapan. Syabas!"
     },
     "updates": {
       "intro": "Pilih penghuni, pilih keadaan mereka hari ini, kemudian simpan. Ini penunjuk umum, bukan rekod perubatan.",
@@ -364,7 +342,10 @@
       "edit": "Sunting",
       "editFor": "Sunting {title}",
       "publish": "Terbitkan",
-      "publishFor": "Terbitkan {title}"
+      "publishFor": "Terbitkan {title}",
+      "noTodayText": "Lawatan yang ditempah keluarga untuk hari ini akan muncul di sini.",
+      "noUpcomingText": "Tempahan akan datang akan disenaraikan di sini.",
+      "noEventsText": "Cipta acara untuk bermula."
     },
     "ev": {
       "createTitle": "Cipta acara",
@@ -540,7 +521,8 @@
     "viewVisit": "Lihat lawatan",
     "noVisit": "Belum ada lawatan ditempah.",
     "community": "Sorotan komuniti",
-    "allEvents": "Semua acara"
+    "allEvents": "Semua acara",
+    "noMomentsText": "Momen akan muncul di sini apabila pasukan penjagaan berkongsi satu."
   },
   "resident": {
     "viewing": "Melihat kemas kini untuk",
@@ -609,7 +591,9 @@
     "confirmCancel": "Ya, batalkan lawatan",
     "cancelledToast": "Lawatan dibatalkan",
     "visitors": "{n} pelawat",
-    "with": "Melawat {name}"
+    "with": "Melawat {name}",
+    "noUpcomingText": "Apabila anda menempah lawatan, ia akan muncul di sini.",
+    "noPastText": "Lawatan yang telah selesai akan disenaraikan di sini."
   },
   "pass": {
     "title": "Pas lawatan",
@@ -666,7 +650,9 @@
     "viewDetailsFor": "Lihat butiran: {title}",
     "familiesOnly": "Penghuni & keluarga sahaja",
     "when": "Bila",
-    "where": "Di mana"
+    "where": "Di mana",
+    "noUpcomingText": "Acara baharu akan diumumkan di sini. Sila semak semula tidak lama lagi.",
+    "noPastText": "Acara akan dipindahkan ke sini selepas ia berlangsung."
   },
   "share": {
     "title": "Kongsi acara ini",
@@ -693,5 +679,10 @@
     "donate": "Derma di laman web SAS",
     "website": "Laman web SAS",
     "note": "Membuka laman web rasmi SAS dalam tab baharu. Derma tidak diproses dalam prototaip ini."
+  },
+  "notFound": {
+    "text": "Kami tidak dapat mencari halaman yang anda cari. Ia mungkin telah dialih, atau alamat mempunyai kesilapan menaip.",
+    "homeCaregiver": "Kembali ke Laman Utama",
+    "homeStaff": "Kembali ke Papan Pemuka"
   }
 }

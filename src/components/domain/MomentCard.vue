@@ -43,6 +43,7 @@ const tagged = computed(() => props.moment.residentIds.filter((id) => props.visi
 
 <style scoped>
 .moment {
+  transition: box-shadow var(--dur), transform var(--dur);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -102,5 +103,11 @@ const tagged = computed(() => props.moment.residentIds.filter((id) => props.visi
 }
 .compact .media {
   aspect-ratio: 21 / 9;
+}
+@media (hover: hover) {
+  .moment:hover {
+    box-shadow: var(--shadow-raised);
+    transform: translateY(-2px);
+  }
 }
 </style>

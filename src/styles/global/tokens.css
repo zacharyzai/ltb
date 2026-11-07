@@ -36,6 +36,10 @@
   --color-link: #005aab;
   --color-link-hover: #00427d;
 
+  /* Illustration palette: soft, warm shapes that sit with the maroon theme (no brand-red fills). */
+  --art-ground: #dca695;
+  --art-cloth: #8f2a2a;
+
   /* Feedback */
   --color-success-text: #1f6a47;
   --color-success-bg: #e8f4ed;
@@ -150,6 +154,9 @@
   --color-sas-blue: #8ec5ff;
   --color-link: #8ec5ff;
   --color-link-hover: #b5d9ff;
+
+  --art-ground: #7a4a44;
+  --art-cloth: #d88a8a;
 
   --color-success-text: #7fd6a5;
   --color-success-bg: #12291d;

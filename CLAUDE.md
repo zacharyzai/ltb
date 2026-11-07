@@ -39,7 +39,7 @@ reference/wireframe/  original Claude Design export (NEVER modify)
 docs/vue-migration/   MIGRATION_PLAN.md, i18n-review.md
 scripts/              check-contrast.mjs (npm run contrast), check-i18n.mjs (npm run i18n:check)
 tests/                Vitest: helpers.js (frozen Singapore clock) + one file per store, data, time, format, ui, caregiver, cross-role
-e2e/                  Playwright: caregiver.spec.js (journeys), staff.spec.js (staff + cross-role A–F), account.spec.js (account, settings, guide), a11y-responsive.spec.js (axe + viewport/language matrix), routes.spec.js
+e2e/                  Playwright: caregiver.spec.js (journeys), staff.spec.js (staff + cross-role A–F), account.spec.js (account, settings, guide), polish.spec.js (404, empty states, reduced motion), a11y-responsive.spec.js (axe + viewport/language matrix), routes.spec.js
 src/
   main.js  App.vue  theme.js  navigation.js
   router/index.js
@@ -56,7 +56,7 @@ src/
     controls/  LanguageSwitch ThemeSwitch TextSizeSwitch RoleSwitch SettingsControls
     layout/    AppSidebar AppHeader BottomNavigation AppFooter BrandMark
   views/caregiver/ HomeView MomentsView VisitsView BookVisitView CommunityView
-  views/PlaceholderView.vue                        (404 page only)
+  views/NotFoundView.vue                          (404)
   views/AccountView.vue                            (both roles)
   views/staff/ DashboardView UpdatesView PostMomentView InquiriesView VisitsEventsView (+ VisitsPanel EventsPanel)
   styles/      main.css, global/{tokens,base,layout}.css
@@ -132,7 +132,7 @@ Simplified card dialog (no spotlight, no voice narration): **caregiver 5 steps**
 4. **Caregiver screens** — ✅ done: Home (resident switcher, status, latest moment, next visit, community highlight), Moments (well-being, filters, Ask the care team, inquiry history with staff replies), Visits (upcoming/past/cancelled, pass, cancel, reschedule) and the 4-step booking flow with calendar, time slots, review and demo QR pass, Community (events, news, past events, volunteering with simulated interest, event dialog with WhatsApp/Facebook/Copy link, Support SAS). Original SVG illustrations, `FormField`, Intl date formatting, 334 i18n keys x 4 languages, 43 Playwright tests incl. axe.
 5. **Staff screens** + all cross-role journeys — ✅ done: Dashboard (stat cards from the stores, quick actions, needs attention), Resident Updates (search, status + note, Save & next resident), Post a Moment (local photo preview with revoked object URLs, multi-resident tagging, photo-consent rule + confirmation, preview dialog), Inquiries (filters, reply dialog, quick-reply templates fill an editable box, marks In Review on open), Visits & Events (`?tab=`; check-in, demo pass scan by reference, per-date/slot capacity stepper, event create/edit/draft/publish dialog). 127 `staff.*` keys x 4 languages; Playwright `e2e/staff.spec.js` (journeys, cross-role A–F, dialog axe) and staff routes added to the axe and responsive matrices. Staff Account stays a placeholder until Phase 6. Not built: microphone/voice input (optional), moment drafts.
 6. **Settings + beginner's guide** — ✅ done: `views/AccountView.vue` serves `/account` and `/staff/account` (profile with demo-account chip, caregiver's linked residents with relationship and a resident picker that writes the ui store, staff role + portal explanation, demo-view switch, language/theme/text-size via `SettingsControls skip-role`, Help with about text, guide button and a short "About this demo" disclaimer). Guide: `components/guide/GuideDialog.vue` (mounted once in `App.vue`; 5 caregiver / 4 staff steps from `data/guide.js`; Previous/Next/Finish/Skip/Close; live-region step announcements; focus kept on Next) and `GuideOffer.vue` (a card on Home and the staff Dashboard only, never a pop-up). State in the `ui` store (`guideSeen` per role: `'done' | 'skipped'`, `guideOpen`, `openGuide`, `closeGuide`), saved in `localStorage` as `sas.guide.<role>` (guarded). Reopen from Account, the desktop sidebar, and the staff Dashboard header. `FormField` has `showOptional` (search box hides "(optional)"). 52 new keys (`account.*`, `guide.*`) x 4 languages; `e2e/account.spec.js` (18 tests) and `/account`, `/staff/account` added to the axe/responsive matrices.
-7. **Polish:** illustrations, motion, empty/error states, dark-mode and Tamil/Chinese layout audit.
+7. **Polish** — ✅ done: illustrations recoloured with new `--art-ground` / `--art-cloth` tokens (light + dark; no teal or brand-red fills left), friendlier empty states (text + actions via the `EmptyState` `action` slot), positive "no questions" message on the staff Dashboard, polished `NotFoundView` (keeps the staff shell under `/staff/...`; `PlaceholderView` and its keys removed), subtle motion (page entrance keyed on `route.path`, backdrop fade, card hover on moments/events, success tick `.pop-in`; all off under `prefers-reduced-motion`), Tamil layout fixes (booking step name on its own line on phones, Tamil tab labels 0.75rem), denser 4-up Dashboard grids. `e2e/polish.spec.js` (7 tests). The only teal left is the intentional "Feeling Well" status.
 8. **QA:** Playwright + axe regression, viewport/theme/language/text-size matrix, `i18n:check`, build + lint.
 
 ## 16. Development rules

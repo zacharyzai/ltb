@@ -89,29 +89,6 @@
     "loading": "Loading…",
     "done": "Done"
   },
-  "empty": {
-    "title": "Nothing here yet",
-    "text": "Items will appear here once there is something to show."
-  },
-  "placeholder": {
-    "description": "This page is a placeholder in the new design system. Its real content arrives in a later phase.",
-    "exampleButton": "Example action",
-    "quickTitle": "Quick action",
-    "quickText": "Share something nice that happened today with residents' families.",
-    "cardTitle": "Shared components",
-    "cardText": "Buttons, status badges and dialogs shown here are the building blocks for every screen.",
-    "primary": "Primary",
-    "secondary": "Secondary",
-    "ghost": "Subtle",
-    "danger": "Remove",
-    "disabled": "Unavailable",
-    "statusTitle": "Status badges",
-    "openDialog": "Open a dialog",
-    "sectionTitle": "Empty and loading states",
-    "dialogTitle": "Example dialog",
-    "dialogText": "Press Escape, the Close button or the dark area to close. Focus returns to the button that opened it.",
-    "toastText": "This is an example message."
-  },
   "category": {
     "gardening": "Gardening",
     "crafts": "Arts & Crafts",
@@ -264,7 +241,8 @@
       "attResidents": "Residents not updated today",
       "attVisits": "Visitors to check in today",
       "visitItem": "{name} visiting {resident}, {time}",
-      "allClear": "All clear. Nothing needs attention right now."
+      "allClear": "All clear. Nothing needs attention right now.",
+      "noInquiries": "No questions waiting for a reply. Well done!"
     },
     "updates": {
       "intro": "Pick a resident, choose how they are today, then save. These are general indicators, not medical records.",
@@ -364,7 +342,10 @@
       "edit": "Edit",
       "editFor": "Edit {title}",
       "publish": "Publish",
-      "publishFor": "Publish {title}"
+      "publishFor": "Publish {title}",
+      "noTodayText": "Visits that families book for today will appear here.",
+      "noUpcomingText": "Later bookings will be listed here.",
+      "noEventsText": "Create an event to get started."
     },
     "ev": {
       "createTitle": "Create an event",
@@ -540,7 +521,8 @@
     "viewVisit": "View visit",
     "noVisit": "No visit booked yet.",
     "community": "Community highlight",
-    "allEvents": "All events"
+    "allEvents": "All events",
+    "noMomentsText": "Moments appear here when the care team shares one."
   },
   "resident": {
     "viewing": "Viewing updates for",
@@ -609,7 +591,9 @@
     "confirmCancel": "Yes, cancel visit",
     "cancelledToast": "Visit cancelled",
     "visitors": "{n} visitor | {n} visitors",
-    "with": "Visiting {name}"
+    "with": "Visiting {name}",
+    "noUpcomingText": "When you book a visit, it will appear here.",
+    "noPastText": "Completed visits will be listed here."
   },
   "pass": {
     "title": "Visit pass",
@@ -666,7 +650,9 @@
     "viewDetailsFor": "View details: {title}",
     "familiesOnly": "Residents & families only",
     "when": "When",
-    "where": "Where"
+    "where": "Where",
+    "noUpcomingText": "New events will be announced here. Please check back soon.",
+    "noPastText": "Events will move here after they take place."
   },
   "share": {
     "title": "Share this event",
@@ -693,5 +679,10 @@
     "donate": "Donate on the SAS website",
     "website": "SAS website",
     "note": "Opens the official SAS website in a new tab. Donations are not processed in this prototype."
+  },
+  "notFound": {
+    "text": "We could not find the page you were looking for. It may have moved, or the address may have a typing mistake.",
+    "homeCaregiver": "Back to Home",
+    "homeStaff": "Back to Dashboard"
   }
 }

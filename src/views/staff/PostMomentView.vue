@@ -89,6 +89,7 @@ function again() {
 
   <AppCard v-if="published" tint>
     <div role="status" class="done">
+      <span class="tick pop-in"><AppIcon name="check" :size="28" :stroke="3" /></span>
       <h2>{{ t('staff.moment.published') }}</h2>
       <p class="m-0">{{ t('staff.moment.publishedText') }}</p>
       <div class="actions">
@@ -153,6 +154,15 @@ function again() {
   display: flex;
   flex-direction: column;
   gap: var(--s-3);
+}
+.tick {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--r-pill);
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
 }
 .shot {
   width: 100%;

@@ -55,14 +55,14 @@ function interested(volunteer) {
       <div v-if="events.upcoming.length" class="cards">
         <EventCard v-for="e in events.upcoming" :key="e.id" :event="e" @details="showDetails" />
       </div>
-      <EmptyState v-else icon="calendar" :title="t('community.noUpcoming')" />
+      <EmptyState v-else icon="calendar" :title="t('community.noUpcoming')">{{ t('community.noUpcomingText') }}</EmptyState>
     </section>
 
     <section v-else-if="tab === 'past'" :aria-label="t('community.tab.past')">
       <div v-if="events.past.length" class="cards">
         <EventCard v-for="e in events.past" :key="e.id" :event="e" @details="showDetails" />
       </div>
-      <EmptyState v-else icon="clock" :title="t('community.noPast')" />
+      <EmptyState v-else icon="clock" :title="t('community.noPast')">{{ t('community.noPastText') }}</EmptyState>
     </section>
 
     <section v-else-if="tab === 'news'" :aria-label="t('community.tab.news')">

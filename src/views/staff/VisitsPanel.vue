@@ -76,7 +76,7 @@ const slotName = (s) => fmt.value.timeRange(s.start, s.end)
           <AppButton v-if="!b.checkedInAt" :aria-label="t('staff.ve.checkInFor', { name: nameOf(b) })" @click="checkIn(b)"><AppIcon name="check" :size="20" :stroke="3" />{{ t('staff.ve.checkIn') }}</AppButton>
         </VisitCard>
       </div>
-      <EmptyState v-else icon="calendar" :title="t('staff.ve.noToday')" />
+      <EmptyState v-else icon="calendar" :title="t('staff.ve.noToday')">{{ t('staff.ve.noTodayText') }}</EmptyState>
     </section>
 
     <section :aria-label="t('staff.ve.capacity')">
@@ -106,7 +106,7 @@ const slotName = (s) => fmt.value.timeRange(s.start, s.end)
       <div v-if="later.length" class="cards">
         <VisitCard v-for="b in later" :key="b.id" :booking="b" :visitor="nameOf(b)" compact />
       </div>
-      <EmptyState v-else icon="calendar" :title="t('staff.ve.noUpcoming')" />
+      <EmptyState v-else icon="calendar" :title="t('staff.ve.noUpcoming')">{{ t('staff.ve.noUpcomingText') }}</EmptyState>
     </section>
   </div>
 

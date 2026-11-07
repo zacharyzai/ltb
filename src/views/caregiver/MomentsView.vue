@@ -70,7 +70,9 @@ const visibleIds = computed(() => linked.value.map((r) => r.id))
       <div v-if="history.length" class="history">
         <InquiryCard v-for="q in history" :key="q.id" :inquiry="q" />
       </div>
-      <EmptyState v-else icon="message" :title="t('ask.noHistory')" />
+      <EmptyState v-else icon="message" :title="t('ask.noHistory')">
+        <template #action><AppButton variant="secondary" @click="asking = true"><AppIcon name="message" :size="20" />{{ t('ask.open') }}</AppButton></template>
+      </EmptyState>
     </section>
   </div>
 

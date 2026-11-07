@@ -57,7 +57,7 @@ const title = (e) => localized(e, 'title', t)
           </div>
         </li>
       </ul>
-      <EmptyState v-else icon="calendar" :title="t('staff.ve.noEvents')" />
+      <EmptyState v-else icon="calendar" :title="t('staff.ve.noEvents')">{{ t('staff.ve.noEventsText') }}</EmptyState>
     </section>
   </div>
 

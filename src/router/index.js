@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useUiStore } from '../stores/ui'
 
-// The 404 is the only page still using the scaffold placeholder.
 // meta.role decides which shell (caregiver or staff) a page belongs to; meta.titleKey is its i18n title.
-const page = () => import('../views/PlaceholderView.vue')
+const notFound = () => import('../views/NotFoundView.vue')
 const view = (name) => () => import(`../views/caregiver/${name}.vue`)
 const accountView = () => import('../views/AccountView.vue')
 const staffView = (name) => () => import(`../views/staff/${name}.vue`)
@@ -23,7 +22,7 @@ export const routes = [
   { path: '/staff/inquiries', name: 'staff-inquiries', component: staffView('InquiriesView'), meta: { ...staff, titleKey: 'pages.staffInquiries' } },
   { path: '/staff/visits-events', name: 'staff-visits-events', component: staffView('VisitsEventsView'), meta: { ...staff, titleKey: 'pages.staffVisitsEvents' } },
   { path: '/staff/account', name: 'staff-account', component: accountView, meta: { ...staff, titleKey: 'pages.staffAccount' } },
-  { path: '/:pathMatch(.*)*', name: 'not-found', component: page, meta: { ...caregiver, titleKey: 'pages.notFound' } },
+  { path: '/:pathMatch(.*)*', name: 'not-found', component: notFound, meta: { titleKey: 'pages.notFound' } },
 ]
 
 const router = createRouter({
@@ -34,7 +33,9 @@ const router = createRouter({
 
 // The role is derived from the route, so deep links and the role switch are the same mechanism.
 router.beforeEach((to) => {
-  if (to.meta.role) useUiStore().setRole(to.meta.role)
+  // The 404 keeps the current shell, except that a mistyped /staff/... address shows the staff one.
+  const role = to.meta.role ?? (to.name === 'not-found' && to.path.startsWith('/staff') ? 'staff' : null)
+  if (role) useUiStore().setRole(role)
 })
 
 export default router

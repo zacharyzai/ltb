@@ -5,7 +5,7 @@ defineProps({
   y: { type: Number, default: 0 },
   s: { type: Number, default: 1 },
   skin: { type: String, default: '#e0ac84' },
-  cloth: { type: String, default: '#1d6560' },
+  cloth: { type: String, default: 'var(--art-cloth)' },
   hair: { type: String, default: '#d9d9d9' },
   pose: { type: String, default: 'stand' }, // 'stand' | 'arms-up'
 })
