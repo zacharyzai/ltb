@@ -23,12 +23,12 @@ Testing: **Vitest** (store/logic tests in `tests/`) and **Playwright + `@axe-cor
 Not allowed: React, Tailwind, Lucide package, axios, UI kits, date/animation libraries, other state libraries. Any new dependency needs approval.
 
 ## 4. Design direction
-Modern, clean, friendly, spacious; rounded cards; warm neutral backgrounds; teal and green accents; clean typography; icon + word everywhere; subtle motion; large buttons. Inspired by **Ah Ma Ah Gong Can** (https://github.com/zacharyzai/wad2-proj): adapt its application shell, desktop sidebar + mobile bottom nav, tokens + Bootstrap bridge, theme switching, i18n architecture, native `<dialog>` confirmations and toasts. **Do not** copy its mascot, medicine illustrations, scan/bill/auth features or backend.
+Modern, clean, friendly, spacious; rounded cards; warm neutral backgrounds; SAS maroon and green accents; clean typography; icon + word everywhere; subtle motion; large buttons. Inspired by **Ah Ma Ah Gong Can** (https://github.com/zacharyzai/wad2-proj): adapt its application shell, desktop sidebar + mobile bottom nav, tokens + Bootstrap bridge, theme switching, i18n architecture, native `<dialog>` confirmations and toasts. **Do not** copy its mascot, medicine illustrations, scan/bill/auth features or backend.
 The hand-drawn wireframe styling (Kalam, Patrick Hand, hand-drawn borders) is retired. `reference/wireframe/` remains the source of user journeys and content only.
 
 **Brand research (official SAS site, checked in Phase 1):** the site uses red (`#ee3e3e`, `#e02b20`, dark `#921515`), blue (`#005aab`, link blue `#2ea3f2`), white and `#333`; fonts Poppins and Open Sans; Divi (WordPress) theme. It is **not** teal/green. **Decided (Phase 2):** teal + green carry the UI; SAS red (`#ee3e3e`) and blue (`#005aab`) are accents only, never the main action colour. Fonts: **Poppins** (headings) and **Open Sans** (body) via Google Fonts, with system CJK/Tamil fallbacks (no web fonts for Chinese or Tamil). No imitation of the SAS logo (the header uses an original "S" tile).
 
-**Palette rules (all in `src/styles/global/tokens.css`, verified by `npm run contrast`):** primary fill/text `#1d6560` (6.8:1 with white; dark theme uses a light teal fill with dark text); brand teal `#2a8c82` is decoration/large type only (white on it is 4.06:1); green support `#4a9d6f`/`#1f6a47`; warm page `#fbfaf7`, soft teal `#eef6f4`, text `#1a1a1a`; SAS blue is the link colour; SAS red appears as `--color-sas-red` (decoration), `--color-sas-red-solid` (red fill with white text, 6.5:1) and danger text. Never hard-code a colour outside `tokens.css`.
+**Palette rules (all in `src/styles/global/tokens.css`, verified by `npm run contrast`):** **Re-themed to SAS maroon on the user's request (supersedes the Phase 2 teal decision).** Primary fill/text `#921515` (official SAS dark red; hover `#761010`); brand red `#e02b20` is decoration/large type only; soft maroon tint `#fbefee`; warm page `#fbfaf7`, text `#1a1a1a`; dark theme uses a light rose fill (`#f4a3a3`) with dark text on warm-charcoal surfaces. Green support `#4a9d6f`/`#1f6a47` and SAS blue (`#005aab`, link and focus colour) stay as supporting colours; the "Feeling Well" status stays teal ●. Danger text and `--color-sas-red-solid` stay `#b3262b`. Never hard-code a colour outside `tokens.css`.
 
 **Imagery:** original, consistent, friendly illustrations (authored SVG), respectful depictions of elderly residents and caregivers. No unverified photographs, no striped placeholders where avoidable, no imitation SAS logo, no real SAS resident photos. A `MomentPhoto`-style component may later render licensed photos. Keep the notice "Images and resident information are for demonstration purposes only."
 
@@ -39,7 +39,7 @@ reference/wireframe/  original Claude Design export (NEVER modify)
 docs/vue-migration/   MIGRATION_PLAN.md, i18n-review.md
 scripts/              check-contrast.mjs (npm run contrast), check-i18n.mjs (npm run i18n:check)
 tests/                Vitest: helpers.js (frozen Singapore clock) + one file per store, data, time, format, ui, caregiver, cross-role
-e2e/                  Playwright: caregiver.spec.js (journeys), a11y-responsive.spec.js (axe + viewport/language matrix), routes.spec.js
+e2e/                  Playwright: caregiver.spec.js (journeys), staff.spec.js (staff + cross-role A–F), a11y-responsive.spec.js (axe + viewport/language matrix), routes.spec.js
 src/
   main.js  App.vue  theme.js  navigation.js
   router/index.js
@@ -56,10 +56,11 @@ src/
     controls/  LanguageSwitch ThemeSwitch TextSizeSwitch RoleSwitch SettingsControls
     layout/    AppSidebar AppHeader BottomNavigation AppFooter BrandMark
   views/caregiver/ HomeView MomentsView VisitsView BookVisitView CommunityView
-  views/PlaceholderView.vue                        (Account and all staff routes, until their phases)
+  views/PlaceholderView.vue                        (Account pages and 404, until Phase 6)
+  views/staff/ DashboardView UpdatesView PostMomentView InquiriesView VisitsEventsView (+ VisitsPanel EventsPanel)
   styles/      main.css, global/{tokens,base,layout}.css
 ```
-Later phases add `components/guide/` and `views/staff/`. Do not create folders without files.
+Later phases add `components/guide/`. Do not create folders without files.
 
 ## 6. Routes
 Caregiver: `/` Home, `/moments`, `/visits`, `/visits/book` (4-step flow, `?reschedule=<id>`), `/community` (`?event=<id>` opens detail), `/account`.
@@ -128,7 +129,7 @@ Simplified card dialog (no spotlight, no voice narration): **caregiver 5 steps**
 2. **Foundation / design system** — ✅ done: tokens (light/dark) + contrast script, Poppins/Open Sans, themes (light/dark/system, no flash, saved), text size (standard 17px / large 19px / extra large 21px, saved), i18n parity script, responsive shell (≥992px sidebar; phone header + 4-tab bottom nav), role switch, shared UI components, translated placeholder pages. Form-field components arrive with the first form (Phase 4).
 3. **Data + stores** — ✅ done: relative-date mock data, six Pinia stores with validation and result objects, translated seed content/enumerations/error messages (197 keys x 4 locales), Vitest suite (101 tests) including the six cross-role journeys and a robustness check on awkward dates. Toasts moved into the ui store; no UI changes.
 4. **Caregiver screens** — ✅ done: Home (resident switcher, status, latest moment, next visit, community highlight), Moments (well-being, filters, Ask the care team, inquiry history with staff replies), Visits (upcoming/past/cancelled, pass, cancel, reschedule) and the 4-step booking flow with calendar, time slots, review and demo QR pass, Community (events, news, past events, volunteering with simulated interest, event dialog with WhatsApp/Facebook/Copy link, Support SAS). Original SVG illustrations, `FormField`, Intl date formatting, 334 i18n keys x 4 languages, 43 Playwright tests incl. axe.
-5. **Staff screens** + all cross-role journeys.
+5. **Staff screens** + all cross-role journeys — ✅ done: Dashboard (stat cards from the stores, quick actions, needs attention), Resident Updates (search, status + note, Save & next resident), Post a Moment (local photo preview with revoked object URLs, multi-resident tagging, photo-consent rule + confirmation, preview dialog), Inquiries (filters, reply dialog, quick-reply templates fill an editable box, marks In Review on open), Visits & Events (`?tab=`; check-in, demo pass scan by reference, per-date/slot capacity stepper, event create/edit/draft/publish dialog). 127 `staff.*` keys x 4 languages; Playwright `e2e/staff.spec.js` (journeys, cross-role A–F, dialog axe) and staff routes added to the axe and responsive matrices. Staff Account stays a placeholder until Phase 6. Not built: microphone/voice input (optional), moment drafts.
 6. **Settings + beginner's guide.**
 7. **Polish:** illustrations, motion, empty/error states, dark-mode and Tamil/Chinese layout audit.
 8. **QA:** Playwright + axe regression, viewport/theme/language/text-size matrix, `i18n:check`, build + lint.

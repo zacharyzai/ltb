@@ -2,7 +2,9 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
-const ROUTES = ['/', '/moments', '/visits', '/visits/book', '/community']
+const CAREGIVER_ROUTES = ['/', '/moments', '/visits', '/visits/book', '/community']
+const STAFF_ROUTES = ['/staff', '/staff/updates', '/staff/moment', '/staff/inquiries', '/staff/visits-events', '/staff/visits-events?tab=events']
+const ROUTES = [...CAREGIVER_ROUTES, ...STAFF_ROUTES]
 const WIDTHS = [320, 390, 768, 1024, 1440]
 const LANGS = [['en', 'English'], ['zh', '中文'], ['ms', 'Bahasa Melayu'], ['ta', 'தமிழ்']]
 const h1 = (page) => page.getByRole('heading', { level: 1 })
@@ -96,7 +98,7 @@ const expectClean = (m, label) => {
 
 test.describe('responsive layout', () => {
   for (const width of WIDTHS) {
-    test(`all caregiver pages fit at ${width}px (standard and extra-large text)`, async ({ page }) => {
+    test(`all pages fit at ${width}px (standard and extra-large text)`, async ({ page }) => {
       await page.setViewportSize({ width, height: 800 })
       for (const size of ['standard', 'xlarge']) {
         for (const route of ROUTES) {
@@ -119,7 +121,7 @@ test.describe('responsive layout', () => {
   })
 
   for (const [code, name] of LANGS) {
-    test(`all caregiver pages fit at 320px in ${name}`, async ({ page }) => {
+    test(`all pages fit at 320px in ${name}`, async ({ page }) => {
       await page.setViewportSize({ width: 320, height: 700 })
       for (const route of ROUTES) {
         await open(page, route, { lang: code })

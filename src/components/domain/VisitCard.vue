@@ -13,6 +13,7 @@ import StatusBadge from '../ui/StatusBadge.vue'
 const props = defineProps({
   booking: { type: Object, required: true },
   compact: { type: Boolean, default: false },
+  visitor: { type: String, default: '' }, // staff view: the caregiver who booked (their relationship to the resident is not shown)
 })
 const { t } = useI18n()
 const fmt = useFormat()
@@ -20,7 +21,7 @@ const { caregiver } = useCaregiver()
 const residents = useResidentsStore()
 const resident = computed(() => residents.byId(props.booking.residentId))
 const slot = computed(() => SLOTS.find((s) => s.id === props.booking.slotId))
-const relationship = computed(() => caregiver.value.relationships[props.booking.residentId])
+const relationship = computed(() => (props.visitor ? null : caregiver.value.relationships[props.booking.residentId]))
 </script>
 
 <template>
@@ -31,6 +32,7 @@ const relationship = computed(() => caregiver.value.relationships[props.booking.
     </div>
     <div class="info">
       <h3 class="when">{{ fmt.dateLong(booking.date) }}</h3>
+      <p v-if="visitor" class="line"><AppIcon name="user" :size="18" />{{ t('staff.ve.visitor', { name: visitor }) }}</p>
       <p class="line"><AppIcon name="clock" :size="18" />{{ fmt.timeRange(slot.start, slot.end) }}</p>
       <p class="line"><AppIcon name="users" :size="18" />{{ t('visits.visitors', { n: booking.visitors }, booking.visitors) }}</p>
       <p class="line"><AppIcon name="heart" :size="18" /><span>{{ t('visits.with', { name: resident.shortName }) }}<span v-if="relationship" class="rel"> · {{ t(`relationship.${relationship}`) }}</span></span></p>

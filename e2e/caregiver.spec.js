@@ -267,7 +267,7 @@ test.describe('language, theme and text size', () => {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
     await page.getByRole('link', { name: 'All moments' }).click()
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
-    await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(15, 22, 21)')
+    await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(21, 17, 17)')
     await group(page, 'Theme').getByRole('button', { name: 'Light' }).click()
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
   })

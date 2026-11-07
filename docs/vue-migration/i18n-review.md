@@ -58,3 +58,16 @@ All `home.*`, `resident.*`, `moments.*`, `ask.*`, `visits.*`, `pass.*`, `book.*`
 | Support SAS / Donate | 支持 SAS / 捐款 | Sokong SAS / Derma | SAS-ஐ ஆதரியுங்கள் / நன்கொடை | Fundraising tone |
 | Residents & families only | 仅限住户及家属 | Penghuni & keluarga sahaja | குடியிருப்பாளர்கள் & குடும்பத்தினர் மட்டும் | |
 | Dates and times | zh-SG, ms-SG, ta-SG via Intl | | | Check weekday/month names and 12-hour times read naturally to native users |
+
+## Phase 5: staff pages
+All `staff.*` text (dashboard, resident updates, post a moment, inquiries, visits & events, event form) is a first-pass translation by the assistant. Please review these first:
+
+| English | 中文 | Bahasa Melayu | தமிழ் | Review note |
+|---|---|---|---|---|
+| Save & next resident | 保存并前往下一位 | Simpan & penghuni seterusnya | சேமித்து அடுத்த குடியிருப்பாளர் | Primary staff action; keep short for 320 px |
+| Check in / Scan a pass (demo) | 签到 / 扫描通行证（演示） | Daftar masuk / Imbas pas (demo) | பதிவு செய் / அனுமதிச் சீட்டை ஸ்கேன் செய் (டெமோ) | "Check in" as arrival registration, not a hotel check-in |
+| Visitor capacity / {n} of {capacity} places taken | 访客名额 / 已占用 {taken}/{capacity} 个名额 | Kapasiti pelawat / {taken} daripada {capacity} tempat digunakan | வருகையாளர் கொள்ளளவு | Capacity vs. quota wording |
+| I confirm everyone in this photo agreed to it being shared with their family | 我确认照片中的所有人都同意与其家属分享此照片 | Saya mengesahkan semua dalam foto ini bersetuju… | … | Consent statement: have it checked by SAS (legal wording) |
+| No photo consent | 未同意拍照 | Tiada persetujuan foto | புகைப்பட ஒப்புதல் இல்லை | Shown beside a resident's name |
+| Quick replies | 快捷回复 | Balasan pantas | விரைவுப் பதில்கள்  | |
+| Draft / Publish | 草稿 / 发布 | Draf / Terbitkan | வரைவு / வெளியிடு | |

@@ -1,5 +1,5 @@
 /* SAS Connect design tokens. Components use these names only; the dark theme swaps the same names.
-   Teal and green carry the interface. SAS red and blue (the official site's colours) are accents only. */
+   SAS maroon red carries the interface (the official site's #921515); green and SAS blue support it. */
 :root {
   /* Surfaces */
   --color-page: #fbfaf7;
@@ -13,15 +13,15 @@
   --color-text: #1a1a1a;
   --color-text-muted: #55605d;
 
-  /* Primary teal. Small text and button fills use the dark teal; the brand teal is for decoration and large type. */
-  --color-primary: #1d6560;
-  --color-primary-hover: #17524d;
+  /* Primary SAS maroon. Small text and button fills use the dark maroon; the brighter brand red is for decoration and large type. */
+  --color-primary: #921515;
+  --color-primary-hover: #761010;
   --color-on-primary: #ffffff;
-  --color-primary-text: #1d6560;
-  --color-brand: #2a8c82;
-  --color-tint: #eef6f4;
-  --color-tint-strong: #d3ebe6;
-  --color-tint-text: #164e4a;
+  --color-primary-text: #921515;
+  --color-brand: #e02b20;
+  --color-tint: #fbefee;
+  --color-tint-strong: #f3d3d1;
+  --color-tint-text: #6e1010;
 
   /* Green support colour */
   --color-green: #4a9d6f;
@@ -121,24 +121,24 @@
 }
 
 :root[data-theme='dark'] {
-  --color-page: #0f1615;
-  --color-card: #17211f;
-  --color-surface-2: #1f2b29;
-  --color-border: #2b3a37;
-  --color-border-strong: #3d4f4b;
-  --color-control-border: #7d8b87;
+  --color-page: #151111;
+  --color-card: #201818;
+  --color-surface-2: #2b2020;
+  --color-border: #3d2f2f;
+  --color-border-strong: #53403f;
+  --color-control-border: #9a8b89;
 
-  --color-text: #e8eeed;
-  --color-text-muted: #a9b6b3;
+  --color-text: #f3ecec;
+  --color-text-muted: #c0b2b0;
 
-  --color-primary: #7fd6cc;
-  --color-primary-hover: #9be3da;
-  --color-on-primary: #082623;
-  --color-primary-text: #8fdcd5;
-  --color-brand: #3aa89c;
-  --color-tint: #14302d;
-  --color-tint-strong: #1d4a45;
-  --color-tint-text: #a6e6df;
+  --color-primary: #f4a3a3;
+  --color-primary-hover: #f8bcbc;
+  --color-on-primary: #3a0a0a;
+  --color-primary-text: #ffb3b3;
+  --color-brand: #ee5a52;
+  --color-tint: #341617;
+  --color-tint-strong: #4f2224;
+  --color-tint-text: #ffcaca;
 
   --color-green: #5fb583;
   --color-green-text: #7fd6a5;

@@ -2,18 +2,23 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { caregivers } from '../../data/caregivers'
 import { useFormat } from '../../i18n/format'
 import { useResidentsStore } from '../../stores/residents'
 import { localized } from '../../utils/content'
 import StatusBadge from '../ui/StatusBadge.vue'
 
-const props = defineProps({ inquiry: { type: Object, required: true } })
+const props = defineProps({
+  inquiry: { type: Object, required: true },
+  forStaff: { type: Boolean, default: false }, // name the caregiver instead of addressing the viewer
+})
 const { t } = useI18n()
 const fmt = useFormat()
 const residents = useResidentsStore()
 const question = computed(() => localized(props.inquiry, 'question', t))
 const reply = computed(() => localized(props.inquiry, 'reply', t))
 const resident = computed(() => residents.byId(props.inquiry.residentId))
+const caregiver = computed(() => caregivers.find((c) => c.id === props.inquiry.caregiverId))
 </script>
 
 <template>
@@ -22,12 +27,13 @@ const resident = computed(() => residents.byId(props.inquiry.residentId))
       <StatusBadge :status="inquiry.status" />
       <time class="when" :datetime="inquiry.createdAt">{{ fmt.stamp(inquiry.createdAt) }}</time>
     </p>
-    <p class="about">{{ t('ask.about', { name: resident.shortName }) }} · {{ t(`topic.${inquiry.topic}`) }}</p>
+    <p class="about">{{ forStaff ? t('staff.inq.from', { caregiver: caregiver?.name, resident: resident.shortName }) : t('ask.about', { name: resident.shortName }) }} · {{ t(`topic.${inquiry.topic}`) }}</p>
     <p class="q">“{{ question }}”</p>
     <div v-if="reply" class="reply">
       <p class="who">{{ t('ask.careTeamReplied') }} · <time :datetime="inquiry.repliedAt">{{ fmt.stamp(inquiry.repliedAt) }}</time></p>
       <p class="text">{{ reply }}</p>
     </div>
+    <div v-if="$slots.default" class="actions"><slot /></div>
   </article>
 </template>
 
@@ -74,5 +80,11 @@ const resident = computed(() => residents.byId(props.inquiry.residentId))
 }
 .text {
   margin: 0;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
 }
 </style>
