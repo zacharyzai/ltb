@@ -29,3 +29,6 @@ test-results/
 playwright-report/
 .env
 .env.*
+
+# QA output (Phase 8 screenshot gallery)
+qa-output/

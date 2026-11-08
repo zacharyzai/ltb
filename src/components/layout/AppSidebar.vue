@@ -51,7 +51,7 @@ const account = computed(() => ACCOUNT[ui.role])
 .side {
   display: flex;
   flex-direction: column;
-  gap: var(--s-5);
+  gap: var(--s-3);
   position: sticky;
   top: 0;
   height: 100dvh;

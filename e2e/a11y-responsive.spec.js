@@ -14,9 +14,13 @@ async function open(page, path, { theme = 'light', lang = 'en', size = 'standard
   await page.evaluate(([th, l, sz]) => { localStorage.setItem('sas.theme', th); localStorage.setItem('sas.locale', l); localStorage.setItem('sas.textSize', sz) }, [theme, lang, size])
   await page.goto(path)
   await expect(h1(page)).toBeVisible()
-  await page.waitForTimeout(250) // let the page fade-in finish before measuring contrast
 }
 const axe = (page) => new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+// Axe measures colour as rendered, so wait for entrance animations to finish (a fixed delay flaked under parallel load).
+const analyze = async (page) => {
+  await page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished.catch(() => {}))))
+  return axe(page).analyze()
+}
 const report = (results) => results.violations.map((v) => `${v.id}: ${v.nodes.slice(0, 3).map((n) => n.target.join(' ')).join(' | ')}`)
 
 test.describe('accessibility (axe, WCAG 2.1 A/AA)', () => {
@@ -24,7 +28,7 @@ test.describe('accessibility (axe, WCAG 2.1 A/AA)', () => {
     for (const route of ROUTES) {
       test(`${route} in ${theme} theme has no violations`, async ({ page }) => {
         await open(page, route, { theme })
-        expect(report(await axe(page).analyze())).toEqual([])
+        expect(report(await analyze(page))).toEqual([])
       })
     }
   }
@@ -33,16 +37,16 @@ test.describe('accessibility (axe, WCAG 2.1 A/AA)', () => {
     await open(page, '/visits/book')
     await page.locator('.calendar .day:not([disabled])').nth(1).click()
     await page.getByRole('button', { name: 'Next' }).click()
-    expect(report(await axe(page).analyze())).toEqual([])
+    expect(report(await analyze(page))).toEqual([])
     await page.locator('.slot:not(.off)').first().click()
     await page.getByRole('button', { name: 'Next' }).click()
-    expect(report(await axe(page).analyze())).toEqual([])
+    expect(report(await analyze(page))).toEqual([])
   })
 
   test('community tabs have no violations', async ({ page }) => {
     for (const tab of ['news', 'past', 'volunteering']) {
       await open(page, `/community?tab=${tab}`)
-      expect(report(await axe(page).analyze()), tab).toEqual([])
+      expect(report(await analyze(page)), tab).toEqual([])
     }
   })
 
@@ -51,20 +55,20 @@ test.describe('accessibility (axe, WCAG 2.1 A/AA)', () => {
       await open(page, '/moments', { theme })
       await page.getByRole('button', { name: 'Ask a question' }).click()
       await page.getByRole('dialog').getByRole('button', { name: 'Send question' }).click() // show the validation error too
-      expect(report(await axe(page).analyze()), 'ask').toEqual([])
+      expect(report(await analyze(page)), 'ask').toEqual([])
       await page.keyboard.press('Escape')
       await open(page, '/community?event=ev-1', { theme })
-      expect(report(await axe(page).analyze()), 'event').toEqual([])
+      expect(report(await analyze(page)), 'event').toEqual([])
       await open(page, '/visits', { theme })
       await page.getByRole('button', { name: 'View pass' }).first().click()
-      expect(report(await axe(page).analyze()), 'pass').toEqual([])
+      expect(report(await analyze(page)), 'pass').toEqual([])
     })
   }
 
   test('the largest text size has no violations', async ({ page }) => {
     for (const route of ['/', '/visits/book']) {
       await open(page, route, { size: 'xlarge' })
-      expect(report(await axe(page).analyze()), route).toEqual([])
+      expect(report(await analyze(page)), route).toEqual([])
     }
   })
 })

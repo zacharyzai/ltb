@@ -89,3 +89,16 @@ All `account.*` and `guide.*` text is a first-pass translation by the assistant.
 ## Phase 7: polish
 New empty-state sentences (`home.noMomentsText`, `visits.noUpcomingText`, `visits.noPastText`, `community.noUpcomingText`, `community.noPastText`, `staff.dash.noInquiries`, `staff.ve.noTodayText`, `staff.ve.noUpcomingText`, `staff.ve.noEventsText`) and the Not Found page (`notFound.*`) are first-pass translations by the assistant. Please check the friendly tone ("Well done!" / 做得好 / Syabas / நன்று) feels natural for staff, and that the Not Found wording is not too casual.
 Layout notes from the visual audit (no translation change): Tamil letters are wider, so the mobile tab labels use 0.75rem in Tamil only; Chinese at Extra Large wraps the date tile ("11月 / 7") and long names, which is expected.
+
+## Phase 8: priority list for native-speaker review (not yet reviewed by anyone)
+No translation in this project has been checked by a native speaker or professionally. Review these first, because wording matters most here:
+
+| Area | Keys (en.json) | Why it matters |
+|---|---|---|
+| Not a medical assessment / emergency (call the nursing home or 995) | `account.demo4`, `app.disclaimer` (footer), `moments.disclaimer` | Safety and legal wording |
+| Urgent questions note in Ask the care team | `ask.urgent` | Tells families this is not real-time; must be unmistakable |
+| Photo consent | `staff.moment.consent`, `consentNeeded`, `photoRule`, `dropped`, `noConsent` | Privacy and consent wording |
+| Status labels (Feeling Well / Resting / Please Contact Staff) | `status.*` | Must not alarm or sound like a clinical result |
+| Caregiver / resident / nursing home terms | `relationship.*`, `staffRole.*`, `resident.*` | Which term SAS itself uses in each language |
+| Staff instructions and reply templates | `staff.*`, `replyTemplate.*` | Tone staff would actually send to families |
+| Beginner's guide | `guide.*` | Plain, warm language for older caregivers |

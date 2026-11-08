@@ -58,6 +58,16 @@ const items = computed(() => NAV[ui.role].filter((item) => !item.desktopOnly))
   overflow-wrap: break-word;
   hyphens: auto; /* a long word at the largest text size breaks at a syllable, not mid-letter */
 }
+/* At 320 px every pixel counts: with the gutters gone "Dashboard" and "Community" stay on one line at standard text size. */
+@media (max-width: 360px) {
+  .tabs {
+    gap: 0;
+    padding-inline: 0;
+  }
+  .tab {
+    padding-inline: 0;
+  }
+}
 /* Tamil letters are wider than Latin ones at the same size; a touch smaller keeps each tab label whole. */
 :lang(ta) .tab {
   font-size: 0.75rem;
