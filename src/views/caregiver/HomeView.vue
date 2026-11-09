@@ -111,13 +111,14 @@ section :deep(.empty) {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--s-6);
-    align-items: start;
+    align-items: stretch;
   }
-  .col {
+  /* 2x2 grid (resident | moment, visit | community) so each row lines up and cards share a height. */
+  .resident { height: 100%; }
+  .visit, .moment, .community {
     display: flex;
     flex-direction: column;
-    gap: var(--s-8);
   }
-  .resident, .moment, .visit, .community { order: 0; }
+  .visit > :last-child, .moment > :last-child, .community > :last-child { flex: 1; }
 }
 </style>

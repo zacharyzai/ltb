@@ -18,7 +18,8 @@
     "updates": "住户状态更新",
     "postMoment": "发布动态",
     "inquiries": "咨询",
-    "visitsEvents": "探访与活动"
+    "visitsEvents": "探访与活动",
+    "feedback": "反馈"
   },
   "tab": {
     "home": "首页",
@@ -684,5 +685,22 @@
     "text": "找不到您要查看的页面。它可能已被移动，或网址有误。",
     "homeCaregiver": "返回首页",
     "homeStaff": "返回仪表板"
+  },
+  "feedback": {
+    "title": "分享您的反馈",
+    "intro": "请告诉我们 SAS Connect 对您是否好用，只需不到一分钟。",
+    "rating": "您的使用体验如何？",
+    "rate": {
+      "bad": "不好",
+      "ok": "一般",
+      "good": "很好"
+    },
+    "noRating": "请选择您的使用体验。",
+    "comment": "意见",
+    "placeholder": "有什么我们可以做得更好的？（选填）",
+    "demo": "这是演示版，您的反馈不会被保存或发送。",
+    "send": "提交反馈",
+    "sent": "谢谢！我们已收到您的反馈。",
+    "sentToast": "反馈已提交"
   }
 }

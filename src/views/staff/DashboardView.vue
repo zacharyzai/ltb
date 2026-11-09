@@ -95,18 +95,21 @@ const allClear = computed(() => !inquiries.pendingCount && !residents.notUpdated
   gap: var(--s-8);
 }
 .stats,
-.attention {
+.attention,
+.quick {
   display: grid;
   gap: var(--s-4);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  grid-template-columns: 1fr;
 }
 .attention {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
 }
-.quick {
-  display: grid;
-  gap: var(--s-3);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.5rem), 1fr));
+/* 1 / 2 / 4 columns so the four stats and four quick actions never wrap 3 + 1. */
+@media (min-width: 576px) {
+  .stats, .quick { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1280px) {
+  .stats, .quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 .good {
   display: flex;

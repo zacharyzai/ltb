@@ -18,7 +18,8 @@
     "updates": "Kemas Kini Penghuni",
     "postMoment": "Hantar Momen",
     "inquiries": "Pertanyaan",
-    "visitsEvents": "Lawatan & Acara"
+    "visitsEvents": "Lawatan & Acara",
+    "feedback": "Maklum balas"
   },
   "tab": {
     "home": "Utama",
@@ -684,5 +685,22 @@
     "text": "Kami tidak dapat mencari halaman yang anda cari. Ia mungkin telah dialih, atau alamat mempunyai kesilapan menaip.",
     "homeCaregiver": "Kembali ke Laman Utama",
     "homeStaff": "Kembali ke Papan Pemuka"
+  },
+  "feedback": {
+    "title": "Kongsi maklum balas anda",
+    "intro": "Beritahu kami bagaimana SAS Connect membantu anda. Ia mengambil masa kurang seminit.",
+    "rating": "Bagaimana pengalaman anda?",
+    "rate": {
+      "bad": "Tidak baik",
+      "ok": "Boleh tahan",
+      "good": "Bagus"
+    },
+    "noRating": "Sila pilih pengalaman anda.",
+    "comment": "Komen",
+    "placeholder": "Ada apa-apa yang boleh kami perbaiki? (pilihan)",
+    "demo": "Ini ialah demo. Maklum balas anda tidak disimpan atau dihantar ke mana-mana.",
+    "send": "Hantar maklum balas",
+    "sent": "Terima kasih! Maklum balas anda telah dicatat.",
+    "sentToast": "Maklum balas dihantar"
   }
 }

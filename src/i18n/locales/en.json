@@ -18,7 +18,8 @@
     "updates": "Resident Updates",
     "postMoment": "Post a Moment",
     "inquiries": "Inquiries",
-    "visitsEvents": "Visits & Events"
+    "visitsEvents": "Visits & Events",
+    "feedback": "Feedback"
   },
   "tab": {
     "home": "Home",
@@ -684,5 +685,22 @@
     "text": "We could not find the page you were looking for. It may have moved, or the address may have a typing mistake.",
     "homeCaregiver": "Back to Home",
     "homeStaff": "Back to Dashboard"
+  },
+  "feedback": {
+    "title": "Share your feedback",
+    "intro": "Tell us how SAS Connect is working for you. It takes less than a minute.",
+    "rating": "How is your experience?",
+    "rate": {
+      "bad": "Not good",
+      "ok": "Okay",
+      "good": "Great"
+    },
+    "noRating": "Please choose how your experience is.",
+    "comment": "Comments",
+    "placeholder": "Anything we could do better? (optional)",
+    "demo": "This is a demo. Your feedback is not saved or sent anywhere.",
+    "send": "Send feedback",
+    "sent": "Thank you! Your feedback has been noted.",
+    "sentToast": "Feedback sent"
   }
 }

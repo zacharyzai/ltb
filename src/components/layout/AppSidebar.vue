@@ -1,10 +1,11 @@
 <!-- Desktop sidebar (992px and up): brand, navigation, then demo and accessibility controls. -->
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { ACCOUNT, HOME, NAV, isOn } from '../../navigation'
 import { useUiStore } from '../../stores/ui'
+import FeedbackDialog from '../domain/FeedbackDialog.vue'
 import SettingsControls from '../controls/SettingsControls.vue'
 import AppIcon from '../ui/AppIcon.vue'
 import BrandMark from './BrandMark.vue'
@@ -14,6 +15,7 @@ const route = useRoute()
 const ui = useUiStore()
 const items = computed(() => NAV[ui.role])
 const account = computed(() => ACCOUNT[ui.role])
+const feedbackOpen = ref(false)
 </script>
 
 <template>
@@ -39,6 +41,14 @@ const account = computed(() => ACCOUNT[ui.role])
       <AppIcon name="info" :size="22" />
       <span>{{ t('guide.open') }}</span>
     </button>
+
+    <template v-if="!ui.isStaff">
+      <button type="button" class="side-item feedback" @click="feedbackOpen = true">
+        <AppIcon name="message" :size="22" />
+        <span>{{ t('nav.feedback') }}</span>
+      </button>
+      <FeedbackDialog v-model="feedbackOpen" />
+    </template>
 
     <RouterLink :to="account" class="side-item account" :class="{ on: route.path === account }" :aria-current="route.path === account ? 'page' : null">
       <AppIcon name="user" :size="22" />
@@ -103,6 +113,13 @@ const account = computed(() => ACCOUNT[ui.role])
 }
 .guide {
   margin-top: auto;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.feedback {
+  margin-top: calc(-1 * var(--s-3));
   border: 0;
   background: transparent;
   text-align: left;

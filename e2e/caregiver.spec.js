@@ -116,9 +116,9 @@ test.describe('visits', () => {
     await expect(page.getByRole('heading', { level: 2 })).toContainText('Step 3 of 4')
     await expect(page.locator('dd', { hasText: 'Madam Tan Mei Ling' })).toBeVisible()
     await page.getByRole('button', { name: 'More visitors' }).click()
-    await page.getByRole('button', { name: 'Back' }).click()
+    await page.getByRole('button', { name: 'Back', exact: true }).click()
     await expect(page.locator('.slot input:checked')).toHaveCount(1) // time kept
-    await page.getByRole('button', { name: 'Back' }).click()
+    await page.getByRole('button', { name: 'Back', exact: true }).click()
     await expect(page.locator('.calendar .day[aria-pressed="true"]')).toHaveCount(1) // date kept
     await page.getByRole('button', { name: 'Next' }).click()
     await page.getByRole('button', { name: 'Next' }).click()

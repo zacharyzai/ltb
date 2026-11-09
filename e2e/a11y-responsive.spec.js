@@ -87,7 +87,7 @@ const measure = (page) => page.evaluate(() => {
   // On phones the brand must not run under the settings and account buttons.
   const top = document.querySelector('header.top')
   const brand = top && getComputedStyle(top).display !== 'none' ? top.querySelector('.name') : null
-  const firstButton = top?.querySelector('button, a.icon-btn')
+  const firstButton = [...(top?.querySelectorAll('button, a.icon-btn') ?? [])].find(visible)
   const brandCollides = Boolean(brand && firstButton && (brand.getBoundingClientRect().right > firstButton.getBoundingClientRect().left + 1 || brand.scrollWidth > brand.clientWidth + 1))
   return { scrollWidth: document.documentElement.scrollWidth, vw, off, small, clipped, tabsOnScreen, brandCollides }
 })
