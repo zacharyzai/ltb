@@ -7,6 +7,7 @@ import AppButton from '../ui/AppButton.vue'
 import AppDialog from '../ui/AppDialog.vue'
 import AppIcon from '../ui/AppIcon.vue'
 import FormField from '../ui/FormField.vue'
+import RatingScale from '../ui/RatingScale.vue'
 import SegmentedControl from '../ui/SegmentedControl.vue'
 
 const MAX_COMMENT = 500
@@ -16,13 +17,13 @@ const emit = defineEmits(['update:modelValue'])
 const { t } = useI18n()
 const { notify } = useToast()
 
-const form = reactive({ rating: '', comment: '' })
+const form = reactive({ rating: '', satisfaction: '', recommend: '', comment: '' })
 const error = ref('')
 const sent = ref(false)
 
 watch(() => props.modelValue, (open) => {
   if (!open) return
-  Object.assign(form, { rating: '', comment: '' })
+  Object.assign(form, { rating: '', satisfaction: '', recommend: '', comment: '' })
   error.value = ''
   sent.value = false
 }, { immediate: true })
@@ -50,9 +51,11 @@ const close = () => emit('update:modelValue', false)
       <p class="m-0">{{ t('feedback.intro') }}</p>
       <div>
         <p class="label">{{ t('feedback.rating') }} <span aria-hidden="true">*</span></p>
-        <SegmentedControl v-model="form.rating" wrap :label="t('feedback.rating')" :options="RATINGS.map((r) => ({ value: r, label: t(`feedback.rate.${r}`) }))" />
+        <SegmentedControl v-model="form.rating" :label="t('feedback.rating')" :options="RATINGS.map((r) => ({ value: r, label: t(`feedback.rate.${r}`) }))" />
         <p v-if="error" class="formerror" role="alert">⚠ {{ error }}</p>
       </div>
+      <RatingScale v-model="form.satisfaction" optional :from="1" :to="5" :columns="5" :legend="t('feedback.satisfaction')" :low-label="t('feedback.satisfactionLow')" :high-label="t('feedback.satisfactionHigh')" />
+      <RatingScale v-model="form.recommend" optional :from="0" :to="10" :columns="6" :legend="t('feedback.recommend')" :low-label="t('feedback.recommendLow')" :high-label="t('feedback.recommendHigh')" />
       <FormField v-model="form.comment" type="textarea" :label="t('feedback.comment')" :placeholder="t('feedback.placeholder')" :help="t('feedback.demo')" :maxlength="MAX_COMMENT" />
       <div class="actions">
         <AppButton variant="secondary" @click="close">{{ t('dialog.cancel') }}</AppButton>

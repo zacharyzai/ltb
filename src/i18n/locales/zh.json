@@ -701,6 +701,13 @@
     "demo": "这是演示版，您的反馈不会被保存或发送。",
     "send": "提交反馈",
     "sent": "谢谢！我们已收到您的反馈。",
-    "sentToast": "反馈已提交"
+    "sentToast": "反馈已提交",
+    "satisfaction": "总体而言，您对 SAS 为您的亲人提供的服务体验有多满意？",
+    "satisfactionLow": "非常不满意",
+    "satisfactionHigh": "非常满意",
+    "recommend": "您有多大可能向正在寻找护理院的朋友、亲戚或同事推荐 Society for the Aged Sick (SAS)？",
+    "recommendLow": "完全不可能",
+    "recommendHigh": "极有可能",
+    "chosen": "您选择了 {n}"
   }
 }

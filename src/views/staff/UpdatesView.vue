@@ -79,7 +79,7 @@ function save({ advance }) {
       <FormField v-model="query" type="search" :label="t('staff.updates.search')" :show-optional="false" :placeholder="t('staff.updates.searchPlaceholder')" />
       <ul class="rows">
         <li v-for="r in shown" :key="r.id">
-          <button type="button" class="row" :class="{ on: r.id === selectedId }" :aria-pressed="r.id === selectedId" @click="choose(r.id)">
+          <button type="button" class="resident-row" :class="{ on: r.id === selectedId }" :aria-pressed="r.id === selectedId" @click="choose(r.id)">
             <span class="name">{{ r.name }}</span>
             <StatusBadge :status="r.status" />
             <span class="meta">{{ r.updatedAt ? fmt.stamp(r.updatedAt) : t('resident.notUpdated') }}</span>
@@ -138,7 +138,7 @@ function save({ advance }) {
   padding: 0;
   list-style: none;
 }
-.row {
+.resident-row {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -153,7 +153,7 @@ function save({ advance }) {
   text-align: left;
   cursor: pointer;
 }
-.row.on {
+.resident-row.on {
   border-color: var(--color-primary);
   background: var(--color-tint);
 }

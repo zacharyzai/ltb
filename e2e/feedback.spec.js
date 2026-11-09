@@ -7,6 +7,8 @@ test('caregiver can send feedback from the header', async ({ page }) => {
   await page.getByRole('button', { name: 'Send feedback' }).click()
   await expect(page.getByText('Please choose how')).toBeVisible()
   await page.getByRole('button', { name: /Great/ }).click()
+  await page.getByRole('group', { name: /how satisfied/ }).getByText('4', { exact: true }).click()
+  await page.getByRole('group', { name: /likely are you to recommend/ }).getByText('10', { exact: true }).click()
   await page.getByRole('button', { name: 'Send feedback' }).click()
   await expect(page.getByText('Thank you!')).toBeVisible()
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)

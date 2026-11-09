@@ -701,6 +701,13 @@
     "demo": "Ini ialah demo. Maklum balas anda tidak disimpan atau dihantar ke mana-mana.",
     "send": "Hantar maklum balas",
     "sent": "Terima kasih! Maklum balas anda telah dicatat.",
-    "sentToast": "Maklum balas dihantar"
+    "sentToast": "Maklum balas dihantar",
+    "satisfaction": "Secara keseluruhan, setakat mana anda berpuas hati dengan pengalaman yang diberikan kepada orang tersayang anda di SAS?",
+    "satisfactionLow": "Sangat tidak berpuas hati",
+    "satisfactionHigh": "Sangat berpuas hati",
+    "recommend": "Sejauh mana kemungkinan anda mengesyorkan Society for the Aged Sick (SAS) kepada rakan, saudara atau rakan sekerja yang mencari rumah jagaan?",
+    "recommendLow": "Langsung tidak mungkin",
+    "recommendHigh": "Sangat mungkin",
+    "chosen": "Anda memilih {n}"
   }
 }

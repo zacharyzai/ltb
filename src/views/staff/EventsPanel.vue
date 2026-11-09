@@ -41,7 +41,7 @@ const title = (e) => localized(e, 'title', t)
     ]" :key="group.key" :aria-label="group.title">
       <SectionHeader :title="group.title" />
       <ul v-if="group.list.length" class="rows">
-        <li v-for="e in group.list" :key="e.id" class="row">
+        <li v-for="e in group.list" :key="e.id" class="event-row">
           <div class="info">
             <h3>{{ title(e) }}</h3>
             <p class="meta">
@@ -78,7 +78,7 @@ const title = (e) => localized(e, 'title', t)
   padding: 0;
   list-style: none;
 }
-.row {
+.event-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;

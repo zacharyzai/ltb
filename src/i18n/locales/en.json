@@ -701,6 +701,13 @@
     "demo": "This is a demo. Your feedback is not saved or sent anywhere.",
     "send": "Send feedback",
     "sent": "Thank you! Your feedback has been noted.",
-    "sentToast": "Feedback sent"
+    "sentToast": "Feedback sent",
+    "satisfaction": "Overall, how satisfied are you with the experience provided for your loved one at SAS?",
+    "satisfactionLow": "Very dissatisfied",
+    "satisfactionHigh": "Very satisfied",
+    "recommend": "How likely are you to recommend Society for the Aged Sick (SAS) to a friend, relative or colleague seeking nursing home care?",
+    "recommendLow": "Not at all likely",
+    "recommendHigh": "Extremely likely",
+    "chosen": "You chose {n}"
   }
 }
